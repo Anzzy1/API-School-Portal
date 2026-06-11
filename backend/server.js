@@ -31,6 +31,17 @@ console.log('DB config:', {
     database: process.env.MYSQL_DATABASE || process.env.DB_NAME || 'aguinaldo_portal',
     port: parseInt(process.env.MYSQL_PORT || process.env.DB_PORT || '3306', 10)
 });
+console.log('All DB vars:', {
+    MYSQL_HOST: process.env.MYSQL_HOST,
+    MYSQL_USER: process.env.MYSQL_USER,
+    MYSQL_PASSWORD: process.env.MYSQL_PASSWORD ? '***' : undefined,
+    MYSQL_DATABASE: process.env.MYSQL_DATABASE,
+    DB_HOST: process.env.DB_HOST,
+    DB_USER: process.env.DB_USER,
+    DB_PASSWORD: process.env.DB_PASSWORD ? '***' : undefined,
+    DB_NAME: process.env.DB_NAME,
+    DB_PORT: process.env.DB_PORT
+});
 
 db.connect(err => {
     if (err) {
