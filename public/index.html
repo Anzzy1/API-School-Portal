@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aguinaldo Polytechnic Institute</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="main-nav" class="navbar">
+    <div class="nav-container">
+        <div class="logo" onclick="showSection('home')">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Aguinaldo Polytechnic Institute</span>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#" onclick="showSection('home')" class="active">Home</a></li>
+            <li><a href="#" onclick="showSection('about')">About</a></li>
+            <li><a href="#" onclick="showSection('faq')">FAQ</a></li>
+            <li><a href="#" onclick="showSection('contact')">Contact</a></li>
+            <li><a href="#" onclick="showSection('pricing')">Programs</a></li>
+            <li><a href="#" onclick="showSection('help')">Help</a></li>
+            <li><a href="#" onclick="showSection('status')">Status</a></li>
+            <li><a href="#" onclick="showSection('login')" class="nav-login-btn">Login</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleHamburger()">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="section active">
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">Aguinaldo Polytechnic Institute</div>
+                <h1>Shape Your <span class="highlight">Future</span> Here</h1>
+                <p>Empowering students with quality education and industry-ready skills since 2025. Join us and become part of a community that values excellence, innovation, and integrity.</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                            <span class="stat-number" data-target="12">0</span>
+                            <span class="stat-label">Programs</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="500">0</span>
+                        <span class="stat-label">Students</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="50">0</span>
+                        <span class="stat-label">Faculty</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <button class="btn-primary hero-btn" onclick="showSection('enroll')">
+                        <i class="fas fa-user-plus"></i> Enroll Now
+                    </button>
+                    <button class="btn-secondary hero-btn-secondary" onclick="showSection('about')">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </button>
+                </div>
+            </div>
+            <div class="hero-login-card">
+                <div class="login-form-card">
+                    <h3><i class="fas fa-lock"></i> Student Portal Login</h3>
+                    <form id="login-form-home" onsubmit="return handleLogin(event)">
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> Email</label>
+                            <input type="email" id="login-email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-key"></i> Password</label>
+                            <input type="password" id="login-password" placeholder="Enter your password" required>
+                        </div>
+                        <div class="form-options">
+                            <label class="remember-me"><input type="checkbox" id="remember-me"> Remember me</label>
+                            <a href="#" class="forgot-link" onclick="showSection('help')">Forgot password?</a>
+                        </div>
+                        <button type="submit" class="btn-primary login-submit-btn"><i class="fas fa-sign-in-alt"></i> Login</button>
+                <p class="login-footer-text">For new student application. <a href="#" onclick="showSection('enroll')">Apply now</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+<!-- LOGIN PAGE -->
+<section id="login" class="section">
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-box-header">
+                <i class="fas fa-graduation-cap"></i>
+                <h2>Student Portal Login</h2>
+                <p>Aguinaldo Polytechnic Institute</p>
+            </div>
+            <form id="login-form-page" onsubmit="return handleLogin(event)">
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" id="login-email-page" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-key"></i> Password</label>
+                    <input type="password" id="login-password-page" placeholder="Enter your password" required>
+                </div>
+                <div class="form-options">
+                    <label class="remember-me"><input type="checkbox" id="remember-me-page"> Remember me</label>
+                    <a href="#" class="forgot-link" onclick="showSection('help')">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn-primary login-submit-btn"><i class="fas fa-sign-in-alt"></i> Login</button>
+                <p class="login-footer-text">For new student application. <a href="#" onclick="showSection('enroll')">Apply now</a></p>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT US -->
+<section id="about" class="section">
+    <div class="about-container">
+        <div class="about-header">
+            <h1>About <span class="highlight">Aguinaldo Polytechnic Institute</span></h1>
+            <p class="about-subtitle">Empowering the next generation of leaders and innovators</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-card mission">
+                <div class="about-icon"><i class="fas fa-bullseye"></i></div>
+                <h3>Our Mission</h3>
+                <p>To provide accessible, quality education that develops students into competent professionals, critical thinkers, and responsible citizens who contribute meaningfully to society.</p>
+            </div>
+            <div class="about-card vision">
+                <div class="about-icon"><i class="fas fa-eye"></i></div>
+                <h3>Our Vision</h3>
+                <p>To be a leading educational institution recognized for academic excellence, innovative teaching, and producing graduates who excel in their chosen fields globally.</p>
+            </div>
+            <div class="about-card values">
+                <div class="about-icon"><i class="fas fa-heart"></i></div>
+                <h3>Core Values</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Academic Excellence</li>
+                    <li><i class="fas fa-check-circle"></i> Integrity & Honesty</li>
+                    <li><i class="fas fa-check-circle"></i> Innovation & Creativity</li>
+                    <li><i class="fas fa-check-circle"></i> Social Responsibility</li>
+                    <li><i class="fas fa-check-circle"></i> Inclusivity & Diversity</li>
+                </ul>
+            </div>
+            <div class="about-card history">
+                <div class="about-icon"><i class="fas fa-history"></i></div>
+                <h3>Our History</h3>
+                <p>Founded in 2025, Aguinaldo Polytechnic Institute has quickly established itself as a center for academic excellence, offering programs designed to meet the demands of the modern workforce.</p>
+            </div>
+        </div>
+
+        <!-- Campus Info with Map -->
+        <div class="campus-section">
+            <h2>Our <span class="highlight">Campus</span></h2>
+            <div class="campus-grid">
+                <div class="campus-info-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h3>Address</h3>
+                        <p>ICCT Antipolo<br>Juan Sumulong St, Brgy. San Roque<br>Antipolo City, Rizal</p>
+                    </div>
+                    <div class="campus-contacts">
+                        <p><i class="fas fa-phone"></i> (02) 1234-5678</p>
+                        <p><i class="fas fa-envelope"></i> info@aguinaldo.edu.ph</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 7:00 AM - 5:00 PM</p>
+                    </div>
+                </div>
+                <div class="campus-map">
+                    <iframe src="https://maps.google.com/maps?q=ICCT%20Antipolo%20Juan%20Sumulong%20San%20Roque&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Campus Images -->
+        <div class="campus-gallery">
+            <h2>Campus <span class="highlight">Gallery</span></h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"><i class="fas fa-school"></i><span>Main Building</span></div>
+                <div class="gallery-item"><i class="fas fa-book-reader"></i><span>Library</span></div>
+                <div class="gallery-item"><i class="fas fa-flask"></i><span>Science Lab</span></div>
+                <div class="gallery-item"><i class="fas fa-laptop-code"></i><span>Computer Lab</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="section">
+    <div class="faq-container">
+        <h1>Frequently Asked <span class="highlight">Questions</span></h1>
+        <div class="faq-list" id="faq-list">
+            <div class="faq-item" data-search="programs courses offered">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>What programs does Aguinaldo Polytechnic Institute offer?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We offer 12 programs: BSA, BSBA, BSCS, BSIT, BSIS, BELEMed, BSED, BSC, BSHM, BSTM, BSCpE, and BPA, each designed to provide industry-relevant skills and knowledge.</p>
+                </div>
+            </div>
+            <div class="faq-item" data-search="enroll enrollment apply">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>How do I enroll?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Click "Enroll Now" on the homepage, fill out the multi-step enrollment form with your personal and contact information, and submit. You'll receive a confirmation with your student ID.</p>
+                </div>
+            </div>
+            <div class="faq-item" data-search="tuition fees payment">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>What are the tuition fees?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Tuition varies by program. BSA: PHP 20,000/sem, BSBA: PHP 18,500/sem, BPA: PHP 18,500/sem, BSCS: PHP 22,000/sem, BSIT: PHP 22,000/sem, BSCpE: PHP 23,000/sem, BSIS: PHP 21,000/sem, BSC: PHP 20,000/sem, BSTM: PHP 20,000/sem, BSED: PHP 18,000/sem, BELEMed: PHP 18,000/sem, BSHM: PHP 21,000/sem. See our <a href="#" onclick="showSection('pricing')">Tuition page</a> for full details.</p>
+                </div>
+            </div>
+            <div class="faq-item" data-search="login portal access">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>How do I access the student portal?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Use your registered email and the password you created during enrollment to log in. If you haven't enrolled yet, click "Enroll Now" to get started.</p>
+                </div>
+            </div>
+            <div class="faq-item" data-search="scholarship financial assistance">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Are scholarships available?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! We offer academic scholarships, merit-based grants, and financial assistance programs. Visit our <a href="#" onclick="showSection('help')">Help Center</a> for more information.</p>
+                </div>
+            </div>
+            <div class="faq-item" data-search="requirements admission documents">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>What are the admission requirements?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Requirements include: Form 138 (Report Card), PSA Birth Certificate, 2x2 ID photos, Good Moral Certificate, and a completed application form. International students may require additional documents.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT US -->
+<section id="contact" class="section">
+    <div class="contact-container">
+        <h1>Get In <span class="highlight">Touch</span></h1>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h3>Address</h3>
+                        <p>ICCT Antipolo, Juan Sumulong St,<br>Brgy. San Roque, Antipolo City, Rizal</p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h3>Phone</h3>
+                        <p>(02) 1234-5678</p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h3>Email</h3>
+                        <p>info@aguinaldo.edu.ph</p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h3>Office Hours</h3>
+                        <p>Mon - Fri: 7:00 AM - 5:00 PM<br>Sat: 8:00 AM - 12:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>Send us a message</h3>
+                <form id="contact-form" onsubmit="return handleContact(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="contact-name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="contact-email" placeholder="Your Email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="contact-subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="contact-message" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary"><i class="fas fa-paper-plane"></i> Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TUITION / PRICING -->
+<section id="pricing" class="section">
+    <div class="pricing-container">
+        <h1>Programs <span class="highlight">Offered</span></h1>
+        <p class="pricing-subtitle">Affordable quality education with flexible payment options</p>
+
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>BSA</h3>
+                    <p>BS in Accountancy</p>
+                </div>
+                <div class="pricing-amount">
+                    <span class="price">PHP 20,000</span>
+                    <span class="period">per semester</span>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> 21 units per sem</li>
+                    <li><i class="fas fa-check"></i> Board program</li>
+                    <li><i class="fas fa-check"></i> CPA review included</li>
+                </ul>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>BSBA</h3>
+                    <p>BS in Business Administration</p>
+                </div>
+                <div class="pricing-amount">
+                    <span class="price">PHP 18,500</span>
+                    <span class="period">per semester</span>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> 18-21 units per sem</li>
+                    <li><i class="fas fa-check"></i> Business lab access</li>
+                    <li><i class="fas fa-check"></i> Industry partnerships</li>
+                </ul>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>BSCS</h3>
+                    <p>BS in Computer Science</p>
+                </div>
+                <div class="pricing-amount">
+                    <span class="price">PHP 22,000</span>
+                    <span class="period">per semester</span>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> 18-21 units per sem</li>
+                    <li><i class="fas fa-check"></i> Lab fees included</li>
+                    <li><i class="fas fa-check"></i> Free internet access</li>
+                </ul>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>BSIT</h3>
+                    <p>BS in Information Technology</p>
+                </div>
+                <div class="pricing-amount">
+                    <span class="price">PHP 22,000</span>
+                    <span class="period">per semester</span>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> 18-21 units per sem</li>
+                    <li><i class="fas fa-check"></i> Lab fees included</li>
+                    <li><i class="fas fa-check"></i> Free internet access</li>
+                </ul>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>BSIS</h3>
+                    <p>BS in Information Systems</p>
+                </div>
+                <div class="pricing-amount">
+                    <span class="price">PHP 21,000</span>
+                    <span class="period">per semester</span>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> 18-21 units per sem</li>
+                    <li><i class="fas fa-check"></i> Business analysis focus</li>
+                    <li><i class="fas fa-check"></i> Lab fees included</li>
+                </ul>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>BELEMed</h3>
+                    <p>Bachelor of Elementary Education</p>
+                </div>
+                <div class="pricing-amount">
+                    <span class="price">PHP 18,000</span>
+                    <span class="period">per semester</span>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> 18-21 units per sem</li>
+                    <li><i class="fas fa-check"></i> Practice teaching</li>
+                    <li><i class="fas fa-check"></i> LET review included</li>
+                </ul>
+            </div>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>BSED</h3>
+                    <p>BS in Secondary Education</p>
+                </div>
+                <div class="pricing-amount">
+                    <span class="price">PHP 18,000</span>
+                    <span class="period">per semester</span>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> 18-21 units per sem</li>
+                    <li><i class="fas fa-check"></i> Teaching demos</li>
+                    <li><i class="fas fa-check"></i> LET review included</li>
+                </ul>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>BSC</h3>
+                    <p>BS in Criminology</p>
+                </div>
+                <div class="pricing-amount">
+                    <span class="price">PHP 20,000</span>
+                    <span class="period">per semester</span>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> 18-21 units per sem</li>
+                    <li><i class="fas fa-check"></i> Lab fees included</li>
+                    <li><i class="fas fa-check"></i> Uniform included</li>
+                </ul>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>BSHM</h3>
+                    <p>BS in Hospitality Management</p>
+                </div>
+                <div class="pricing-amount">
+                    <span class="price">PHP 21,000</span>
+                    <span class="period">per semester</span>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> 18-21 units per sem</li>
+                    <li><i class="fas fa-check"></i> Lab fees included</li>
+                    <li><i class="fas fa-check"></i> Industry immersion</li>
+                </ul>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>BSTM</h3>
+                    <p>BS in Tourism Management</p>
+                </div>
+                <div class="pricing-amount">
+                    <span class="price">PHP 20,000</span>
+                    <span class="period">per semester</span>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> 18-21 units per sem</li>
+                    <li><i class="fas fa-check"></i> Travel tours</li>
+                    <li><i class="fas fa-check"></i> Industry immersion</li>
+                </ul>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>BSCpE</h3>
+                    <p>BS in Computer Engineering</p>
+                </div>
+                <div class="pricing-amount">
+                    <span class="price">PHP 23,000</span>
+                    <span class="period">per semester</span>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> 18-21 units per sem</li>
+                    <li><i class="fas fa-check"></i> Engineering lab</li>
+                    <li><i class="fas fa-check"></i> 5-year program</li>
+                </ul>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>BPA</h3>
+                    <p>Bachelor in Public Administration</p>
+                </div>
+                <div class="pricing-amount">
+                    <span class="price">PHP 18,500</span>
+                    <span class="period">per semester</span>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> 18-21 units per sem</li>
+                    <li><i class="fas fa-check"></i> Government internship</li>
+                    <li><i class="fas fa-check"></i> Policy research</li>
+                </ul>
+            </div>
+        </div>
+        <div class="pricing-note">
+            <i class="fas fa-info-circle"></i>
+            <p>Miscellaneous fees apply. Payment plans available. Contact our admissions office for more details.</p>
+        </div>
+    </div>
+</section>
+
+<!-- KNOWLEDGE BASE / HELP CENTER -->
+<section id="help" class="section">
+    <div class="help-container">
+        <h1>Help <span class="highlight">Center</span></h1>
+        <p class="help-subtitle">Find answers and get support</p>
+
+        <div class="help-grid">
+            <div class="help-card" onclick="showSection('faq')">
+                <i class="fas fa-question-circle"></i>
+                <h3>FAQ</h3>
+                <p>Frequently asked questions</p>
+            </div>
+            <div class="help-card" onclick="showSection('contact')">
+                <i class="fas fa-headset"></i>
+                <h3>Contact Support</h3>
+                <p>Reach out to our team</p>
+            </div>
+            <div class="help-card" onclick="showSection('pricing')">
+                <i class="fas fa-money-bill-wave"></i>
+                <h3>Programs Guide</h3>
+                <p>Fees and payment options</p>
+            </div>
+            <div class="help-card" onclick="showSection('status')">
+                <i class="fas fa-server"></i>
+                <h3>System Status</h3>
+                <p>Check service availability</p>
+            </div>
+        </div>
+
+        <div class="help-search-section">
+            <h3>Search Knowledge Base</h3>
+            <div class="help-search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="help-search-input" placeholder="Search for articles..." onkeyup="searchHelp()">
+            </div>
+            <div id="help-results"></div>
+        </div>
+
+        <div class="help-articles">
+            <h3>Popular Articles</h3>
+            <div class="help-article" onclick="showSection('faq')">
+                <i class="fas fa-file-alt"></i>
+                <div>
+                    <h4>How to Enroll</h4>
+                    <p>Step-by-step guide to the enrollment process</p>
+                </div>
+            </div>
+            <div class="help-article" onclick="showSection('faq')">
+                <i class="fas fa-file-alt"></i>
+                <div>
+                    <h4>Understanding Your Grades</h4>
+                    <p>How the grading system works at API</p>
+                </div>
+            </div>
+            <div class="help-article" onclick="showSection('pricing')">
+                <i class="fas fa-file-alt"></i>
+                <div>
+                    <h4>Payment Methods</h4>
+                    <p>All accepted payment options and procedures</p>
+                </div>
+            </div>
+            <div class="help-article" onclick="showSection('faq')">
+                <i class="fas fa-file-alt"></i>
+                <div>
+                    <h4>Scholarship Programs</h4>
+                    <p>Available scholarships and how to apply</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SYSTEM STATUS -->
+<section id="status" class="section">
+    <div class="status-container">
+        <h1>System <span class="highlight">Status</span></h1>
+        <p class="status-subtitle">Real-time service availability</p>
+
+        <div class="status-overview">
+            <div class="status-indicator all-good">
+                <i class="fas fa-check-circle"></i>
+                <span>All Systems Operational</span>
+            </div>
+            <div class="status-timestamp">Last checked: <span id="status-time">Just now</span></div>
+        </div>
+
+        <div class="status-grid">
+            <div class="status-card operational">
+                <div class="status-card-left">
+                    <i class="fas fa-globe"></i>
+                    <div>
+                        <h4>Website</h4>
+                        <p>Operational</p>
+                    </div>
+                </div>
+                <span class="status-dot"></span>
+            </div>
+            <div class="status-card operational">
+                <div class="status-card-left">
+                    <i class="fas fa-user-lock"></i>
+                    <div>
+                        <h4>Student Portal</h4>
+                        <p>Operational</p>
+                    </div>
+                </div>
+                <span class="status-dot"></span>
+            </div>
+            <div class="status-card operational">
+                <div class="status-card-left">
+                    <i class="fas fa-database"></i>
+                    <div>
+                        <h4>Database</h4>
+                        <p>Operational</p>
+                    </div>
+                </div>
+                <span class="status-dot"></span>
+            </div>
+            <div class="status-card operational">
+                <div class="status-card-left">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email System</h4>
+                        <p>Operational</p>
+                    </div>
+                </div>
+                <span class="status-dot"></span>
+            </div>
+            <div class="status-card operational">
+                <div class="status-card-left">
+                    <i class="fas fa-file-pdf"></i>
+                    <div>
+                        <h4>Report Generator</h4>
+                        <p>Operational</p>
+                    </div>
+                </div>
+                <span class="status-dot"></span>
+            </div>
+            <div class="status-card operational">
+                <div class="status-card-left">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4>Scheduling System</h4>
+                        <p>Operational</p>
+                    </div>
+                </div>
+                <span class="status-dot"></span>
+            </div>
+        </div>
+
+        <div class="status-history">
+            <h3>Recent Uptime</h3>
+            <div class="uptime-bars">
+                <div class="uptime-bar"><span>Mon</span><div class="bar-fill" style="width:100%"></div></div>
+                <div class="uptime-bar"><span>Tue</span><div class="bar-fill" style="width:100%"></div></div>
+                <div class="uptime-bar"><span>Wed</span><div class="bar-fill" style="width:100%"></div></div>
+                <div class="uptime-bar"><span>Thu</span><div class="bar-fill" style="width:100%"></div></div>
+                <div class="uptime-bar"><span>Fri</span><div class="bar-fill" style="width:100%"></div></div>
+                <div class="uptime-bar"><span>Sat</span><div class="bar-fill" style="width:100%"></div></div>
+                <div class="uptime-bar"><span>Sun</span><div class="bar-fill" style="width:100%"></div></div>
+            </div>
+            <p class="uptime-percent">99.9% uptime over the past 30 days</p>
+        </div>
+    </div>
+</section>
+
+<!-- PRIVACY POLICY -->
+<section id="privacy" class="section">
+    <div class="legal-container">
+        <h1>Privacy <span class="highlight">Policy</span></h1>
+        <div class="legal-content">
+            <h2>Information We Collect</h2>
+            <p>We collect personal information that you provide to us when you enroll, including your name, email address, contact details, academic records, and other information necessary for your education.</p>
+
+            <h2>How We Use Your Information</h2>
+            <p>Your information is used for enrollment processing, academic record keeping, communication regarding school matters, and improving our educational services.</p>
+
+            <h2>Data Protection</h2>
+            <p>We implement appropriate security measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction.</p>
+
+            <h2>Third-Party Sharing</h2>
+            <p>We do not sell or share your personal information with third parties except as required by law or with your explicit consent.</p>
+
+            <h2>Your Rights</h2>
+            <p>You have the right to access, update, or request deletion of your personal information. Contact our data protection officer at dpo@aguinaldo.edu.ph.</p>
+
+            <p class="legal-update">Last updated: June 2026</p>
+        </div>
+    </div>
+</section>
+
+<!-- TERMS OF SERVICE -->
+<section id="terms" class="section">
+    <div class="legal-container">
+        <h1>Terms of <span class="highlight">Service</span></h1>
+        <div class="legal-content">
+            <h2>Acceptance of Terms</h2>
+            <p>By accessing or using the Aguinaldo Polytechnic Institute portal, you agree to be bound by these terms of service.</p>
+
+            <h2>User Responsibilities</h2>
+            <p>You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.</p>
+
+            <h2>Acceptable Use</h2>
+            <p>You agree to use the portal only for lawful purposes and in accordance with school policies. Prohibited activities include unauthorized access, data tampering, and disruptive behavior.</p>
+
+            <h2>Intellectual Property</h2>
+            <p>All content and materials available on the portal are protected by intellectual property laws and are the property of Aguinaldo Polytechnic Institute.</p>
+
+            <h2>Limitation of Liability</h2>
+            <p>Aguinaldo Polytechnic Institute shall not be liable for any damages arising from the use or inability to use the portal.</p>
+
+            <p class="legal-update">Last updated: June 2026</p>
+        </div>
+    </div>
+</section>
+
+<!-- NOTIFICATION CENTER -->
+<section id="notifications" class="section">
+    <div class="notif-container">
+        <h1>Notification <span class="highlight">Center</span></h1>
+        <p class="notif-subtitle">Important updates and announcements</p>
+
+        <div class="notif-filters">
+            <button class="notif-filter active" onclick="filterNotifications('all', this)">All</button>
+            <button class="notif-filter" onclick="filterNotifications('academic', this)">Academic</button>
+            <button class="notif-filter" onclick="filterNotifications('events', this)">Events</button>
+            <button class="notif-filter" onclick="filterNotifications('announcement', this)">Announcements</button>
+        </div>
+
+        <div class="notif-list" id="notif-list">
+            <div class="notif-item" data-category="announcement">
+                <div class="notif-icon announcement"><i class="fas fa-bullhorn"></i></div>
+                <div class="notif-body">
+                    <h4>Enrollment for AY 2026-2027 is Now Open</h4>
+                    <p>Enrollment for the upcoming academic year is now accepting applicants. Early bird discounts available until July 15.</p>
+                    <span class="notif-time">2 days ago</span>
+                </div>
+            </div>
+            <div class="notif-item" data-category="academic">
+                <div class="notif-icon academic"><i class="fas fa-book"></i></div>
+                <div class="notif-body">
+                    <h4>Midterm Examination Schedule Released</h4>
+                    <p>Midterm exams will be held from August 10-15. Please check your schedules and prepare accordingly.</p>
+                    <span class="notif-time">1 week ago</span>
+                </div>
+            </div>
+            <div class="notif-item" data-category="events">
+                <div class="notif-icon events"><i class="fas fa-calendar"></i></div>
+                <div class="notif-body">
+                    <h4>Foundation Day Celebration</h4>
+                    <p>Join us for our annual Foundation Day on June 20. Activities include games, performances, and more.</p>
+                    <span class="notif-time">2 weeks ago</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ENROLLMENT -->
+<section id="enroll" class="section">
+    <div class="enroll-container">
+        <div class="enroll-header">
+            <i class="fas fa-user-graduate enroll-icon"></i>
+            <h1>Student Enrollment</h1>
+            <p>Fill out the form below to apply for admission</p>
+        </div>
+        <div class="enroll-form-wrapper">
+            <form id="enroll-form" onsubmit="return false;">
+                <div class="enroll-steps">
+                    <span class="step active" data-step="1">1. Personal Info</span>
+                    <span class="step" data-step="2">2. Contact Info</span>
+                    <span class="step" data-step="3">3. Address Info</span>
+                    <span class="step" data-step="4">4. Choose Program</span>
+                </div>
+
+                <div class="enroll-step-content active" data-step="1">
+                    <h3>Personal Information</h3>
+                    <div class="enroll-grid">
+                        <div class="enroll-field">
+                            <label>First Name <span class="required">*</span></label>
+                            <input type="text" id="first_name" placeholder="Enter first name">
+                        </div>
+                        <div class="enroll-field">
+                            <label>Middle Name</label>
+                            <input type="text" id="middle_name" placeholder="Enter middle name">
+                        </div>
+                        <div class="enroll-field">
+                            <label>Last Name <span class="required">*</span></label>
+                            <input type="text" id="last_name" placeholder="Enter last name">
+                        </div>
+                        <div class="enroll-field">
+                            <label>Suffix</label>
+                            <select id="suffix">
+                                <option value="">None</option>
+                                <option value="Jr.">Jr.</option>
+                                <option value="Sr.">Sr.</option>
+                                <option value="II">II</option>
+                                <option value="III">III</option>
+                                <option value="IV">IV</option>
+                            </select>
+                        </div>
+                        <div class="enroll-field">
+                            <label>Date of Birth *</label>
+                            <input type="date" id="date_of_birth">
+                        </div>
+                        <div class="enroll-field">
+                            <label>Gender *</label>
+                            <select id="gender">
+                                <option value="">Select gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                        <div class="enroll-field">
+                            <label>Nationality</label>
+                            <select id="nationality" onchange="toggleOtherInput(this, 'nationality-other')">
+                                <option value="">Select nationality</option>
+                                <option value="Filipino">Filipino</option>
+                                <option value="American">American</option>
+                                <option value="British">British</option>
+                                <option value="Canadian">Canadian</option>
+                                <option value="Chinese">Chinese</option>
+                                <option value="Indian">Indian</option>
+                                <option value="Indonesian">Indonesian</option>
+                                <option value="Japanese">Japanese</option>
+                                <option value="Korean">Korean</option>
+                                <option value="Malaysian">Malaysian</option>
+                                <option value="Singaporean">Singaporean</option>
+                                <option value="Thai">Thai</option>
+                                <option value="Vietnamese">Vietnamese</option>
+                                <option value="Australian">Australian</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <input type="text" id="nationality-other" class="other-input" placeholder="Please specify" style="display:none;margin-top:8px;">
+                        </div>
+                        <div class="enroll-field">
+                            <label>Religion</label>
+                            <select id="religion" onchange="toggleOtherInput(this, 'religion-other')">
+                                <option value="">Select religion</option>
+                                <option value="Roman Catholic">Roman Catholic</option>
+                                <option value="Islam">Islam</option>
+                                <option value="Iglesia ni Cristo">Iglesia ni Cristo</option>
+                                <option value="Born Again">Born Again</option>
+                                <option value="Evangelical">Evangelical</option>
+                                <option value="Seventh-day Adventist">Seventh-day Adventist</option>
+                                <option value="Baptist">Baptist</option>
+                                <option value="Jehovah's Witnesses">Jehovah's Witnesses</option>
+                                <option value="Mormon (LDS)">Mormon (LDS)</option>
+                                <option value="Buddhism">Buddhism</option>
+                                <option value="Hinduism">Hinduism</option>
+                                <option value="Aglipayan">Aglipayan</option>
+                                <option value="Other Christian">Other Christian</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <input type="text" id="religion-other" class="other-input" placeholder="Please specify" style="display:none;margin-top:8px;">
+                        </div>
+                    </div>
+                    <div class="enroll-nav">
+                        <button type="button" class="btn-primary" onclick="goToStep(2)">Next <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="enroll-step-content" data-step="2">
+                    <h3>Contact Information</h3>
+                    <div class="enroll-grid">
+                        <div class="enroll-field">
+                            <label>Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" placeholder="Enter email address">
+                        </div>
+                        <div class="enroll-field">
+                            <label>Phone Number</label>
+                            <input type="tel" id="phone" placeholder="Enter phone number">
+                        </div>
+                        <div class="enroll-field">
+                            <label>Mother's Name</label>
+                            <input type="text" id="mother_name" placeholder="Enter mother's full name">
+                        </div>
+                        <div class="enroll-field">
+                            <label>Mother's Phone Number</label>
+                            <input type="tel" id="mother_phone" placeholder="Enter mother's phone number">
+                        </div>
+                        <div class="enroll-field">
+                            <label>Father's Name</label>
+                            <input type="text" id="father_name" placeholder="Enter father's full name">
+                        </div>
+                        <div class="enroll-field">
+                            <label>Father's Phone Number</label>
+                            <input type="tel" id="father_phone" placeholder="Enter father's phone number">
+                        </div>
+                        <div class="enroll-field">
+                            <label>Guardian's Name</label>
+                            <input type="text" id="guardian_name" placeholder="Enter guardian's full name">
+                        </div>
+                        <div class="enroll-field">
+                            <label>Guardian's Phone Number</label>
+                            <input type="tel" id="guardian_phone" placeholder="Enter guardian's phone number">
+                        </div>
+                    </div>
+                    <div class="enroll-nav">
+                        <button type="button" class="btn-secondary" onclick="goToStep(1)"><i class="fas fa-arrow-left"></i> Back</button>
+                        <button type="button" class="btn-primary" onclick="goToStep(3)">Next <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="enroll-step-content" data-step="3">
+                    <h3>Address Information</h3>
+                    <div class="enroll-grid">
+                        <div class="enroll-field">
+                            <label>Country</label>
+                            <select id="country" onchange="onCountryChange(); toggleOtherInput(this, 'country-other')">
+                                <option value="">Select country</option>
+                            </select>
+                            <input type="text" id="country-other" class="other-input" placeholder="Please specify" style="display:none;margin-top:8px;">
+                        </div>
+                        <div class="enroll-field">
+                            <label>Region / Province / State</label>
+                            <select id="region" onchange="onRegionChange(); toggleOtherInput(this, 'region-other')" disabled>
+                                <option value="">Select region</option>
+                            </select>
+                            <input type="text" id="region-other" class="other-input" placeholder="Please specify" style="display:none;margin-top:8px;">
+                        </div>
+                        <div class="enroll-field">
+                            <label>City / Municipality</label>
+                            <select id="city" onchange="onCityChange(); toggleOtherInput(this, 'city-other')" disabled>
+                                <option value="">Select city / municipality</option>
+                            </select>
+                            <input type="text" id="city-other" class="other-input" placeholder="Please specify" style="display:none;margin-top:8px;">
+                        </div>
+                        <div class="enroll-field">
+                            <label>Barangay</label>
+                            <select id="barangay" onchange="toggleOtherInput(this, 'barangay-other')" disabled>
+                                <option value="">Select barangay</option>
+                            </select>
+                            <input type="text" id="barangay-other" class="other-input" placeholder="Please specify" style="display:none;margin-top:8px;">
+                        </div>
+                        <div class="enroll-field">
+                            <label>Address Line (House No./Street)</label>
+                            <input type="text" id="address_line" placeholder="Enter your specific house number and street">
+                        </div>
+                    </div>
+                    <div class="enroll-nav">
+                        <button type="button" class="btn-secondary" onclick="goToStep(2)"><i class="fas fa-arrow-left"></i> Back</button>
+                        <button type="button" class="btn-primary" onclick="goToStep(4)">Next <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="enroll-step-content" data-step="4">
+                    <h3>Choose Program</h3>
+                    <div class="enroll-grid">
+                        <div class="enroll-field">
+                            <label>Choose Program <span class="required">*</span></label>
+                            <select id="course_code">
+                                <option value="">Select program</option>
+                            </select>
+                        </div>
+                        <div class="enroll-field">
+                            <label>Year Level <span class="required">*</span></label>
+                            <select id="year_level">
+                                <option value="">Select year</option>
+                                <option value="1st Year">1st Year</option>
+                                <option value="2nd Year">2nd Year</option>
+                                <option value="3rd Year">3rd Year</option>
+                                <option value="4th Year">4th Year</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="enroll-nav">
+                        <button type="button" class="btn-secondary" onclick="goToStep(3)"><i class="fas fa-arrow-left"></i> Back</button>
+                        <button type="button" class="btn-primary" onclick="submitEnrollment()"><i class="fas fa-check"></i> Submit Enrollment</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- GRADE MANAGEMENT MODAL -->
+<div id="grade-modal" class="modal-overlay" style="display:none;">
+    <div class="modal-box" style="max-width:750px;max-height:90vh;display:flex;flex-direction:column;">
+        <div class="modal-header" style="display:flex;justify-content:space-between;align-items:center;">
+            <span><i class="fas fa-star"></i> Manage Grades</span>
+            <button onclick="closeGradeModal()" style="background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-muted);padding:0;line-height:1;"><i class="fas fa-times"></i></button>
+        </div>
+        <p style="margin-bottom:15px;font-size:13px;color:var(--text-primary);font-weight:500;">Student: <span id="grade-modal-student"></span></p>
+        <div id="grade-modal-body" style="overflow-y:auto;max-height:55vh;">
+            <p class="no-data">Loading...</p>
+        </div>
+        <div class="enroll-nav" style="margin-top:15px;">
+            <button class="btn-secondary" onclick="closeGradeModal()"><i class="fas fa-times"></i> Close</button>
+        </div>
+    </div>
+</div>
+
+<!-- DROP CONFIRMATION MODAL -->
+<div id="drop-modal" class="modal-overlay" style="display:none;">
+    <div class="modal-box" style="max-width:450px;">
+        <div class="modal-header" style="color:var(--danger);"><i class="fas fa-exclamation-triangle"></i> Drop Student</div>
+        <p style="margin-bottom:10px;font-size:14px;color:var(--text-primary);">Are you sure you want to drop <strong id="drop-student-name"></strong>?</p>
+        <p style="margin-bottom:20px;font-size:13px;color:var(--text-secondary);">Student ID: <span id="drop-student-id-display"></span></p>
+        <p style="margin-bottom:20px;font-size:13px;color:var(--danger);">This action will remove the student from their program and mark them as dropped.</p>
+        <div class="enroll-nav" style="margin-top:15px;">
+            <button class="btn-secondary" onclick="closeDropModal()"><i class="fas fa-times"></i> Cancel</button>
+            <button class="btn-danger" onclick="confirmDrop()"><i class="fas fa-user-slash"></i> Confirm Drop</button>
+        </div>
+    </div>
+</div>
+
+<!-- EDIT INFO MODAL -->
+<div id="edit-info-modal" class="modal-overlay" style="display:none;">
+    <div class="modal-box" style="max-width:600px;">
+        <div class="modal-header"><i class="fas fa-edit"></i> Edit Student Info</div>
+        <p style="margin-bottom:15px;font-size:13px;color:var(--text-primary);font-weight:500;">Student: <span id="edit-info-student-label"></span></p>
+        <div class="enroll-form-fields" id="edit-info-fields" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div class="enroll-field"><label>First Name <span class="required">*</span></label><input type="text" id="edit-first-name"></div>
+            <div class="enroll-field"><label>Middle Name</label><input type="text" id="edit-middle-name"></div>
+            <div class="enroll-field"><label>Last Name <span class="required">*</span></label><input type="text" id="edit-last-name"></div>
+            <div class="enroll-field"><label>Suffix</label><input type="text" id="edit-suffix"></div>
+            <div class="enroll-field"><label>Email <span class="required">*</span></label><input type="email" id="edit-email"></div>
+            <div class="enroll-field"><label>Phone</label><input type="text" id="edit-phone"></div>
+            <div class="enroll-field"><label>Year Level</label><select id="edit-year-level"><option value="1st Year">1st Year</option><option value="2nd Year">2nd Year</option><option value="3rd Year">3rd Year</option><option value="4th Year">4th Year</option></select></div>
+            <div class="enroll-field"><label>Status</label><select id="edit-status"><option value="enrolled">Enrolled</option><option value="dropped">Dropped</option><option value="graduated">Graduated</option></select></div>
+        </div>
+        <div class="enroll-nav" style="margin-top:15px;">
+            <button class="btn-secondary" onclick="closeEditInfoModal()"><i class="fas fa-times"></i> Cancel</button>
+            <button class="btn-primary" onclick="saveEditInfo()"><i class="fas fa-save"></i> Save</button>
+        </div>
+    </div>
+</div>
+
+<!-- PASSWORD SETUP MODAL -->
+<div id="password-modal" class="modal-overlay" style="display:none;">
+    <div class="modal-box">
+        <div class="modal-header"><i class="fas fa-lock"></i> Set Your Password</div>
+        <p style="margin-bottom:15px;font-size:14px;color:var(--text-secondary);">Your account has been created! Please set your password to activate it.</p>
+        <p style="margin-bottom:15px;font-size:13px;color:var(--text-primary);font-weight:500;">Student ID: <span id="modal-student-id"></span></p>
+        <div class="enroll-field">
+            <label>Create Password <span class="required">*</span></label>
+            <input type="password" id="modal-password" placeholder="Create a password (min 6 characters)">
+        </div>
+        <div class="enroll-field">
+            <label>Confirm Password <span class="required">*</span></label>
+            <input type="password" id="modal-confirm" placeholder="Confirm password">
+        </div>
+        <div class="enroll-nav" style="margin-top:15px;">
+            <button class="btn-primary" onclick="setPassword()"><i class="fas fa-check"></i> Activate Account</button>
+        </div>
+    </div>
+</div>
+
+<!-- STUDENT DASHBOARD -->
+<section id="student-dashboard" class="section">
+    <div class="dash-layout">
+        <div class="dash-main">
+            <div class="dashboard-header">
+                <div class="dashboard-header-left">
+                    <i class="fas fa-user-graduate"></i>
+                    <div>
+                        <h2 id="dashboard-header-title">Student Dashboard</h2>
+                        <p id="dashboard-student-info">Welcome!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-content">
+                <div class="dashboard-tab-content active" id="tab-dashboard">
+                    <h3 id="dashboard-greeting">Dashboard</h3>
+                    <div id="dashboard-overview"><p class="no-data">Loading dashboard...</p></div>
+                </div>
+                <div class="dashboard-tab-content" id="tab-profile">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:10px;">
+                        <h3 style="margin:0;">Student Profile</h3>
+                        <button id="profile-edit-btn" onclick="editProfile()" class="btn-primary" style="font-size:13px;padding:8px 16px;"><i class="fas fa-pen"></i> Edit</button>
+                    </div>
+                    <div id="profile-display"><p class="no-data">Loading profile...</p></div>
+                </div>
+                <div class="dashboard-tab-content" id="tab-schedule">
+                    <h3>Weekly Schedule</h3>
+                    <div id="schedule-display"><p class="no-data">Loading schedule...</p></div>
+                </div>
+                <div class="dashboard-tab-content" id="tab-curriculum">
+                    <h3>Curriculum Prospectus</h3>
+                    <div id="curriculum-display"><p class="no-data">Loading curriculum...</p></div>
+                </div>
+                <div class="dashboard-tab-content" id="tab-report">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:10px;">
+                        <div>
+                            <h3 style="margin:0;">Academic Registration</h3>
+                            <p style="margin:4px 0 0;font-size:13px;color:#666;">Your official registration form for this school year.</p>
+                        </div>
+                        <button onclick="downloadPDF()" class="action-btn" style="background:#C0392B;color:white;border:none;padding:10px 18px;border-radius:6px;cursor:pointer;font-size:14px;font-weight:600;"><i class="fas fa-file-pdf"></i> Print PDF</button>
+                    </div>
+                    <div id="report-result"><p class="no-data">Loading registration form...</p></div>
+                </div>
+                <div class="dashboard-tab-content" id="tab-notifications">
+                    <h3>Notifications</h3>
+                    <div id="notifications-display"><p class="no-data">Loading notifications...</p></div>
+                </div>
+            </div>
+        </div>
+        <div class="dash-sidebar">
+            <div class="dash-sidebar-header">
+                <i class="fas fa-user-circle"></i>
+                <span id="sidebar-user-name">Student</span>
+                <span class="dashboard-badge" id="sidebar-role-badge">Student</span>
+            </div>
+            <div class="dash-sidebar-tabs">
+                <button class="side-tab active" onclick="switchDashboardTab('dashboard', this)"><i class="fas fa-th-large"></i> Dashboard</button>
+                <button class="side-tab" onclick="switchDashboardTab('profile', this)"><i class="fas fa-id-card"></i> Profile</button>
+                <button class="side-tab" onclick="switchDashboardTab('schedule', this)"><i class="fas fa-calendar-alt"></i> Schedule</button>
+                <button class="side-tab" onclick="switchDashboardTab('curriculum', this)"><i class="fas fa-book-open"></i> Curriculum</button>
+                <button class="side-tab" onclick="switchDashboardTab('report', this)"><i class="fas fa-file-alt"></i> Registration</button>
+                <button class="side-tab" onclick="switchDashboardTab('notifications', this)"><i class="fas fa-bell"></i> Notifications</button>
+            </div>
+            <div class="dash-sidebar-footer">
+                <button class="btn-danger side-logout" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- OPERATOR DASHBOARD -->
+<section id="operator-dashboard" class="section">
+    <div class="dash-layout">
+        <div class="dash-main">
+            <div class="dashboard-header">
+                <div class="dashboard-header-left">
+                    <i class="fas fa-user-shield"></i>
+                    <div>
+                        <h2>Operator Dashboard</h2>
+                        <p id="operator-dashboard-info">Manage Students & Grades</p>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-content">
+                <div class="dashboard-tab-content active" id="op-search">
+                    <h3>Search Students</h3>
+                    <div class="op-search-bar">
+                        <select id="op-search-type">
+                            <option value="all">All Fields</option>
+                            <option value="id">Student ID</option>
+                            <option value="name">Name</option>
+                        </select>
+                        <input type="text" id="op-search-input" placeholder="Search by ID, name, or course..." onkeyup="debouncedSearch()">
+                        <button class="btn-primary" onclick="operatorSearch()"><i class="fas fa-search"></i></button>
+                        <div class="search-suggestions" id="search-suggestions"></div>
+                    </div>
+                    <div id="op-search-results"></div>
+                </div>
+                <div class="dashboard-tab-content" id="op-students">
+                    <div id="op-sections-view">
+                        <h3>All Sections</h3>
+                        <div class="op-year-filter">
+                            <label>Year Level:</label>
+                            <select id="op-year-filter" onchange="loadAllSections()">
+                                <option value="1st Year">1st Year</option>
+                                <option value="2nd Year">2nd Year</option>
+                                <option value="3rd Year">3rd Year</option>
+                                <option value="4th Year">4th Year</option>
+                            </select>
+                        </div>
+                        <div id="op-all-sections-list"></div>
+                    </div>
+                    <div id="op-section-students-view" style="display:none;">
+                        <button class="btn-secondary" onclick="backToSections()" style="margin-bottom:15px;"><i class="fas fa-arrow-left"></i> Back to Sections</button>
+                        <h3 id="op-section-title">Section Students</h3>
+                        <div id="op-section-students-list"></div>
+                    </div>
+                </div>
+                <div class="dashboard-tab-content" id="op-grades">
+                    <h3>Manage Grades</h3>
+                    <div class="op-grades-grid">
+                        <div class="op-grade-form">
+                            <h4>Add Grade</h4>
+                            <form id="op-add-grade-form" onsubmit="return opAddGrade(event)">
+                                <div class="form-group">
+                                    <label>Student ID</label>
+                                    <input type="text" id="op-grade-student-id" placeholder="Enter Student ID" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Subject</label>
+                                    <input type="text" id="op-grade-subject" placeholder="Subject code (e.g. IT101)" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Grade</label>
+                                    <input type="number" id="op-grade-value" placeholder="1.00 - 5.00" step="0.25" min="1.00" max="5.00" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Semester</label>
+                                    <select id="op-grade-semester" required>
+                                        <option value="1st Semester">1st Semester</option>
+                                        <option value="2nd Semester">2nd Semester</option>
+                                        <option value="3rd Semester">3rd Semester</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>School Year</label>
+                                    <input type="text" id="op-grade-school-year" placeholder="e.g. 2025-2026" required>
+                                </div>
+                                <button type="submit" class="btn-primary"><i class="fas fa-plus"></i> Add Grade</button>
+                            </form>
+                        </div>
+                        <div class="op-grade-view">
+                            <h4>View Grades</h4>
+                            <div class="op-grade-search">
+                                <input type="text" id="op-view-grade-id" placeholder="Enter Student ID">
+                                <button class="btn-primary" onclick="opViewGrades()"><i class="fas fa-eye"></i> View</button>
+                            </div>
+                            <div id="op-grade-results"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dash-sidebar">
+            <div class="dash-sidebar-header">
+                <i class="fas fa-user-shield"></i>
+                <span id="sidebar-op-name">Operator</span>
+                <span class="dashboard-badge operator-badge">Operator</span>
+            </div>
+            <div class="dash-sidebar-tabs">
+                <button class="side-tab active" onclick="switchOperatorTab('search', this)"><i class="fas fa-search"></i> Search</button>
+                <button class="side-tab" onclick="switchOperatorTab('students', this)"><i class="fas fa-layer-group"></i> All Sections</button>
+                <button class="side-tab" onclick="switchOperatorTab('grades', this)"><i class="fas fa-star"></i> Manage Grades</button>
+            </div>
+            <div class="dash-sidebar-footer">
+                <button class="btn-danger side-logout" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 404 -->
+<section id="not-found" class="section">
+    <div class="not-found-container">
+        <i class="fas fa-map-signs"></i>
+        <h1>404</h1>
+        <p>Oops! The page you're looking for doesn't exist.</p>
+        <div class="not-found-links">
+            <button class="btn-primary" onclick="showSection('home')"><i class="fas fa-home"></i> Back to Home</button>
+            <button class="btn-secondary" onclick="showSection('help')"><i class="fas fa-question-circle"></i> Help Center</button>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4><i class="fas fa-graduation-cap"></i> Aguinaldo Polytechnic Institute</h4>
+                <p>Empowering students with quality education and industry-ready skills.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <a href="#" onclick="showSection('about')">About Us</a>
+                <a href="#" onclick="showSection('faq')">FAQ</a>
+                <a href="#" onclick="showSection('contact')">Contact Us</a>
+                <a href="#" onclick="showSection('pricing')">Programs</a>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <a href="#" onclick="showSection('help')">Help Center</a>
+                <a href="#" onclick="showSection('status')">System Status</a>
+                <a href="#" onclick="showSection('privacy')">Privacy Policy</a>
+                <a href="#" onclick="showSection('terms')">Terms of Service</a>
+            </div>
+            <div class="footer-col footer-newsletter">
+                <h4>Newsletter</h4>
+                <p>Stay updated with our latest news.</p>
+                <form class="footer-newsletter-form" onsubmit="return handleNewsletter(event)">
+                    <input type="email" placeholder="Your email" required>
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Aguinaldo Polytechnic Institute. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
