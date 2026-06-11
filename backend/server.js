@@ -18,11 +18,11 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 
 // ==================== DATABASE ====================
 const db = mysql.createConnection({
-    host: process.env.DB_HOST || 'localhost',
-    user: process.env.DB_USER || 'root',
-    password: process.env.DB_PASSWORD || '',
-    database: process.env.DB_NAME || 'aguinaldo_portal',
-    port: process.env.DB_PORT || 3306
+    host: process.env.MYSQL_HOST || process.env.DB_HOST || 'localhost',
+    user: process.env.MYSQL_USER || process.env.DB_USER || 'root',
+    password: process.env.MYSQL_PASSWORD || process.env.DB_PASSWORD || '',
+    database: process.env.MYSQL_DATABASE || process.env.DB_NAME || 'aguinaldo_portal',
+    port: process.env.MYSQL_PORT || process.env.DB_PORT || 3306
 });
 
 db.connect(err => {
