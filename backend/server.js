@@ -7,18 +7,18 @@ const path = require('path');
 const { spawn } = require('child_process');
 const fs = require('fs');
 require('dotenv').config();
-console.log('TEST_VAR:', process.env.TEST_VAR);
-console.log('All DB vars:', {
-    MYSQL_HOST: process.env.MYSQL_HOST,
-    MYSQL_USER: process.env.MYSQL_USER,
-    MYSQL_PASSWORD: process.env.MYSQL_PASSWORD ? '***' : undefined,
-    MYSQL_DATABASE: process.env.MYSQL_DATABASE,
-    DB_HOST: process.env.DB_HOST,
-    DB_USER: process.env.DB_USER,
-    DB_PASSWORD: process.env.DB_PASSWORD ? '***' : undefined,
-    DB_NAME: process.env.DB_NAME,
-    DB_PORT: process.env.DB_PORT
-});
+
+// Railway auto-sets PORT; detect if we're on Railway
+const isRailway = process.env.PORT === '8080';
+
+const dbConfig = {
+    host: process.env.MYSQL_HOST || process.env.DB_HOST || (isRailway ? 'acela.proxy.rlwy.net' : 'localhost'),
+    user: process.env.MYSQL_USER || process.env.DB_USER || (isRailway ? 'root' : 'root'),
+    password: process.env.MYSQL_PASSWORD || process.env.DB_PASSWORD || (isRailway ? 'QHHVRVMEDcKHruZDcRfCIOrCXDPQOall' : ''),
+    database: process.env.MYSQL_DATABASE || process.env.DB_NAME || (isRailway ? 'railway' : 'aguinaldo_portal'),
+    port: parseInt(process.env.MYSQL_PORT || process.env.DB_PORT || (isRailway ? '58438' : '3306'), 10)
+};
+const db = mysql.createConnection(dbConfig);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -27,33 +27,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '..', 'public')));
-
-// ==================== DATABASE ====================
-const db = mysql.createConnection({
-    host: process.env.MYSQL_HOST || process.env.DB_HOST || 'localhost',
-    user: process.env.MYSQL_USER || process.env.DB_USER || 'root',
-    password: process.env.MYSQL_PASSWORD || process.env.DB_PASSWORD || '',
-    database: process.env.MYSQL_DATABASE || process.env.DB_NAME || 'aguinaldo_portal',
-    port: parseInt(process.env.MYSQL_PORT || process.env.DB_PORT || '3306', 10)
-});
-
-console.log('DB config:', {
-    host: process.env.MYSQL_HOST || process.env.DB_HOST || 'localhost',
-    user: process.env.MYSQL_USER || process.env.DB_USER || 'root',
-    database: process.env.MYSQL_DATABASE || process.env.DB_NAME || 'aguinaldo_portal',
-    port: parseInt(process.env.MYSQL_PORT || process.env.DB_PORT || '3306', 10)
-});
-console.log('All DB vars:', {
-    MYSQL_HOST: process.env.MYSQL_HOST,
-    MYSQL_USER: process.env.MYSQL_USER,
-    MYSQL_PASSWORD: process.env.MYSQL_PASSWORD ? '***' : undefined,
-    MYSQL_DATABASE: process.env.MYSQL_DATABASE,
-    DB_HOST: process.env.DB_HOST,
-    DB_USER: process.env.DB_USER,
-    DB_PASSWORD: process.env.DB_PASSWORD ? '***' : undefined,
-    DB_NAME: process.env.DB_NAME,
-    DB_PORT: process.env.DB_PORT
-});
 
 db.connect(err => {
     if (err) {
