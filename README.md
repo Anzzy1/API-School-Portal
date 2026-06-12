@@ -1,4 +1,4 @@
-# ICCT Colleges - School Portal 🎓
+# Aguinaldo Polytechnic Institute - School Portal 🎓
 
 A fully functional school portal with Student Information System (SIS), role-based authentication, C++ backend integration for PDF report generation, and cloud backup capabilities.
 
@@ -42,51 +42,6 @@ ICCT School Portal/
 ├── database.sql            # Full database schema + sample data
 └── README.md               # This file
 ```
-
-## Setup Instructions
-
-### 1. Database Setup
-1. Start XAMPP → Start MySQL
-2. Open phpMyAdmin (http://localhost/phpmyadmin)
-3. Run `database.sql` contents in the SQL tab
-4. This creates: `icct_portal` database with tables for users, students, courses, grades, subjects, notifications, contacts, and newsletter
-
-### 2. Backend Setup
-1. Install Node.js from https://nodejs.org
-2. Open terminal in the `backend/` folder:
-   ```bash
-   cd backend
-   npm install
-   ```
-3. Create `.env` file (already provided):
-   ```
-   PORT=3000
-   JWT_SECRET=your_secret_key_here
-   DB_HOST=localhost
-   DB_USER=root
-   DB_PASSWORD=
-   DB_NAME=icct_portal
-   ```
-4. Start the server:
-   ```bash
-   npm start
-   ```
-5. Server runs at: http://localhost:3000
-
-### 3. C++ Report Generator (Optional)
-1. Install MinGW/GCC compiler
-2. Navigate to `cpp-report/` folder
-3. Run `compile.bat` or:
-   ```bash
-   g++ -o report_generator.exe report_generator.cpp
-   ```
-4. The server will automatically detect the compiled `.exe` and use it for PDF reports
-
-### 4. Open the Portal
-- Visit **http://localhost:3000** in your browser
-- Register a new account or use the default admin:
-  - **Email:** admin@icct.edu.ph
-  - **Password:** admin123
 
 ## Features Implemented
 
