@@ -126,9 +126,9 @@ void generateReport(const string& studentData, const string& outputPath) {
         for (size_t i = 0; i < schedules.size(); i++) {
             string time = schedules[i][2] + "-" + schedules[i][3];
             out << "  " << left << setw(12) << schedules[i][1]
-                      << setw(20) << schedules[i][0]
-                      << setw(14) << time
-                      << schedules[i][4] << endl;
+                    << setw(20) << schedules[i][0]
+                    << setw(14) << time
+                    << schedules[i][4] << endl;
         }
         drawLine(out, '-', 58);
     }
