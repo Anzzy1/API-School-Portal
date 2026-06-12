@@ -842,6 +842,7 @@ body {
 }
 .op-search-bar input:focus, .op-search-bar select:focus { outline: none; border-color: var(--primary); }
 
+.search-bar {
     display: flex; gap: 10px; align-items: center;
     margin-bottom: 20px; flex-wrap: wrap; position: relative;
 }
