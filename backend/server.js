@@ -646,7 +646,10 @@ app.post('/api/chat', (req, res) => {
         });
     });
 
-    reqGemini.on('error', () => res.json({ success: false, reply: 'AI service unavailable.' }));
+    reqGemini.on('error', (e) => {
+        console.error('Gemini request error:', e.message);
+        res.json({ success: false, reply: 'AI service unavailable (' + e.message + ')' });
+    });
     reqGemini.write(postData);
     reqGemini.end();
 });
