@@ -600,16 +600,24 @@ app.get('/api/fees/:course_code', (req, res) => {
 });
 
 // ==================== AI CHAT ====================
+app.get('/api/debug-env', (req, res) => {
+    const keys = Object.keys(process.env).filter(k => !k.toLowerCase().includes('pass') && !k.toLowerCase().includes('key') && !k.toLowerCase().includes('secret') && !k.toLowerCase().includes('token'));
+    const allKeys = Object.keys(process.env).sort();
+    res.json({ PORT: process.env.PORT, NODE_ENV: process.env.NODE_ENV, allKeys, count: allKeys.length });
+});
+
 app.post('/api/chat', (req, res) => {
     try {
         const { message, history } = req.body;
         if (!message) return res.json({ success: false, reply: 'Please enter a message.' });
 
         const https = require('https');
-        const apiKey = process.env.GEMINI_API_KEY;
-
+        let apiKey = (process.env.GEMINI_API_KEY || '').trim();
         if (!apiKey) {
-            return res.json({ success: false, reply: 'API key not configured. Add GEMINI_API_KEY to Railway Variables.' });
+            try { apiKey = fs.readFileSync(path.join(__dirname, 'gemini.key'), 'utf8').trim(); } catch(e) {}
+        }
+        if (!apiKey) {
+            return res.json({ success: false, reply: 'API key not configured. Add GEMINI_API_KEY to Railway Variables or create backend/gemini.key file.' });
         }
 
         const systemPrompt = 'You are a helpful assistant for Aguinaldo Polytechnic Institute school portal. Answer questions about enrollment, programs, schedules, tuition fees, and school policies. Be concise and friendly.';
