@@ -601,57 +601,67 @@ app.get('/api/fees/:course_code', (req, res) => {
 
 // ==================== AI CHAT ====================
 app.post('/api/chat', (req, res) => {
-    const { message, history } = req.body;
-    if (!message) return res.json({ success: false, reply: 'Please enter a message.' });
+    try {
+        const { message, history } = req.body;
+        if (!message) return res.json({ success: false, reply: 'Please enter a message.' });
 
-    const https = require('https');
-    const apiKey = process.env.GEMINI_API_KEY;
+        const https = require('https');
+        const apiKey = process.env.GEMINI_API_KEY;
 
-    const systemPrompt = 'You are a helpful assistant for Aguinaldo Polytechnic Institute school portal. Answer questions about enrollment, programs, schedules, tuition fees, and school policies. Be concise and friendly.';
-
-    const contents = [];
-    contents.push({ role: 'user', parts: [{ text: systemPrompt }] });
-    contents.push({ role: 'model', parts: [{ text: 'Understood. I will assist with Aguinaldo Polytechnic Institute queries.' }] });
-
-    if (history && Array.isArray(history)) {
-        history.forEach(h => {
-            contents.push({ role: h.role, parts: [{ text: h.text }] });
-        });
-    }
-    contents.push({ role: 'user', parts: [{ text: message }] });
-
-    const postData = JSON.stringify({ contents });
-
-    const options = {
-        hostname: 'generativelanguage.googleapis.com',
-        path: '/v1beta/models/gemini-2.0-flash:generateContent',
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-goog-api-key': apiKey
+        if (!apiKey) {
+            return res.json({ success: false, reply: 'API key not configured. Add GEMINI_API_KEY to Railway Variables.' });
         }
-    };
 
-    const reqGemini = https.request(options, (geminiRes) => {
-        let data = '';
-        geminiRes.on('data', chunk => data += chunk);
-        geminiRes.on('end', () => {
-            try {
-                const parsed = JSON.parse(data);
-                const reply = parsed.candidates?.[0]?.content?.parts?.[0]?.text || parsed.error?.message || 'Sorry, I could not generate a response.';
-                res.json({ success: true, reply });
-            } catch (e) {
-                res.json({ success: false, reply: 'Error parsing AI response.' });
+        const systemPrompt = 'You are a helpful assistant for Aguinaldo Polytechnic Institute school portal. Answer questions about enrollment, programs, schedules, tuition fees, and school policies. Be concise and friendly.';
+
+        const contents = [];
+        contents.push({ role: 'user', parts: [{ text: systemPrompt }] });
+        contents.push({ role: 'model', parts: [{ text: 'Understood. I will assist with Aguinaldo Polytechnic Institute queries.' }] });
+
+        if (history && Array.isArray(history)) {
+            history.forEach(h => {
+                contents.push({ role: h.role, parts: [{ text: h.text }] });
+            });
+        }
+        contents.push({ role: 'user', parts: [{ text: message }] });
+
+        const postData = JSON.stringify({ contents });
+
+        const options = {
+            hostname: 'generativelanguage.googleapis.com',
+            path: '/v1beta/models/gemini-2.0-flash:generateContent',
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-goog-api-key': apiKey
             }
-        });
-    });
+        };
 
-    reqGemini.on('error', (e) => {
-        console.error('Gemini request error:', e.message);
-        res.json({ success: false, reply: 'AI service unavailable (' + e.message + ')' });
-    });
-    reqGemini.write(postData);
-    reqGemini.end();
+        const reqGemini = https.request(options, (geminiRes) => {
+            let data = '';
+            geminiRes.on('data', chunk => data += chunk);
+            geminiRes.on('end', () => {
+                try {
+                    const parsed = JSON.parse(data);
+                    const reply = parsed.candidates?.[0]?.content?.parts?.[0]?.text || parsed.error?.message || 'Sorry, I could not generate a response.';
+                    res.json({ success: true, reply });
+                } catch (e) {
+                    console.error('Gemini parse error:', e.message);
+                    res.json({ success: false, reply: 'Error parsing AI response: ' + e.message });
+                }
+            });
+        });
+
+        reqGemini.on('error', (e) => {
+            console.error('Gemini request error:', e.message);
+            res.json({ success: false, reply: 'AI service unavailable (' + e.message + ')' });
+        });
+        reqGemini.write(postData);
+        reqGemini.end();
+    } catch (e) {
+        console.error('Chat endpoint error:', e.message, e.stack);
+        res.status(500).json({ success: false, reply: 'Server error: ' + e.message });
+    }
 });
 
 // ==================== START SERVER ====================
