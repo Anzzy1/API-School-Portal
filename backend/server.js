@@ -624,9 +624,12 @@ app.post('/api/chat', (req, res) => {
 
     const options = {
         hostname: 'generativelanguage.googleapis.com',
-        path: '/v1beta/models/gemini-2.0-flash:generateContent?key=' + apiKey,
+        path: '/v1beta/models/gemini-2.0-flash:generateContent',
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' }
+        headers: {
+            'Content-Type': 'application/json',
+            'X-goog-api-key': apiKey
+        }
     };
 
     const reqGemini = https.request(options, (geminiRes) => {
@@ -635,7 +638,7 @@ app.post('/api/chat', (req, res) => {
         geminiRes.on('end', () => {
             try {
                 const parsed = JSON.parse(data);
-                const reply = parsed.candidates?.[0]?.content?.parts?.[0]?.text || 'Sorry, I could not generate a response.';
+                const reply = parsed.candidates?.[0]?.content?.parts?.[0]?.text || parsed.error?.message || 'Sorry, I could not generate a response.';
                 res.json({ success: true, reply });
             } catch (e) {
                 res.json({ success: false, reply: 'Error parsing AI response.' });
