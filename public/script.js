@@ -2007,7 +2007,7 @@ function sendChatMessage() {
             chatHistory.push({ role: 'user', text: msg });
             chatHistory.push({ role: 'model', text: data.reply });
         } else {
-            msgs.innerHTML += '<div class="chat-msg chat-bot">Sorry, I had trouble responding. Please try again.</div>';
+            msgs.innerHTML += '<div class="chat-msg chat-bot">' + escapeHtml(data.reply || 'Sorry, I had trouble responding.') + '</div>';
         }
         msgs.scrollTop = msgs.scrollHeight;
     }).catch(() => {
