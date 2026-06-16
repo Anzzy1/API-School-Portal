@@ -2005,7 +2005,7 @@ function sendChatMessage() {
         if (data.success) {
             msgs.innerHTML += '<div class="chat-msg chat-bot">' + escapeHtml(data.reply) + '</div>';
             chatHistory.push({ role: 'user', text: msg });
-            chatHistory.push({ role: 'model', text: data.reply });
+            chatHistory.push({ role: 'assistant', text: data.reply });
         } else {
             msgs.innerHTML += '<div class="chat-msg chat-bot">' + escapeHtml(data.reply || 'Sorry, I had trouble responding.') + '</div>';
         }

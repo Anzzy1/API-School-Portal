@@ -673,6 +673,7 @@ function processChat(req, res, apiKey, message, history) {
         aiRes.on('end', () => {
             try {
                 const parsed = JSON.parse(data);
+                if (parsed.error) console.error('OpenRouter error:', JSON.stringify(parsed.error));
                 const reply = parsed.choices?.[0]?.message?.content || parsed.error?.message || 'No response.';
                 res.json({ success: true, reply });
             } catch (e) {
