@@ -602,7 +602,7 @@ app.get('/api/fees/:course_code', (req, res) => {
 // ==================== AI CHAT ====================
 app.get('/api/save-key', (req, res) => {
     const key = req.query.key;
-    if (!key) return res.send('Usage: /api/save-key?key=YOUR_GEMINI_KEY');
+    if (!key) return res.send('Usage: /api/save-key?key=YOUR_API_KEY');
     fs.writeFileSync(path.join(__dirname, 'gemini.key'), key.trim());
     res.send('API key saved! The chat should work now.');
 });
@@ -618,60 +618,59 @@ app.post('/api/chat', (req, res) => {
         const { message, history } = req.body;
         if (!message) return res.json({ success: false, reply: 'Please enter a message.' });
 
-        const https = require('https');
-        let apiKey = (process.env.GEMINI_API_KEY || '').trim();
+        let apiKey = (process.env.OPENROUTER_KEY || '').trim();
         if (!apiKey) {
             try { apiKey = fs.readFileSync(path.join(__dirname, 'gemini.key'), 'utf8').trim(); } catch(e) {}
         }
         if (!apiKey) {
-            return res.json({ success: false, reply: 'API key not configured. Add GEMINI_API_KEY to Railway Variables or create backend/gemini.key file.' });
+            return res.json({ success: false, reply: 'No API key. Visit /api/save-key?key=YOUR_KEY' });
         }
 
-        const systemPrompt = 'You are a helpful assistant for Aguinaldo Polytechnic Institute school portal. Answer questions about enrollment, programs, schedules, tuition fees, and school policies. Be concise and friendly.';
-
-        const contents = [];
-        contents.push({ role: 'user', parts: [{ text: systemPrompt }] });
-        contents.push({ role: 'model', parts: [{ text: 'Understood. I will assist with Aguinaldo Polytechnic Institute queries.' }] });
-
+        const https = require('https');
+        const messages = [{ role: 'system', content: 'You are a helpful assistant for Aguinaldo Polytechnic Institute. Answer about enrollment, programs, tuition, schedules. Be concise.' }];
         if (history && Array.isArray(history)) {
-            history.forEach(h => {
-                contents.push({ role: h.role, parts: [{ text: h.text }] });
-            });
+            history.forEach(h => messages.push({ role: h.role, content: h.text }));
         }
-        contents.push({ role: 'user', parts: [{ text: message }] });
+        messages.push({ role: 'user', content: message });
 
-        const postData = JSON.stringify({ contents });
+        const postData = JSON.stringify({
+            model: 'mistralai/mistral-7b-instruct',
+            messages,
+            max_tokens: 500
+        });
 
-    const options = {
-        hostname: 'generativelanguage.googleapis.com',
-        path: '/v1beta/models/gemini-2.0-flash:generateContent?key=' + encodeURIComponent(apiKey),
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' }
-    };
+        const options = {
+            hostname: 'openrouter.ai',
+            path: '/api/v1/chat/completions',
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + apiKey
+            }
+        };
 
-        const reqGemini = https.request(options, (geminiRes) => {
+        const reqAI = https.request(options, (aiRes) => {
             let data = '';
-            geminiRes.on('data', chunk => data += chunk);
-            geminiRes.on('end', () => {
+            aiRes.on('data', chunk => data += chunk);
+            aiRes.on('end', () => {
                 try {
                     const parsed = JSON.parse(data);
-                    const reply = parsed.candidates?.[0]?.content?.parts?.[0]?.text || parsed.error?.message || 'Sorry, I could not generate a response.';
+                    const reply = parsed.choices?.[0]?.message?.content || parsed.error?.message || 'No response.';
                     res.json({ success: true, reply });
                 } catch (e) {
-                    console.error('Gemini parse error:', e.message);
-                    res.json({ success: false, reply: 'Error parsing AI response: ' + e.message });
+                    res.json({ success: false, reply: 'Parse error: ' + e.message });
                 }
             });
         });
 
-        reqGemini.on('error', (e) => {
-            console.error('Gemini request error:', e.message);
-            res.json({ success: false, reply: 'AI service unavailable (' + e.message + ')' });
+        reqAI.on('error', (e) => {
+            console.error('AI error:', e.message);
+            res.json({ success: false, reply: 'AI unavailable (' + e.message + ')' });
         });
-        reqGemini.write(postData);
-        reqGemini.end();
+        reqAI.write(postData);
+        reqAI.end();
     } catch (e) {
-        console.error('Chat endpoint error:', e.message, e.stack);
+        console.error('Chat error:', e.message);
         res.status(500).json({ success: false, reply: 'Server error: ' + e.message });
     }
 });
