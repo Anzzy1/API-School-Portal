@@ -600,6 +600,13 @@ app.get('/api/fees/:course_code', (req, res) => {
 });
 
 // ==================== AI CHAT ====================
+app.get('/api/save-key', (req, res) => {
+    const key = req.query.key;
+    if (!key) return res.send('Usage: /api/save-key?key=YOUR_GEMINI_KEY');
+    fs.writeFileSync(path.join(__dirname, 'gemini.key'), key.trim());
+    res.send('API key saved! The chat should work now.');
+});
+
 app.get('/api/debug-env', (req, res) => {
     const keys = Object.keys(process.env).filter(k => !k.toLowerCase().includes('pass') && !k.toLowerCase().includes('key') && !k.toLowerCase().includes('secret') && !k.toLowerCase().includes('token'));
     const allKeys = Object.keys(process.env).sort();
