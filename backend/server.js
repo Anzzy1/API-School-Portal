@@ -34,6 +34,7 @@ db.connect(err => {
         return;
     }
     console.log('Connected to MySQL database!');
+    db.query("CREATE TABLE IF NOT EXISTS settings (setting_key VARCHAR(100) PRIMARY KEY, setting_value TEXT)");
     db.query("UPDATE applicants SET status='enrolled' WHERE status='pending'", (err) => {
         if (err) console.log('Migration note:', err.message);
     });
@@ -603,8 +604,10 @@ app.get('/api/fees/:course_code', (req, res) => {
 app.get('/api/save-key', (req, res) => {
     const key = req.query.key;
     if (!key) return res.send('Usage: /api/save-key?key=YOUR_API_KEY');
-    fs.writeFileSync(path.join(__dirname, 'gemini.key'), key.trim());
-    res.send('API key saved! The chat should work now.');
+    db.query("INSERT INTO settings (setting_key, setting_value) VALUES ('openrouter_key', ?) ON DUPLICATE KEY UPDATE setting_value=?", [key.trim(), key.trim()], (err) => {
+        if (err) return res.send('Database error: ' + err.message);
+        res.send('API key saved to database! The chat should work now.');
+    });
 });
 
 app.get('/api/debug-env', (req, res) => {
@@ -623,57 +626,68 @@ app.post('/api/chat', (req, res) => {
             try { apiKey = fs.readFileSync(path.join(__dirname, 'gemini.key'), 'utf8').trim(); } catch(e) {}
         }
         if (!apiKey) {
-            return res.json({ success: false, reply: 'No API key. Visit /api/save-key?key=YOUR_KEY' });
-        }
-
-        const https = require('https');
-        const messages = [{ role: 'system', content: 'You are a helpful assistant for Aguinaldo Polytechnic Institute. Answer about enrollment, programs, tuition, schedules. Be concise.' }];
-        if (history && Array.isArray(history)) {
-            history.forEach(h => messages.push({ role: h.role, content: h.text }));
-        }
-        messages.push({ role: 'user', content: message });
-
-        const postData = JSON.stringify({
-            model: 'mistralai/mistral-7b-instruct',
-            messages,
-            max_tokens: 500
-        });
-
-        const options = {
-            hostname: 'openrouter.ai',
-            path: '/api/v1/chat/completions',
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + apiKey
-            }
-        };
-
-        const reqAI = https.request(options, (aiRes) => {
-            let data = '';
-            aiRes.on('data', chunk => data += chunk);
-            aiRes.on('end', () => {
-                try {
-                    const parsed = JSON.parse(data);
-                    const reply = parsed.choices?.[0]?.message?.content || parsed.error?.message || 'No response.';
-                    res.json({ success: true, reply });
-                } catch (e) {
-                    res.json({ success: false, reply: 'Parse error: ' + e.message });
+            // Try database
+            db.query("SELECT setting_value FROM settings WHERE setting_key='openrouter_key'", (err, rows) => {
+                if (!err && rows && rows.length > 0 && rows[0].setting_value) {
+                    processChat(req, res, rows[0].setting_value, message, history);
+                } else {
+                    return res.json({ success: false, reply: 'No API key set. Visit /api/save-key?key=YOUR_KEY' });
                 }
             });
-        });
-
-        reqAI.on('error', (e) => {
-            console.error('AI error:', e.message);
-            res.json({ success: false, reply: 'AI unavailable (' + e.message + ')' });
-        });
-        reqAI.write(postData);
-        reqAI.end();
+            return;
+        }
+        processChat(req, res, apiKey, message, history);
     } catch (e) {
         console.error('Chat error:', e.message);
         res.status(500).json({ success: false, reply: 'Server error: ' + e.message });
     }
 });
+
+function processChat(req, res, apiKey, message, history) {
+    const https = require('https');
+    const messages = [{ role: 'system', content: 'You are a helpful assistant for Aguinaldo Polytechnic Institute. Answer about enrollment, programs, tuition, schedules. Be concise.' }];
+    if (history && Array.isArray(history)) {
+        history.forEach(h => messages.push({ role: h.role, content: h.text }));
+    }
+    messages.push({ role: 'user', content: message });
+
+    const postData = JSON.stringify({
+        model: 'mistralai/mistral-7b-instruct',
+        messages,
+        max_tokens: 500
+    });
+
+    const options = {
+        hostname: 'openrouter.ai',
+        path: '/api/v1/chat/completions',
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + apiKey
+        }
+    };
+
+    const reqAI = https.request(options, (aiRes) => {
+        let data = '';
+        aiRes.on('data', chunk => data += chunk);
+        aiRes.on('end', () => {
+            try {
+                const parsed = JSON.parse(data);
+                const reply = parsed.choices?.[0]?.message?.content || parsed.error?.message || 'No response.';
+                res.json({ success: true, reply });
+            } catch (e) {
+                res.json({ success: false, reply: 'Parse error: ' + e.message });
+            }
+        });
+    });
+
+    reqAI.on('error', (e) => {
+        console.error('AI error:', e.message);
+        res.json({ success: false, reply: 'AI unavailable (' + e.message + ')' });
+    });
+    reqAI.write(postData);
+    reqAI.end();
+}
 
 // ==================== START SERVER ====================
 app.listen(PORT, () => {
