@@ -642,15 +642,12 @@ app.post('/api/chat', (req, res) => {
 
         const postData = JSON.stringify({ contents });
 
-        const options = {
-            hostname: 'generativelanguage.googleapis.com',
-            path: '/v1beta/models/gemini-2.0-flash:generateContent',
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-goog-api-key': apiKey
-            }
-        };
+    const options = {
+        hostname: 'generativelanguage.googleapis.com',
+        path: '/v1beta/models/gemini-2.0-flash:generateContent?key=' + encodeURIComponent(apiKey),
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' }
+    };
 
         const reqGemini = https.request(options, (geminiRes) => {
             let data = '';
