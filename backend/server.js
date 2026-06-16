@@ -652,7 +652,7 @@ function processChat(req, res, apiKey, message, history) {
     messages.push({ role: 'user', content: message });
 
     const postData = JSON.stringify({
-        model: 'mistralai/mistral-7b-instruct',
+        model: 'google/gemini-2.0-flash-exp:free',
         messages,
         max_tokens: 500
     });
