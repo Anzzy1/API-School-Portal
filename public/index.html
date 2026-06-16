@@ -1297,5 +1297,21 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <script src="script.js"></script>
+
+<!-- AI Chat -->
+<div id="chat-button" onclick="toggleChat()">
+    <i class="fas fa-comment-dots"></i>
+</div>
+<div id="chat-window" class="chat-hidden">
+    <div id="chat-header">
+        <span>AI Assistant</span>
+        <button onclick="toggleChat()">&times;</button>
+    </div>
+    <div id="chat-messages"></div>
+    <div id="chat-input-area">
+        <input type="text" id="chat-input" placeholder="Ask a question..." onkeydown="if(event.key==='Enter') sendChatMessage()">
+        <button onclick="sendChatMessage()"><i class="fas fa-paper-plane"></i></button>
+    </div>
+</div>
 </body>
 </html>

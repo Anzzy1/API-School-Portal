@@ -1973,3 +1973,52 @@ document.addEventListener('click', function(e) {
 if (!checkAuth()) {
     showSection('home');
 }
+
+// ==================== AI CHAT ====================
+let chatHistory = [];
+
+function toggleChat() {
+    const w = document.getElementById('chat-window');
+    w.classList.toggle('chat-hidden');
+    if (!w.classList.contains('chat-hidden')) {
+        document.getElementById('chat-input').focus();
+    }
+}
+
+function sendChatMessage() {
+    const input = document.getElementById('chat-input');
+    const msg = input.value.trim();
+    if (!msg) return;
+
+    const msgs = document.getElementById('chat-messages');
+    msgs.innerHTML += '<div class="chat-msg chat-user">' + escapeHtml(msg) + '</div>';
+    msgs.innerHTML += '<div class="chat-typing">AI is thinking...</div>';
+    msgs.scrollTop = msgs.scrollHeight;
+    input.value = '';
+
+    apiFetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: msg, history: chatHistory })
+    }).then(data => {
+        msgs.querySelector('.chat-typing')?.remove();
+        if (data.success) {
+            msgs.innerHTML += '<div class="chat-msg chat-bot">' + escapeHtml(data.reply) + '</div>';
+            chatHistory.push({ role: 'user', text: msg });
+            chatHistory.push({ role: 'model', text: data.reply });
+        } else {
+            msgs.innerHTML += '<div class="chat-msg chat-bot">Sorry, I had trouble responding. Please try again.</div>';
+        }
+        msgs.scrollTop = msgs.scrollHeight;
+    }).catch(() => {
+        msgs.querySelector('.chat-typing')?.remove();
+        msgs.innerHTML += '<div class="chat-msg chat-bot">Connection error. Please try again.</div>';
+        msgs.scrollTop = msgs.scrollHeight;
+    });
+}
+
+function escapeHtml(text) {
+    const d = document.createElement('div');
+    d.textContent = text;
+    return d.innerHTML;
+}

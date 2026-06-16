@@ -443,9 +443,9 @@ app.put('/api/operator/students/:student_id/drop', authenticateToken, requireOpe
 app.get('/api/operator/students/:student_id', authenticateToken, requireOperator, (req, res) => {
     const sql = `
         SELECT u.*, a.date_of_birth, a.gender, a.nationality, a.religion,
-               a.phone, a.mother_name, a.mother_phone, a.father_name, a.father_phone,
-               a.guardian_name, a.guardian_phone, a.address, a.barangay, a.country, a.region, a.city,
-               a.course_code AS app_course, a.status AS app_status, a.year_level
+            a.phone, a.mother_name, a.mother_phone, a.father_name, a.father_phone,
+            a.guardian_name, a.guardian_phone, a.address, a.barangay, a.country, a.region, a.city,
+            a.course_code AS app_course, a.status AS app_status, a.year_level
         FROM users u
         LEFT JOIN applicants a ON u.student_id = a.student_id
         WHERE u.student_id = ?
@@ -597,6 +597,55 @@ const feeData = {
 app.get('/api/fees/:course_code', (req, res) => {
     const fees = feeData[req.params.course_code] || feeData['BSIT'];
     res.json({ success: true, fees });
+});
+
+// ==================== AI CHAT ====================
+app.post('/api/chat', (req, res) => {
+    const { message, history } = req.body;
+    if (!message) return res.json({ success: false, reply: 'Please enter a message.' });
+
+    const https = require('https');
+    const apiKey = process.env.GEMINI_API_KEY;
+
+    const systemPrompt = 'You are a helpful assistant for Aguinaldo Polytechnic Institute school portal. Answer questions about enrollment, programs, schedules, tuition fees, and school policies. Be concise and friendly.';
+
+    const contents = [];
+    contents.push({ role: 'user', parts: [{ text: systemPrompt }] });
+    contents.push({ role: 'model', parts: [{ text: 'Understood. I will assist with Aguinaldo Polytechnic Institute queries.' }] });
+
+    if (history && Array.isArray(history)) {
+        history.forEach(h => {
+            contents.push({ role: h.role, parts: [{ text: h.text }] });
+        });
+    }
+    contents.push({ role: 'user', parts: [{ text: message }] });
+
+    const postData = JSON.stringify({ contents });
+
+    const options = {
+        hostname: 'generativelanguage.googleapis.com',
+        path: '/v1beta/models/gemini-2.0-flash:generateContent?key=' + apiKey,
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' }
+    };
+
+    const reqGemini = https.request(options, (geminiRes) => {
+        let data = '';
+        geminiRes.on('data', chunk => data += chunk);
+        geminiRes.on('end', () => {
+            try {
+                const parsed = JSON.parse(data);
+                const reply = parsed.candidates?.[0]?.content?.parts?.[0]?.text || 'Sorry, I could not generate a response.';
+                res.json({ success: true, reply });
+            } catch (e) {
+                res.json({ success: false, reply: 'Error parsing AI response.' });
+            }
+        });
+    });
+
+    reqGemini.on('error', () => res.json({ success: false, reply: 'AI service unavailable.' }));
+    reqGemini.write(postData);
+    reqGemini.end();
 });
 
 // ==================== START SERVER ====================
