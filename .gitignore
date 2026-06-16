@@ -4,3 +4,7 @@ backend/node_modules/
 backend/.env
 backend/gemini.key
 backup/
+ghp_*
+railway.json
+server_*.txt
+backend/server_*.txt
