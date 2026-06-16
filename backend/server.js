@@ -652,7 +652,7 @@ function processChat(req, res, apiKey, message, history) {
     messages.push({ role: 'user', content: message });
 
     const postData = JSON.stringify({
-        model: 'google/gemini-2.0-flash-exp:free',
+        model: 'openai/gpt-4o-mini',
         messages,
         max_tokens: 500
     });
