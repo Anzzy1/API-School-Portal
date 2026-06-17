@@ -1,4 +1,5 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
+.icon-img { height: 28px; vertical-align: middle; }
 
 :root {
     --primary: #1B365D;
