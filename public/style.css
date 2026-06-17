@@ -372,33 +372,33 @@ body {
 
 .officials-section { margin-top: 50px; }
 .officials-section h2 { text-align: center; font-size: clamp(24px, 3vw, 34px); margin-bottom: 30px; }
-.officials-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px;
-}
+.officials-list { display: flex; flex-direction: column; gap: 20px; }
 .official-card {
-    display: flex; align-items: center; gap: 18px;
+    display: flex; align-items: flex-start; gap: 25px;
     background: white; border: 1px solid var(--border-color);
-    border-radius: var(--radius); padding: 20px;
-    transition: var(--transition); box-shadow: var(--shadow);
+    border-radius: var(--radius); padding: 25px 30px;
+    transition: var(--transition); box-shadow: var(--shadow); width: 100%;
 }
 .official-card:hover {
     transform: translateY(-3px); box-shadow: var(--shadow-hover);
     border-color: var(--primary);
 }
 .official-card img {
-    width: 70px; height: 70px; border-radius: 50%;
-    object-fit: cover; flex-shrink: 0;
-    border: 3px solid var(--border-color);
+    width: 100px; height: 100px; object-fit: cover; flex-shrink: 0;
+    border: 3px solid var(--border-color); border-radius: 4px;
 }
 .official-card:hover img { border-color: var(--primary); }
 .official-info { flex: 1; min-width: 0; }
-.official-info h3 { font-size: 15px; font-weight: 600; margin-bottom: 2px; color: var(--text-primary); }
-.official-pos { font-size: 12px; color: var(--text-muted); display: block; margin-bottom: 6px; }
+.official-info h3 { font-size: 17px; font-weight: 600; margin-bottom: 3px; color: var(--text-primary); }
+.official-pos { font-size: 13px; color: var(--accent); display: block; margin-bottom: 8px; font-weight: 500; }
+.official-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 10px; }
 .official-link {
-    font-size: 12px; color: var(--primary); text-decoration: none; font-weight: 500;
-    transition: var(--transition);
+    font-size: 13px; color: var(--primary); text-decoration: none; font-weight: 600;
+    transition: var(--transition); display: inline-flex; align-items: center; gap: 5px;
 }
 .official-link:hover { color: var(--accent); }
+.official-link::after { content: '→'; transition: var(--transition); }
+.official-link:hover::after { transform: translateX(3px); }
 
 .faq-container { max-width: 800px; margin: 0 auto; padding: 100px 30px; }
 .faq-container h1 { text-align: center; font-size: clamp(28px, 4vw, 42px); margin-bottom: 30px; }
