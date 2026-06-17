@@ -369,7 +369,7 @@ app.get('/api/operator/search', authenticateToken, requireOperator, (req, res) =
 
 // ==================== OPERATOR: GET ALL STUDENTS ====================
 app.get('/api/operator/students', authenticateToken, requireOperator, (req, res) => {
-    db.query('SELECT * FROM applicants ORDER BY student_id ASC', (err, results) => {
+    db.query("SELECT * FROM applicants WHERE status != 'dropped' ORDER BY student_id ASC", (err, results) => {
         if (err) return res.json({ success: false, message: 'Query failed.' });
         res.json({ success: true, students: results || [] });
     });
