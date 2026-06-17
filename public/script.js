@@ -145,6 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
     loadCourses();
     populateCountries();
     fetchSiteStats();
+    loadGallery();
 });
 
 function fetchSiteStats() {
@@ -2027,4 +2028,32 @@ function escapeHtml(text) {
     const d = document.createElement('div');
     d.textContent = text;
     return d.innerHTML;
+}
+
+// === CAMPUS GALLERY ===
+function switchGallery(tab, el) {
+    document.querySelectorAll('.gallery-tab').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+    const prefixes = { main: 'campus', library: 'library', science: 'scilab', computer: 'comlab' };
+    const display = document.getElementById('gallery-display');
+    let html = '';
+    for (let i = 1; i <= 4; i++) {
+        html += '<img src="/images/' + prefixes[tab] + '-' + i + '.jpg" alt="' + tab + ' ' + i + '" onclick="openGalleryModal(this.src)">';
+    }
+    display.innerHTML = html;
+}
+
+function openGalleryModal(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('gallery-lightbox').style.display = 'flex';
+}
+
+function closeGalleryModal() {
+    document.getElementById('gallery-lightbox').style.display = 'none';
+}
+
+// Load Main Building gallery on page load
+function loadGallery() {
+    const defaultTab = document.querySelector('.gallery-tab.active');
+    if (defaultTab) switchGallery('main', defaultTab);
 }

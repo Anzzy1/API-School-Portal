@@ -191,12 +191,19 @@
         <!-- Campus Images -->
         <div class="campus-gallery">
             <h2>Campus <span class="highlight">Gallery</span></h2>
-            <div class="gallery-grid">
-                <div class="gallery-item"><i class="fas fa-school"></i><span>Main Building</span></div>
-                <div class="gallery-item"><i class="fas fa-book-reader"></i><span>Library</span></div>
-                <div class="gallery-item"><i class="fas fa-flask"></i><span>Science Lab</span></div>
-                <div class="gallery-item"><i class="fas fa-laptop-code"></i><span>Computer Lab</span></div>
+            <div class="gallery-tabs">
+                <div class="gallery-tab active" onclick="switchGallery('main', this)"><i class="fas fa-school"></i> Main Building</div>
+                <div class="gallery-tab" onclick="switchGallery('library', this)"><i class="fas fa-book-reader"></i> Library</div>
+                <div class="gallery-tab" onclick="switchGallery('science', this)"><i class="fas fa-flask"></i> Science Lab</div>
+                <div class="gallery-tab" onclick="switchGallery('computer', this)"><i class="fas fa-laptop-code"></i> Computer Lab</div>
             </div>
+            <div class="gallery-display" id="gallery-display"></div>
+        </div>
+
+        <!-- Gallery Lightbox -->
+        <div id="gallery-lightbox" class="modal" style="display:none;" onclick="closeGalleryModal()">
+            <span class="lightbox-close">&times;</span>
+            <img id="lightbox-img" src="">
         </div>
     </div>
 </section>
