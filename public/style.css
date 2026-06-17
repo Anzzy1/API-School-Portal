@@ -391,39 +391,74 @@ body {
 .faq-answer a { color: var(--primary); text-decoration: none; font-weight: 500; }
 .faq-answer a:hover { text-decoration: underline; }
 
-.contact-container { max-width: 1100px; margin: 0 auto; padding: 100px 30px; }
-.contact-container h1 { text-align: center; font-size: clamp(28px, 4vw, 42px); margin-bottom: 40px; }
-.contact-container .highlight { color: var(--primary); }
-
-.contact-content { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-
-.contact-info { display: flex; flex-direction: column; gap: 12px; }
-
-.contact-card {
-    display: flex; align-items: flex-start; gap: 15px;
-    background: white; border: 1px solid var(--border-color);
-    border-radius: var(--radius-sm); padding: 20px;
+#contact {
+    background: linear-gradient(135deg, #f8faff 0%, #eef3fb 100%);
+    position: relative;
+}
+#contact::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 4px; background: linear-gradient(90deg, var(--primary), var(--accent));
 }
 
-.contact-card:hover { border-color: var(--primary); }
-.contact-card i { font-size: 20px; color: var(--primary); margin-top: 2px; }
-.contact-card h3 { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+.contact-container { max-width: 1100px; margin: 0 auto; padding: 100px 30px; position: relative; }
+.contact-container h1 { text-align: center; font-size: clamp(28px, 4vw, 42px); margin-bottom: 8px; }
+.contact-container .highlight { color: var(--primary); }
+.contact-container > p { text-align: center; color: var(--text-secondary); margin-bottom: 45px; font-size: 15px; }
+
+.contact-content { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+
+.contact-info { display: flex; flex-direction: column; gap: 15px; }
+
+.contact-card {
+    display: flex; align-items: center; gap: 18px;
+    background: white; border: 1px solid var(--border-color);
+    border-radius: var(--radius); padding: 22px 24px;
+    transition: var(--transition); box-shadow: var(--shadow);
+}
+.contact-card:hover {
+    border-color: var(--primary); transform: translateX(5px);
+    box-shadow: 0 4px 20px rgba(27, 54, 93, 0.1);
+}
+.contact-card i {
+    width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white; border-radius: 12px; font-size: 18px; flex-shrink: 0;
+    transition: var(--transition);
+}
+.contact-card:hover i { transform: scale(1.05); }
+.contact-card h3 { font-size: 14px; font-weight: 600; margin-bottom: 3px; color: var(--text-primary); }
 .contact-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
 
-.contact-form { background: white; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 30px; }
-.contact-form h3 { font-size: 18px; margin-bottom: 20px; }
+.contact-form {
+    background: white; border: 1px solid var(--border-color);
+    border-radius: var(--radius); padding: 35px;
+    box-shadow: 0 4px 24px rgba(27, 54, 93, 0.06);
+}
+.contact-form h3 {
+    font-size: 20px; margin-bottom: 25px; color: var(--primary);
+    display: flex; align-items: center; gap: 10px;
+}
+.contact-form h3::after {
+    content: ''; flex: 1; height: 1px; background: var(--border-color);
+}
 
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
 .contact-form input, .contact-form textarea {
-    width: 100%; padding: 12px 16px; background: #ffffff;
-    border: 1px solid var(--border-color); border-radius: var(--radius-sm);
+    width: 100%; padding: 14px 18px; background: #fafbfc;
+    border: 1.5px solid var(--border-color); border-radius: var(--radius-sm);
     color: var(--text-primary); font-family: 'Poppins', sans-serif;
     font-size: 14px; transition: var(--transition);
 }
+.contact-form input:hover, .contact-form textarea:hover { border-color: #b0b8c8; }
 
-.contact-form textarea { resize: vertical; min-height: 100px; }
-.contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(27, 54, 93, 0.1); }
+.contact-form textarea { resize: vertical; min-height: 120px; }
+.contact-form input:focus, .contact-form textarea:focus {
+    outline: none; border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(27, 54, 93, 0.08); background: white;
+}
+.contact-form button { margin-top: 5px; }
+.contact-form button i { margin-right: 8px; }
 
 .pricing-container { max-width: 1100px; margin: 0 auto; padding: 100px 30px; }
 .pricing-container h1 { text-align: center; font-size: clamp(28px, 4vw, 42px); margin-bottom: 10px; }
