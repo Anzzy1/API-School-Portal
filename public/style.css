@@ -290,13 +290,36 @@ body {
 .mission .about-icon { background: rgba(76, 175, 80, 0.1); color: var(--success); }
 .vision .about-icon { background: rgba(33, 150, 243, 0.1); color: #2196f3; }
 .values .about-icon { background: rgba(27, 54, 93, 0.08); color: var(--primary); }
-.history .about-icon { background: rgba(156, 39, 176, 0.1); color: #9c27b0; }
-
 .about-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 12px; }
 .about-card p { color: var(--text-secondary); font-size: 14px; line-height: 1.6; }
 .about-card ul { list-style: none; }
 .about-card ul li { padding: 4px 0; font-size: 14px; color: var(--text-secondary); display: flex; align-items: center; gap: 8px; }
 .about-card ul li i { color: var(--primary); }
+
+.history-fullwidth {
+    width: 100%; margin-bottom: 50px;
+}
+.history-title {
+    text-align: center; font-size: clamp(24px, 3vw, 34px); margin-bottom: 30px;
+}
+.history-content {
+    display: flex; align-items: center; gap: 40px;
+    background: white; border: 1px solid var(--border-color);
+    border-radius: var(--radius); padding: 40px;
+}
+.history-logo {
+    flex-shrink: 0; width: 200px;
+}
+.history-logo img {
+    width: 100%; height: auto;
+}
+.history-text {
+    flex: 1;
+}
+.history-text p {
+    color: var(--text-secondary); font-size: 15px; line-height: 1.8; margin-bottom: 12px;
+}
+.history-text p:last-child { margin-bottom: 0; }
 
 .campus-section { margin-bottom: 50px; }
 .campus-section h2 { text-align: center; font-size: clamp(24px, 3vw, 34px); margin-bottom: 25px; }
@@ -1112,6 +1135,8 @@ body {
     .gallery-grid { grid-template-columns: repeat(2, 1fr); }
     .help-grid { grid-template-columns: repeat(2, 1fr); }
     .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto 25px; }
+    .history-content { flex-direction: column; text-align: center; }
+    .history-logo { width: 150px; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
     .dash-sidebar { width: 200px; }
     .dash-layout { padding-left: 240px; }
