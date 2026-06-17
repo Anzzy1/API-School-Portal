@@ -38,6 +38,9 @@ db.connect(err => {
     db.query("UPDATE applicants SET status='enrolled' WHERE status='pending'", (err) => {
         if (err) console.log('Migration note:', err.message);
     });
+    db.query("ALTER TABLE applicants MODIFY COLUMN status ENUM('pending','enrolled','dropped') DEFAULT 'pending'", (err) => {
+        if (err) console.log('Alter note:', err.message);
+    });
 });
 
 // ==================== JWT MIDDLEWARE ====================

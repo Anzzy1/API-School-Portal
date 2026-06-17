@@ -1652,7 +1652,7 @@ function showSectionStudents(courseCode) {
                 '<div class="card-actions" style="margin-top:10px;display:flex;gap:8px;">' +
                 '<button class="btn-primary" onclick="openGradeModal(\'' + s.student_id + '\',\'' + [s.first_name, s.middle_name, s.last_name, s.suffix].filter(Boolean).join(' ') + '\')" style="padding:6px 14px;font-size:13px;"><i class="fas fa-star"></i> Grades</button>' +
                 '<button class="btn-secondary" onclick="openEditInfoModal(\'' + s.student_id + '\')" style="padding:6px 14px;font-size:13px;"><i class="fas fa-edit"></i> Edit Info</button>' +
-                '<button class="btn-danger" onclick="dropStudent(\'' + s.student_id + '\',\'' + [s.first_name, s.middle_name, s.last_name, s.suffix].filter(Boolean).join(' ') + '\')" style="padding:6px 14px;font-size:13px;"><i class="fas fa-user-slash"></i> Drop</button>' +
+                '<button class="btn-danger" onclick="dropStudent(\'' + s.student_id + '\',\'' + [s.first_name, s.middle_name, s.last_name, s.suffix].filter(Boolean).join(' ') + '\',\'' + courseCode + '\')" style="padding:6px 14px;font-size:13px;"><i class="fas fa-user-slash"></i> Drop</button>' +
                 '</div>';
             div.appendChild(card);
         });
@@ -1921,8 +1921,9 @@ function gmodalAddGrade(studentId, code) {
 let dropTargetId = null;
 let dropTargetSection = null;
 
-function dropStudent(studentId, studentName) {
+function dropStudent(studentId, studentName, section) {
     dropTargetId = studentId;
+    dropTargetSection = section || null;
     document.getElementById('drop-student-name').textContent = studentName;
     document.getElementById('drop-student-id-display').textContent = studentId;
     document.getElementById('drop-modal').style.display = 'flex';
@@ -1931,15 +1932,20 @@ function dropStudent(studentId, studentName) {
 function closeDropModal() {
     document.getElementById('drop-modal').style.display = 'none';
     dropTargetId = null;
+    dropTargetSection = null;
 }
 
 function confirmDrop() {
-    if (!dropTargetId || !dropTargetSection) return;
+    if (!dropTargetId) return;
     apiFetch('/api/operator/students/' + dropTargetId + '/drop', { method: 'PUT' }).then(data => {
         if (data.success) {
             showNotification('Student dropped successfully.', 'success');
             closeDropModal();
-            showSectionStudents(dropTargetSection);
+            if (dropTargetSection) {
+                showSectionStudents(dropTargetSection);
+            } else {
+                loadAllSections();
+            }
         } else {
             showNotification(data.message || 'Failed to drop student.', 'error');
         }
