@@ -2,7 +2,7 @@
 .icon-img { height: 28px; vertical-align: middle; }
 
 :root {
-    --primary: #3457D5;
+    --primary: #5B86E5;
     --primary-light: #4A6FD9;
     --primary-dark: #1F3AA8;
     --accent: #C0392B;
@@ -85,12 +85,12 @@ body {
 .nav-links li a:hover, .nav-links li a.active { color: var(--primary); background: #e8edf3; }
 
 .nav-login-btn {
-    background: var(--primary); color: white; text-decoration: none;
-    padding: 8px 24px; border: 2px solid var(--primary);
-    border-radius: 45%; font-weight: 600; font-size: 13px;
+    background: linear-gradient(135deg, #36D1DC, #5B86E5); color: white; text-decoration: none;
+    padding: 8px 24px; border: none;
+    border-radius: 50px; font-weight: 600; font-size: 13px;
     transition: var(--transition); flex-shrink: 0;
 }
-.nav-login-btn:hover { background: var(--primary-light); border-color: var(--primary-light); }
+.nav-login-btn:hover { background: linear-gradient(135deg, #2bb8c2, #4a75d4); transform: translateY(-1px); }
 
 .hamburger { display: none; font-size: 24px; cursor: pointer; color: var(--text-primary); }
 
@@ -135,12 +135,12 @@ body {
 
 .hero-btn {
     padding: 14px 32px; border-radius: var(--radius-sm); border: none;
-    background: var(--primary); color: white; cursor: pointer;
+    background: linear-gradient(135deg, #36D1DC, #5B86E5); color: white; cursor: pointer;
     font-weight: 600; transition: var(--transition); font-size: 15px;
     display: inline-flex; align-items: center; gap: 8px;
 }
 
-.hero-btn:hover { background: var(--primary-light); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(52, 87, 213, 0.3); }
+.hero-btn:hover { background: linear-gradient(135deg, #2bb8c2, #4a75d4); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(91, 134, 229, 0.3); }
 .hero-login-card { flex: 0 0 380px; }
 
 .login-form-card {
@@ -220,13 +220,13 @@ body {
 
 .btn-primary {
     padding: 12px 28px; border: none; border-radius: var(--radius-sm);
-    background: var(--primary); color: white; font-size: 14px;
+    background: linear-gradient(135deg, #36D1DC, #5B86E5); color: white; font-size: 14px;
     font-weight: 600; cursor: pointer; transition: var(--transition);
     font-family: 'Poppins', sans-serif; display: inline-flex;
     align-items: center; gap: 8px;
 }
 
-.btn-primary:hover { background: var(--primary-light); }
+.btn-primary:hover { background: linear-gradient(135deg, #2bb8c2, #4a75d4); }
 
 .btn-secondary {
     padding: 12px 28px; border: 1px solid var(--border-color);
