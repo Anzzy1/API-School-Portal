@@ -74,7 +74,7 @@ body {
 
 .logo img { height: 44px; width: auto; }
 
-.nav-links { display: flex; list-style: none; gap: 5px; align-items: center; justify-content: center; flex: 1; }
+.nav-links { display: flex; list-style: none; gap: 5px; align-items: center; justify-content: center; flex: 1; margin: 0; }
 
 .nav-links li a {
     color: var(--text-secondary); text-decoration: none;
@@ -85,11 +85,12 @@ body {
 .nav-links li a:hover, .nav-links li a.active { color: var(--primary); background: #e8edf3; }
 
 .nav-login-btn {
-    background: var(--primary) !important; color: white !important;
-    padding: 8px 24px !important; border-radius: 50px !important; font-weight: 600 !important;
+    background: var(--primary); color: white; text-decoration: none;
+    padding: 8px 24px; border: 2px solid var(--primary);
+    border-radius: 45%; font-weight: 600; font-size: 13px;
+    transition: var(--transition); flex-shrink: 0;
 }
-
-.nav-login-btn:hover { background: var(--primary-light) !important; }
+.nav-login-btn:hover { background: var(--primary-light); border-color: var(--primary-light); }
 
 .hamburger { display: none; font-size: 24px; cursor: pointer; color: var(--text-primary); }
 
