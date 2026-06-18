@@ -2,9 +2,9 @@
 .icon-img { height: 28px; vertical-align: middle; }
 
 :root {
-    --primary: #1B365D;
-    --primary-light: #2A4A7A;
-    --primary-dark: #0F1F3A;
+    --primary: #3457D5;
+    --primary-light: #4A6FD9;
+    --primary-dark: #1F3AA8;
     --accent: #C0392B;
     --accent-light: #D45042;
     --bg: #ffffff;
@@ -105,7 +105,7 @@ body {
 .hero-text { flex: 1; }
 
 .hero-badge {
-    display: inline-block; background: rgba(27, 54, 93, 0.1);
+    display: inline-block; background: rgba(52, 87, 213, 0.1);
     color: var(--primary); padding: 6px 20px; border-radius: 50px;
     font-size: 13px; font-weight: 600; margin-bottom: 20px;
 }
@@ -139,7 +139,7 @@ body {
     display: inline-flex; align-items: center; gap: 8px;
 }
 
-.hero-btn:hover { background: var(--primary-light); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(27, 54, 93, 0.3); }
+.hero-btn:hover { background: var(--primary-light); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(52, 87, 213, 0.3); }
 .hero-login-card { flex: 0 0 380px; }
 
 .login-form-card {
@@ -183,7 +183,7 @@ body {
     font-size: 14px; transition: var(--transition);
 }
 
-.login-form-card input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(27, 54, 93, 0.1); }
+.login-form-card input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(52, 87, 213, 0.1); }
 
 .login-submit-btn { width: 100%; padding: 12px; margin-top: 5px; justify-content: center; }
 
@@ -215,7 +215,7 @@ body {
     color: var(--text-primary); font-family: 'Poppins', sans-serif;
     font-size: 14px; transition: var(--transition);
 }
-.login-box .form-group input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(27, 54, 93, 0.1); }
+.login-box .form-group input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(52, 87, 213, 0.1); }
 
 .btn-primary {
     padding: 12px 28px; border: none; border-radius: var(--radius-sm);
@@ -289,7 +289,7 @@ body {
 .about-icon { width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 18px; }
 .mission .about-icon { background: rgba(76, 175, 80, 0.1); color: var(--success); }
 .vision .about-icon { background: rgba(33, 150, 243, 0.1); color: #2196f3; }
-.values .about-icon { background: rgba(27, 54, 93, 0.08); color: var(--primary); }
+.values .about-icon { background: rgba(52, 87, 213, 0.08); color: var(--primary); }
 .about-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 12px; }
 .about-card p { color: var(--text-secondary); font-size: 14px; line-height: 1.6; }
 .about-card ul { list-style: none; }
@@ -442,7 +442,7 @@ body {
 }
 .contact-card:hover {
     border-color: var(--primary); transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(27, 54, 93, 0.1);
+    box-shadow: 0 8px 25px rgba(52, 87, 213, 0.1);
 }
 .contact-card i {
     width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
@@ -475,7 +475,7 @@ body {
 .contact-form textarea { resize: vertical; min-height: 120px; }
 .contact-form input:focus, .contact-form textarea:focus {
     outline: none; border-color: var(--primary);
-    box-shadow: 0 0 0 4px rgba(27, 54, 93, 0.08); background: white;
+    box-shadow: 0 0 0 4px rgba(52, 87, 213, 0.08); background: white;
 }
 .contact-form button { margin-top: 5px; }
 .contact-form button:hover { transform: translateY(-2px); }
@@ -650,8 +650,8 @@ body {
     display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;
 }
 
-.notif-icon.announcement { background: rgba(27, 54, 93, 0.08); color: var(--primary); }
-.notif-icon.academic { background: rgba(27, 54, 93, 0.08); color: var(--primary); }
+.notif-icon.announcement { background: rgba(52, 87, 213, 0.08); color: var(--primary); }
+.notif-icon.academic { background: rgba(52, 87, 213, 0.08); color: var(--primary); }
 .notif-icon.events { background: rgba(33, 150, 243, 0.1); color: #2196f3; }
 
 .notif-body h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
@@ -694,7 +694,7 @@ body {
     font-size: 14px; transition: var(--transition);
 }
 
-.enroll-field input:focus, .enroll-field select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(27, 54, 93, 0.1); }
+.enroll-field input:focus, .enroll-field select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(52, 87, 213, 0.1); }
 .enroll-field select option { background: white; color: var(--text-primary); }
 
 .enroll-nav { display: flex; gap: 12px; justify-content: flex-end; margin-top: 25px; }
@@ -717,10 +717,10 @@ body {
 
 .dashboard-badge {
     padding: 6px 16px; border-radius: 50px; font-size: 12px; font-weight: 600;
-    background: rgba(27, 54, 93, 0.1); color: var(--primary); text-transform: uppercase;
+    background: rgba(52, 87, 213, 0.1); color: var(--primary); text-transform: uppercase;
 }
 
-.operator-badge { background: rgba(27, 54, 93, 0.08); color: var(--primary); }
+.operator-badge { background: rgba(52, 87, 213, 0.08); color: var(--primary); }
 
 .dashboard-tabs {
     display: flex; gap: 5px; margin-bottom: 25px; flex-wrap: wrap;
@@ -766,7 +766,7 @@ body {
 
 .dash-sidebar-header i { font-size: 48px; color: var(--primary); margin-bottom: 8px; }
 .dash-sidebar-header span { display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px; color: var(--text-primary); }
-.dash-sidebar-header .dashboard-badge { background: rgba(27, 54, 93, 0.08); color: var(--primary); }
+.dash-sidebar-header .dashboard-badge { background: rgba(52, 87, 213, 0.08); color: var(--primary); }
 
 .dash-sidebar-tabs { padding: 15px; display: flex; flex-direction: column; gap: 4px; flex: 1; overflow-y: auto; }
 
@@ -997,7 +997,7 @@ body {
     border: 1px solid var(--border-color); border-radius: var(--radius-sm);
     color: var(--text-primary); font-family: 'Poppins', sans-serif; font-size: 14px; transition: var(--transition);
 }
-.op-grade-search input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(27, 54, 93, 0.1); }
+.op-grade-search input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(52, 87, 213, 0.1); }
 
 .op-grade-form .form-group { margin-bottom: 14px; }
 
