@@ -127,9 +127,10 @@ body {
 .deco-input-group:focus-within { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.5); }
 .deco-input-group i { color: rgba(255,255,255,0.6); font-size: 16px; width: 20px; text-align: center; }
 .deco-input-group input {
-    flex: 1; background: none; border: none; outline: none;
+    flex: 1; background: transparent; border: none; outline: none;
     color: white; font-size: 14px; font-family: 'Poppins', sans-serif;
 }
+.deco-input-group input:-webkit-autofill { -webkit-box-shadow: 0 0 0 1000px transparent inset; -webkit-text-fill-color: white; caret-color: white; transition: background-color 5000s; }
 .deco-input-group input::placeholder { color: rgba(255,255,255,0.5); }
 
 .deco-form-options {
