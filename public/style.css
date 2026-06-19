@@ -361,7 +361,7 @@ body {
     border-radius: var(--radius-sm);
     transform: translateX(-100%); transition: transform 0.5s;
 }
-.hero-btn-secondary:hover { color: white; }
+.hero-btn-secondary:hover { color: white; border-color: transparent; }
 .hero-btn-secondary:hover::before { transform: translateX(0); }
 .hero-btn-secondary:active { color: white; }
 .hero-btn-secondary:active::before { transform: translateX(-100%); }
