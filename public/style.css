@@ -903,7 +903,7 @@ body {
 
 .dash-sidebar {
     width: 240px; flex-shrink: 0;
-    background: white;
+    background: var(--primary-gradient);
     display: flex; flex-direction: column;
     position: fixed; top: 0; left: 0; bottom: 0;
     z-index: 1000;
@@ -914,7 +914,7 @@ body {
     padding: 20px 15px;
 }
 .sidebar-logo { width: 36px; height: 36px; flex-shrink: 0; }
-.sidebar-brand-title { font-size: 12px; font-weight: 600; color: var(--text-primary); flex: 1; line-height: 1.2; }
+.sidebar-brand-title { font-size: 12px; font-weight: 600; color: white; flex: 1; line-height: 1.2; }
 
 
 
@@ -922,14 +922,14 @@ body {
 
 .side-tab {
     padding: 14px 18px; border: none; border-radius: var(--radius-sm);
-    background: transparent; color: var(--text-secondary);
+    background: transparent; color: rgba(255,255,255,0.8);
     font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 500;
     cursor: pointer; transition: var(--transition);
     display: flex; align-items: center; gap: 12px; text-align: left; width: 100%;
 }
 
-.side-tab:hover { color: var(--primary); background: #e8edf3; }
-.side-tab.active { background: var(--primary-gradient); color: white; }
+.side-tab:hover { color: white; background: rgba(255,255,255,0.15); }
+.side-tab.active { background: white; color: var(--primary); }
 .side-tab i { width: 20px; text-align: center; }
 
 .dash-sidebar-footer {
