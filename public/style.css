@@ -128,29 +128,21 @@ body {
 
 .deco-input-group {
     display: flex; align-items: center; gap: 12px;
-    border-radius: 50px; padding: 14px 20px; margin-bottom: 16px;
+    background: white; border-radius: 50px; padding: 14px 20px; margin-bottom: 16px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.06);
     transition: var(--transition);
 }
 .deco-input-group:focus-within { box-shadow: 0 0 0 3px rgba(3, 70, 255, 0.12), 0 2px 6px rgba(0,0,0,0.06); }
 .deco-input-group i { color: var(--text-muted); font-size: 16px; width: 20px; text-align: center; }
-#login-email, #login-password {
+#login-email, #login-password, #login-email:-webkit-autofill, #login-password:-webkit-autofill {
     background: transparent !important;
     background-color: transparent !important;
-    -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
-    box-shadow: 0 0 0 1000px transparent inset !important;
-}
-#login-email:-webkit-autofill, #login-password:-webkit-autofill,
-#login-email:-internal-autofill-selected, #login-password:-internal-autofill-selected {
-    background: transparent !important;
-    background-color: transparent !important;
-    -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
-    box-shadow: 0 0 0 1000px transparent inset !important;
+    -webkit-box-shadow: 0 0 0 2000px white inset !important;
+    box-shadow: 0 0 0 2000px white inset !important;
     -webkit-text-fill-color: var(--text-primary) !important;
     caret-color: var(--text-primary) !important;
-    animation-name: autofillKill; animation-duration: 1ms;
+    transition: background-color 600000s ease-in-out 0s !important;
 }
-@keyframes autofillKill { from { background: transparent; background-color: transparent; } to { background: transparent; background-color: transparent; } }
 .deco-input-group input {
     flex: 1; background: transparent; border: none; outline: none;
     color: var(--text-primary); font-size: 14px; font-family: 'Poppins', sans-serif;
