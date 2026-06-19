@@ -151,7 +151,10 @@ body {
     padding: 0 4px;
 }
 .deco-form-options label { color: var(--text-secondary); cursor: pointer; display: flex; align-items: center; gap: 6px; }
-.deco-form-options label input { accent-color: var(--primary); }
+.deco-form-options label input[type="checkbox"] {
+    width: 16px; height: 16px; margin: 0; cursor: pointer;
+    accent-color: var(--primary); border-radius: 4px;
+}
 .deco-form-options a { color: var(--primary); text-decoration: none; }
 .deco-form-options a:hover { text-decoration: underline; }
 
