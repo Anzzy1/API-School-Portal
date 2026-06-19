@@ -68,11 +68,11 @@ body {
 }
 
 .logo {
-    display: flex; align-items: center; gap: 10px; cursor: pointer;
-    font-size: 18px; font-weight: 700; color: var(--primary);
+    display: flex; align-items: center; gap: 8px; cursor: pointer;
+    font-size: 15px; font-weight: 700; color: var(--primary);
 }
 
-.logo img { height: 44px; width: auto; }
+.logo img { height: 36px; width: auto; }
 
 .nav-links { display: flex; list-style: none; gap: 5px; align-items: center; justify-content: center; flex: 1; margin: 0; }
 
