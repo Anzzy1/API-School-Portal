@@ -104,7 +104,7 @@ body {
     background: #ffffff; position: relative; overflow: hidden;
 }
 .hero-deco-right {
-    width: 500px; padding: 50px 40px 55px;
+    width: 480px; padding: 50px 40px 55px; min-height: 500px;
     background: linear-gradient(180deg, #e8f0ff 0%, #ffffff 30%, #ffffff 70%, #e0eaff 100%);
     border: 1px solid var(--border-color);
     border-radius: 24px;
