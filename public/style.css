@@ -850,7 +850,7 @@ body {
 .dashboard-header {
     display: flex; justify-content: space-between; align-items: center;
     background: white; border: 1px solid var(--border-color);
-    border-radius: var(--radius); padding: 15px 15px 15px 0;
+    border-radius: var(--radius); padding: 15px 15px 15px 20px;
     margin-bottom: 20px; flex-wrap: wrap; gap: 15px;
 }
 
