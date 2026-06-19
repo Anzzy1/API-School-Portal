@@ -1148,7 +1148,7 @@ body {
 .not-found-links { display: flex; gap: 12px; }
 
 .footer {
-    background: linear-gradient(to top, #0346FF 0%, #0346FF 20%, #ffffff 100%); padding: 50px 30px 0;
+    background: linear-gradient(to top, #0346FF 0%, #0346FF 60%, #ffffff 100%); padding: 50px 30px 0;
     margin-top: 60px;
 }
 
@@ -1156,10 +1156,10 @@ body {
 
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 30px; margin-bottom: 30px; }
 
-.footer-col h4 { font-size: 16px; font-weight: 600; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; color: var(--text-primary); }
-.footer-col p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 15px; }
-.footer-col a { display: block; color: var(--text-secondary); text-decoration: none; font-size: 13px; padding: 4px 0; transition: var(--transition); }
-.footer-col a:hover { color: var(--primary); }
+.footer-col h4 { font-size: 16px; font-weight: 600; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; color: white; }
+.footer-col p { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.6; margin-bottom: 15px; }
+.footer-col a { display: block; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px; padding: 4px 0; transition: var(--transition); }
+.footer-col a:hover { color: white; }
 
 .footer-social { display: flex; gap: 10px; }
 .footer-social a {
