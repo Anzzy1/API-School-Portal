@@ -65,24 +65,28 @@
                     </button>
                 </div>
             </div>
-            <div class="hero-login-card">
-                <div class="login-form-card">
-                    <h3><i class="fas fa-lock"></i> Student Portal Login</h3>
+            <div class="hero-deco-right">
+                <div class="deco-login-card">
+                    <div class="deco-login-header">
+                        <img src="/images/API-logo.png" alt="">
+                        <h3>Student Portal</h3>
+                        <p>Sign in to your account</p>
+                    </div>
                     <form id="login-form-home" onsubmit="return handleLogin(event)">
-                        <div class="form-group">
-                            <label><i class="fas fa-envelope"></i> Email</label>
-                            <input type="email" id="login-email" placeholder="Enter your email" required>
+                        <div class="deco-input-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="login-email" placeholder="Email address" required>
                         </div>
-                        <div class="form-group">
-                            <label><i class="fas fa-key"></i> Password</label>
-                            <input type="password" id="login-password" placeholder="Enter your password" required>
+                        <div class="deco-input-group">
+                            <i class="fas fa-key"></i>
+                            <input type="password" id="login-password" placeholder="Password" required>
                         </div>
-                        <div class="form-options">
-                            <label class="remember-me"><input type="checkbox" id="remember-me"> Remember me</label>
-                            <a href="#" class="forgot-link" onclick="showSection('help')">Forgot password?</a>
+                        <div class="deco-form-options">
+                            <label><input type="checkbox" id="remember-me"> Remember me</label>
+                            <a href="#" onclick="showSection('help')">Forgot password?</a>
                         </div>
-                        <button type="submit" class="btn-primary login-submit-btn"><i class="fas fa-sign-in-alt"></i> Login</button>
-                <p class="login-footer-text">For new student application. <a href="#" onclick="showSection('enroll')">Apply now</a></p>
+                        <button type="submit" class="deco-login-btn">Sign In</button>
+                        <p class="deco-footer-text">New student? <a href="#" onclick="showSection('enroll')">Apply now</a></p>
                     </form>
                 </div>
             </div>
