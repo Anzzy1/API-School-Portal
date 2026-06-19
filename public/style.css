@@ -160,12 +160,12 @@ body {
 .deco-form-options a:hover { text-decoration: underline; }
 
 .deco-login-btn {
-    width: 100%; padding: 14px; border: none; border-radius: 12px;
+    width: 100%; padding: 14px; border: 3px solid transparent; border-radius: 12px;
     background: linear-gradient(135deg, #0346FF, #66B2FF); color: white; font-size: 15px;
     font-weight: 700; cursor: pointer; transition: background 0.5s, color 0.5s;
     font-family: 'Poppins', sans-serif;
 }
-.deco-login-btn:hover { background: white; color: var(--primary); }
+.deco-login-btn:hover { background: white; color: var(--primary); border-color: var(--primary); }
 .deco-login-btn:active { background: linear-gradient(135deg, #0346FF, #66B2FF); color: white; }
 
 .deco-footer-text { text-align: center; margin-top: 20px; font-size: 13px; color: var(--text-muted); }
@@ -205,14 +205,14 @@ body {
 .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
 
 .hero-btn {
-    padding: 14px 32px; border-radius: var(--radius-sm); border: 1px solid var(--primary);
+    padding: 14px 32px; border-radius: var(--radius-sm);     border: 3px solid transparent;
     background: linear-gradient(135deg, #0346FF, #66B2FF); color: white; cursor: pointer;
     font-weight: 600; transition: background 0.5s, color 0.5s; font-size: 15px;
     display: inline-flex; align-items: center; gap: 8px;
 }
 
 .hero-btn:hover {
-    background: white; color: var(--primary); animation: none;
+    background: white; color: var(--primary); border-color: var(--primary); animation: none;
 }
 
 .hero-btn:active {
@@ -254,12 +254,12 @@ body {
 
 .login-submit-btn {
     width: 100%; padding: 12px; margin-top: 5px; justify-content: center;
-    background: linear-gradient(135deg, #0346FF, #66B2FF); color: white; border: none;
+    background: linear-gradient(135deg, #0346FF, #66B2FF); color: white; border: 3px solid transparent;
     border-radius: var(--radius-sm); font-weight: 600; cursor: pointer;
     font-family: 'Poppins', sans-serif; font-size: 14px;
     transition: background 0.5s, color 0.5s; display: inline-flex; align-items: center; gap: 8px;
 }
-.login-submit-btn:hover { background: white; color: var(--primary); }
+.login-submit-btn:hover { background: white; color: var(--primary); border-color: var(--primary); }
 .login-submit-btn:active { background: linear-gradient(135deg, #0346FF, #66B2FF); color: white; }
 
 .login-footer-text { text-align: center; margin-top: 15px; font-size: 13px; color: var(--text-muted); }
@@ -298,7 +298,7 @@ body {
 }
 
 .btn-primary {
-    padding: 12px 28px; border: none; border-radius: var(--radius-sm);
+    padding: 12px 28px; border: 3px solid transparent; border-radius: var(--radius-sm);
     background: linear-gradient(135deg, #0346FF, #66B2FF); color: white; font-size: 14px;
     font-weight: 600; cursor: pointer; transition: background 0.5s, color 0.5s;
     font-family: 'Poppins', sans-serif; display: inline-flex;
@@ -306,7 +306,7 @@ body {
 }
 
 .btn-primary:hover {
-    background: white; color: var(--primary); animation: none;
+    background: white; color: var(--primary); border-color: var(--primary); animation: none;
 }
 
 .btn-primary:active {
