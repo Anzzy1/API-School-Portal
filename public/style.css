@@ -895,7 +895,7 @@ body {
 
 .dash-layout {
     display: block;
-    padding: 20px 20px 20px 210px;
+    padding: 20px 20px 20px 160px;
     min-height: 100vh;
 }
 
@@ -907,7 +907,7 @@ body {
 }
 
 .dash-sidebar {
-    width: 210px; flex-shrink: 0;
+    width: 160px; flex-shrink: 0;
     background: var(--primary-gradient);
     display: flex; flex-direction: column;
     position: fixed; top: 0; left: 0; bottom: 0;
@@ -1365,7 +1365,7 @@ body {
     .history-logo { width: 150px; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
     .dash-sidebar { width: 200px; }
-    .dash-layout { padding-left: 210px; }
+    .dash-layout { padding-left: 160px; }
 }
 
 @media (max-width: 768px) {
