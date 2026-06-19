@@ -894,12 +894,19 @@ body {
 .dashboard-content { min-height: 400px; }
 
 .dash-layout {
-    display: flex; max-width: 1400px;
-    margin: 0 auto; padding: 60px 40px 60px 280px; min-height: 100vh;
-    gap: 25px;
+    display: block;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 10px 10px 10px 240px;
+    min-height: 100vh;
 }
 
-.dash-main { flex: 1; min-width: 0; background: white; border-radius: var(--radius); padding: 25px; box-shadow: var(--shadow); }
+.dash-main {
+    background: white;
+    border-radius: var(--radius);
+    padding: 25px;
+    min-height: calc(100vh - 20px);
+}
 
 .dash-sidebar {
     width: 240px; flex-shrink: 0;
@@ -1379,7 +1386,7 @@ body {
     .gallery-display img { height: 200px; }
     .help-grid { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; }
-    .dash-layout { flex-direction: column; padding: 80px 20px 80px; }
+    .dash-layout { padding: 80px 10px 70px; }
     .dash-sidebar { width: 100%; position: fixed; bottom: 0; left: 0; top: auto; flex-direction: row; flex-wrap: wrap; padding: 0; border-radius: 0; }
     .dash-sidebar-header { display: none; }
     .dash-sidebar-tabs { flex-direction: row; flex-wrap: wrap; padding: 8px; flex: 1; }
