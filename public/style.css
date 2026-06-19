@@ -480,7 +480,7 @@ body {
 .campus-contacts p { font-size: 13px; }
 .campus-contacts i { width: 20px; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
-.campus-map { border-radius: var(--radius); }
+.campus-map { border-radius: var(--radius); margin-top: 15px; }
 .campus-map iframe { width: 100%; height: 300px; border: none; border-radius: var(--radius); }
 
 .campus-gallery { margin-top: 20px; text-align: center; }
