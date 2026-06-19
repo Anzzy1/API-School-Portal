@@ -137,7 +137,8 @@ body {
     transition: var(--transition);
 }
 .deco-input-group:focus-within { box-shadow: 0 0 0 3px rgba(255,255,255,0.4), 0 2px 6px rgba(0,0,0,0.06); }
-.deco-input-group i { color: var(--primary); font-size: 16px; width: 20px; text-align: center; }
+.deco-input-group i { font-size: 16px; width: 20px; text-align: center; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.deco-input-group:focus-within i { background: var(--primary-dark); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 #login-email, #login-password, #login-email:-webkit-autofill, #login-password:-webkit-autofill {
     background: transparent !important;
     background-color: transparent !important;
@@ -178,9 +179,9 @@ body {
     border-radius: 12px;
     transform: translateX(-100%); transition: transform 0.5s;
 }
-.deco-login-btn:hover { color: var(--primary); border-color: white; }
+.deco-login-btn:hover { background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; border-color: white; }
 .deco-login-btn:hover::before { transform: translateX(0); }
-.deco-login-btn:active { color: var(--primary); }
+.deco-login-btn:active { background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .deco-login-btn:active::before { transform: translateX(-100%); }
 
 .deco-footer-text { text-align: center; margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.6); }
