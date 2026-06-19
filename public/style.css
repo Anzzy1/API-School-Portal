@@ -404,8 +404,8 @@ body {
 
 .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; margin-bottom: 50px; }
 
-.about-card { background: white; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 30px; transition: var(--transition); }
-.about-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+.about-card { background: white; border-radius: var(--radius); padding: 30px; transition: var(--transition); box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+.about-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.12); }
 
 .about-icon { width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 18px; }
 .mission .about-icon { background: rgba(76, 175, 80, 0.1); color: var(--success); }
@@ -425,8 +425,8 @@ body {
 }
 .history-content {
     display: flex; align-items: center; gap: 40px;
-    background: white; border: 1px solid var(--border-color);
-    border-radius: var(--radius); padding: 40px;
+    background: white;
+    border-radius: var(--radius); padding: 40px; box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 }
 .history-logo {
     flex-shrink: 0; width: 200px;
@@ -448,8 +448,8 @@ body {
 .campus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
 
 .campus-info-card {
-    background: white; border: 1px solid var(--border-color);
-    border-radius: var(--radius); padding: 30px;
+    background: white;
+    border-radius: var(--radius); padding: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 }
 
 .campus-info-card > i { font-size: 32px; color: var(--primary); margin-bottom: 15px; }
@@ -470,12 +470,13 @@ body {
     display: flex; justify-content: center; gap: 10px; margin-bottom: 25px; flex-wrap: wrap;
 }
 .gallery-tab {
-    padding: 12px 24px; border: 1px solid var(--border-color);
+    padding: 12px 24px;
     border-radius: var(--radius-sm); cursor: pointer; font-size: 14px; font-weight: 500;
     transition: var(--transition); background: white; display: flex; align-items: center; gap: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
 }
-.gallery-tab:hover { border-color: var(--primary); color: var(--primary); }
-.gallery-tab.active { background: var(--primary); color: white; border-color: var(--primary); }
+.gallery-tab:hover { color: var(--primary); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.gallery-tab.active { background: var(--primary); color: white; }
 .gallery-tab i { font-size: 18px; }
 
 .gallery-display {
@@ -483,7 +484,7 @@ body {
 }
 .gallery-display img {
     width: 100%; height: 250px; object-fit: cover; border-radius: var(--radius-sm);
-    cursor: pointer; transition: var(--transition); border: 1px solid var(--border-color);
+    cursor: pointer; transition: var(--transition); box-shadow: 0 1px 4px rgba(0,0,0,0.08);
 }
 .gallery-display img:hover { transform: scale(1.02); box-shadow: var(--shadow-hover); }
 
@@ -496,19 +497,18 @@ body {
 .officials-list { display: flex; flex-direction: column; gap: 20px; }
 .official-card {
     display: flex; align-items: flex-start; gap: 25px;
-    background: white; border: 1px solid var(--border-color);
+    background: white;
     border-radius: var(--radius); padding: 25px 30px;
-    transition: var(--transition); box-shadow: var(--shadow); width: 100%;
+    transition: var(--transition); box-shadow: 0 2px 10px rgba(0,0,0,0.08); width: 100%;
 }
 .official-card:hover {
-    transform: translateY(-3px); box-shadow: var(--shadow-hover);
-    border-color: var(--primary);
+    transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.12);
 }
 .official-card img {
     width: 100px; height: 100px; object-fit: cover; flex-shrink: 0;
-    border: 3px solid var(--border-color); border-radius: 4px;
+    box-shadow: 0 0 0 3px var(--border-color); border-radius: 4px;
 }
-.official-card:hover img { border-color: var(--primary); }
+.official-card:hover img { box-shadow: 0 0 0 3px var(--primary); }
 .official-info { flex: 1; min-width: 0; }
 .official-info h3 { font-size: 17px; font-weight: 600; margin-bottom: 3px; color: var(--text-primary); }
 .official-pos { font-size: 13px; color: var(--accent); display: block; margin-bottom: 8px; font-weight: 500; }
