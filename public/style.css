@@ -171,13 +171,13 @@ body {
 }
 .deco-login-btn::before {
     content: ''; position: absolute; inset: 0; z-index: -1;
-    background: linear-gradient(135deg, #0346FF, #66B2FF);
+    background: white;
     border-radius: 12px;
     transform: translateX(-100%); transition: transform 0.5s;
 }
-.deco-login-btn:hover { color: white; border-color: transparent; }
+.deco-login-btn:hover { color: var(--primary); border-color: white; }
 .deco-login-btn:hover::before { transform: translateX(0); }
-.deco-login-btn:active { color: white; }
+.deco-login-btn:active { color: var(--primary); }
 .deco-login-btn:active::before { transform: translateX(-100%); }
 
 .deco-footer-text { text-align: center; margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.6); }
