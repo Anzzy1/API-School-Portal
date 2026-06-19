@@ -95,6 +95,8 @@ function showSection(sectionId) {
     document.getElementById('main-nav').style.display = 'block';
     document.body.style.paddingTop = '0px';
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    const footer = document.querySelector('.footer');
+    if (footer) footer.style.display = (sectionId === 'student-dashboard' || sectionId === 'operator-dashboard') ? 'none' : 'block';
 }
 
 function toggleHamburger() { document.getElementById('nav-links').classList.toggle('show'); }
