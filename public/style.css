@@ -115,7 +115,6 @@ body {
 .deco-login-card { width: 100%; }
 
 .deco-login-header { text-align: center; margin-bottom: 30px; }
-.deco-login-header img { width: 70px; height: 70px; margin-bottom: 12px; }
 .deco-login-header h3 { font-size: 24px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
 .deco-login-header p { font-size: 14px; color: var(--text-muted); }
 
