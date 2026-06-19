@@ -79,7 +79,7 @@ body {
 
 .nav-links li a {
     color: var(--text-secondary); text-decoration: none;
-    padding: 8px 14px; border-radius: var(--radius-sm);
+    padding: 8px 14px; border-radius: 50px;
     transition: var(--transition); font-size: 13px; font-weight: 500;
 }
 
