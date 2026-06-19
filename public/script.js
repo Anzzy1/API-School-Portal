@@ -608,8 +608,6 @@ function showStudentDashboard() {
     document.getElementById('main-nav').style.display = 'none';
     document.getElementById('dashboard-header-title').textContent = currentUser.full_name;
     document.getElementById('dashboard-student-info').textContent = currentUser.student_id;
-    document.getElementById('sidebar-user-name').textContent = currentUser.full_name;
-    document.getElementById('sidebar-role-badge').textContent = currentUser.role;
     loadDashboard();
     loadProfile();
     loadSchedule();
@@ -1512,7 +1510,6 @@ function showOperatorDashboard() {
     showSection('operator-dashboard');
     document.getElementById('main-nav').style.display = 'none';
     document.getElementById('operator-dashboard-info').textContent = 'Welcome, ' + currentUser.full_name;
-    document.getElementById('sidebar-op-name').textContent = currentUser.full_name;
     loadAllSections();
 }
 

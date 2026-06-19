@@ -916,8 +916,7 @@ body {
 .sidebar-logo { width: 36px; height: 36px; flex-shrink: 0; }
 .sidebar-brand-title { font-size: 12px; font-weight: 600; color: var(--text-primary); flex: 1; line-height: 1.2; }
 
-.dash-sidebar-header .dashboard-badge { position: relative; z-index: 1; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.dash-sidebar-header .dashboard-badge::before { content: ''; position: absolute; inset: 0; border-radius: 50px; background: rgba(3, 70, 255, 0.08); z-index: -1; }
+
 
 .dash-sidebar-tabs { padding: 15px; display: flex; flex-direction: column; gap: 4px; flex: 1; overflow-y: auto; }
 
