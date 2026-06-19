@@ -111,7 +111,8 @@ body {
     background: #ffffff; position: relative; overflow: hidden;
 }
 .hero-deco-right {
-    width: 480px; padding: 50px 40px 55px; min-height: 500px;
+    width: 520px; height: 600px; padding: 50px 45px 55px;
+    display: flex; flex-direction: column; justify-content: center;
     background: linear-gradient(180deg, #e8f0ff 0%, #ffffff 30%, #ffffff 70%, #e0eaff 100%);
     border-radius: 24px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
