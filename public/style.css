@@ -910,11 +910,15 @@ body {
 }
 
 .dash-sidebar-header {
-    text-align: center; padding: 30px 20px 20px;
+    display: flex; align-items: center; gap: 10px;
+    padding: 20px 15px;
 }
+.sidebar-logo { width: 36px; height: 36px; flex-shrink: 0; }
+.sidebar-brand-text { flex: 1; min-width: 0; }
+.sidebar-brand-text span { display: block; font-size: 12px; font-weight: 600; color: var(--text-primary); line-height: 1.2; }
+.sidebar-user-name { font-size: 11px !important; font-weight: 400 !important; color: var(--text-secondary) !important; margin-top: 2px; }
+.sidebar-brand-text .dashboard-badge { display: inline-block; }
 
-.dash-sidebar-header i { font-size: 48px; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px; }
-.dash-sidebar-header span { display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px; color: var(--text-primary); }
 .dash-sidebar-header .dashboard-badge { position: relative; z-index: 1; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .dash-sidebar-header .dashboard-badge::before { content: ''; position: absolute; inset: 0; border-radius: 50px; background: rgba(3, 70, 255, 0.08); z-index: -1; }
 
