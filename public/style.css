@@ -88,12 +88,19 @@ body {
     background: linear-gradient(135deg, #0346FF, #66B2FF); color: white; text-decoration: none;
     padding: 8px 24px; border: none;
     border-radius: 50px; font-weight: 600; font-size: 13px;
-    transition: var(--transition); flex-shrink: 0;
+    flex-shrink: 0; position: relative; z-index: 1; overflow: hidden;
+    display: inline-flex; align-items: center; gap: 6px;
+    transition: color 0.5s;
 }
-.nav-login-btn:hover {
-    background: linear-gradient(135deg, #0235CC, #4A8FCC);
-    animation: neonPulse 1.5s ease-in-out infinite;
+.nav-login-btn::before {
+    content: ''; position: absolute; inset: 0; z-index: -1;
+    background: white; border-radius: 50px;
+    transform: translateX(-100%); transition: transform 0.5s;
 }
+.nav-login-btn:hover { color: var(--primary); outline: 3px solid var(--primary); }
+.nav-login-btn:hover::before { transform: translateX(0); }
+.nav-login-btn:active { color: white; }
+.nav-login-btn:active::before { transform: translateX(-100%); }
 
 .hamburger { display: none; font-size: 24px; cursor: pointer; color: var(--text-primary); }
 
