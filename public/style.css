@@ -850,7 +850,7 @@ body {
 .dashboard-header {
     display: flex; justify-content: space-between; align-items: center;
     background: white; border: 1px solid var(--border-color);
-    border-radius: var(--radius); padding: 15px 15px;
+    border-radius: var(--radius); padding: 15px 15px 15px 0;
     margin-bottom: 20px; flex-wrap: wrap; gap: 15px;
 }
 
@@ -895,7 +895,7 @@ body {
 
 .dash-layout {
     display: block;
-    padding: 20px 20px 20px 160px;
+    padding: 20px 20px 20px 240px;
     min-height: 100vh;
 }
 
@@ -907,7 +907,7 @@ body {
 }
 
 .dash-sidebar {
-    width: 160px; flex-shrink: 0;
+    width: 240px; flex-shrink: 0;
     background: var(--primary-gradient);
     display: flex; flex-direction: column;
     position: fixed; top: 0; left: 0; bottom: 0;
@@ -1365,7 +1365,7 @@ body {
     .history-logo { width: 150px; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
     .dash-sidebar { width: 200px; }
-    .dash-layout { padding-left: 160px; }
+    .dash-layout { padding-left: 240px; }
 }
 
 @media (max-width: 768px) {
