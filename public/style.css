@@ -472,6 +472,7 @@ body {
 
 .gallery-tabs {
     display: flex; justify-content: center; gap: 10px; margin-bottom: 25px; flex-wrap: wrap;
+    border: 1px solid var(--border-color); border-radius: 50px; padding: 8px;
 }
 .gallery-tab {
     padding: 12px 24px;
