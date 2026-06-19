@@ -107,16 +107,16 @@ body {
 .hero {
     min-height: 100vh;
     display: flex; align-items: center; justify-content: center;
-    padding: 100px 30px 40px;
+    padding: 100px 0 40px 30px;
     background: #ffffff; position: relative; overflow: hidden;
 }
 .hero-deco-right {
-    width: 520px; height: 600px; padding: 50px 45px 55px;
+    flex: 1; max-width: 560px; height: 600px; padding: 50px 45px 55px;
     display: flex; flex-direction: column; justify-content: center;
     background: linear-gradient(180deg, #e8f0ff 0%, #ffffff 30%, #ffffff 70%, #e0eaff 100%);
-    border-radius: 24px;
+    border-radius: 24px 0 0 24px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-    flex-shrink: 0;
+    margin-right: 0;
 }
 
 .deco-login-card { width: 100%; }
@@ -182,9 +182,9 @@ body {
 .deco-footer-text a { color: var(--primary); text-decoration: none; font-weight: 600; }
 .deco-footer-text a:hover { text-decoration: underline; }
 
-.hero-content { display: flex; align-items: center; gap: 60px; max-width: 1300px; width: 100%; position: relative; z-index: 1; }
+.hero-content { display: flex; align-items: center; gap: 60px; width: 100%; position: relative; z-index: 1; padding: 0 0 0 60px; box-sizing: border-box; }
 
-.hero-text { flex: 1; }
+.hero-text { flex: 0 0 auto; max-width: 520px; }
 
 .hero-badge {
     display: inline-block; background: rgba(3, 70, 255, 0.1);
