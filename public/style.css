@@ -83,7 +83,7 @@ body {
     transition: var(--transition); font-size: 13px; font-weight: 500;
 }
 
-.nav-links li a:hover, .nav-links li a.active { color: var(--primary); background: #e8edf3; }
+.nav-links li a:hover, .nav-links li a.active { color: white; background: linear-gradient(135deg, #0346FF, #66B2FF); }
 
 .nav-login-btn {
     background: linear-gradient(135deg, #0346FF, #66B2FF); color: white; text-decoration: none;
