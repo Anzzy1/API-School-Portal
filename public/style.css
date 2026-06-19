@@ -895,15 +895,13 @@ body {
 
 .dash-layout {
     display: block;
-    max-width: 1400px;
-    margin: 0 auto;
     padding: 10px 10px 10px 240px;
     min-height: 100vh;
 }
 
 .dash-main {
     background: white;
-    border-radius: var(--radius);
+    border-radius: 0 var(--radius) var(--radius) 0;
     padding: 25px 60px 25px 30px;
     min-height: calc(100vh - 20px);
 }
