@@ -906,7 +906,7 @@ body {
     background: white;
     display: flex; flex-direction: column;
     position: fixed; top: 0; left: 0; bottom: 0;
-    z-index: 1000; border-right: 1px solid var(--border-color);
+    z-index: 1000;
 }
 
 .dash-sidebar-header {
@@ -933,7 +933,7 @@ body {
 .side-tab i { width: 20px; text-align: center; }
 
 .dash-sidebar-footer {
-    padding: 15px; border-top: 1px solid var(--border-color);
+    padding: 15px;
 }
 
 .side-logout {
