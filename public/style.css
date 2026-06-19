@@ -158,7 +158,8 @@ body {
 .deco-form-options label { color: rgba(255,255,255,0.8); cursor: pointer; display: flex; align-items: center; gap: 6px; }
 .deco-form-options label input[type="checkbox"] {
     width: 16px; height: 16px; margin: 0; cursor: pointer;
-    accent-color: var(--primary); border-radius: 4px;
+    accent-color: white; border-radius: 3px;
+    outline: 1px solid rgba(255,255,255,0.5); outline-offset: 2px;
 }
 .deco-form-options a { color: rgba(255,255,255,0.85); text-decoration: none; }
 .deco-form-options a:hover { color: white; text-decoration: underline; }
