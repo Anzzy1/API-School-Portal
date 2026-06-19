@@ -1261,7 +1261,7 @@ function loadDashboard() {
         html += '<div class="dash-card" style="padding:12px;background:#f8f9fa;border-radius:var(--radius);border-left:4px solid #27ae60;"><h4 style="margin:0 0 5px;font-size:13px;color:var(--text-muted);">Subjects</h4><p style="margin:0;font-size:20px;font-weight:600;">' + currentSubjects.length + '</p></div>';
         html += '<div class="dash-card" style="padding:12px;background:#f8f9fa;border-radius:var(--radius);border-left:4px solid #e67e22;"><h4 style="margin:0 0 5px;font-size:13px;color:var(--text-muted);">GWA</h4><p style="margin:0;font-size:20px;font-weight:600;">' + (gradeList.length > 0 ? (gradeList.reduce((sum, g) => sum + parseFloat(g.grade), 0) / gradeList.length).toFixed(2) : 'N/A') + '</p></div>';
         html += '</div>';
-        html += '<div style="background:#f8f9fa;border-radius:var(--radius);padding:20px;margin-bottom:20px;border:2px solid var(--primary);box-shadow:0 0 10px rgba(27,54,93,0.15);">';
+        html += '<div style="background:#f8f9fa;border-radius:var(--radius);padding:10px;margin-bottom:20px;border:2px solid var(--primary);box-shadow:0 0 10px rgba(27,54,93,0.15);">';
         html += '<h4 style="margin:0 0 10px;font-size:15px;"><i class="fas fa-calendar-day" style="color:var(--primary);margin-right:8px;"></i>Today\'s Classes (' + today + ')</h4>';
         if (todayEntries.length === 0) {
             html += '<p class="no-data" style="margin:0;">No classes today.</p>';
@@ -1298,7 +1298,7 @@ function loadDashboard() {
             }
         });
 
-        html += '<div style="background:#f8f9fa;border-radius:var(--radius);padding:20px;">';
+        html += '<div style="background:#f8f9fa;border-radius:var(--radius);padding:10px;">';
         html += '<h4 style="margin:0 0 10px;font-size:15px;"><i class="fas fa-calendar-week" style="color:var(--primary);margin-right:8px;"></i>Weekly Schedule</h4>';
         html += '<div style="overflow-x:auto;"><table class="timetable" style="margin:0;"><thead><tr><th>Time</th>';
         days.forEach(d => { html += '<th>' + d + '</th>'; });

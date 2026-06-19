@@ -895,7 +895,7 @@ body {
 
 .dash-layout {
     display: block;
-    padding: 20px 20px 20px 200px;
+    padding: 20px 20px 20px 240px;
     min-height: 100vh;
 }
 
@@ -951,7 +951,7 @@ body {
 .dashboard-tab-content.active { display: block; }
 .dashboard-tab-content h3 { font-size: 18px; font-weight: 600; margin-bottom: 20px; }
 
-.no-data { color: var(--text-muted); font-size: 14px; text-align: center; padding: 20px; }
+.no-data { color: var(--text-muted); font-size: 14px; text-align: center; padding: 10px; }
 
 .reg-form { background: white; border: 1px solid #0f2440; border-radius: var(--radius); overflow: hidden; width: 98%; max-width: 720px; margin: 0 auto; }
 .reg-header { background: var(--primary-gradient); color: white; text-align: center; padding: 8px 15px; }
@@ -1365,7 +1365,7 @@ body {
     .history-logo { width: 150px; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
     .dash-sidebar { width: 200px; }
-    .dash-layout { padding-left: 200px; }
+    .dash-layout { padding-left: 240px; }
 }
 
 @media (max-width: 768px) {
