@@ -237,7 +237,7 @@ body {
     background: white; border-radius: var(--radius-sm);
     transform: translateX(-100%); transition: transform 0.5s;
 }
-.hero-btn:hover { background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; outline: 3px solid var(--primary-dark); }
+.hero-btn:hover { color: var(--primary); outline: 3px solid var(--primary-dark); }
 .hero-btn:hover::before { transform: translateX(0); }
 .hero-btn:active { color: white; }
 .hero-btn:active::before { transform: translateX(-100%); }
@@ -288,7 +288,7 @@ body {
     background: white; border-radius: var(--radius-sm);
     transform: translateX(-100%); transition: transform 0.5s;
 }
-.login-submit-btn:hover { background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; outline: 3px solid var(--primary-dark); }
+.login-submit-btn:hover { color: var(--primary); outline: 3px solid var(--primary-dark); }
 .login-submit-btn:hover::before { transform: translateX(0); }
 .login-submit-btn:active { color: white; }
 .login-submit-btn:active::before { transform: translateX(-100%); }
@@ -341,7 +341,7 @@ body {
     background: white; border-radius: var(--radius-sm);
     transform: translateX(-100%); transition: transform 0.5s;
 }
-.btn-primary:hover { background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; outline: 3px solid var(--primary-dark); }
+.btn-primary:hover { color: var(--primary); outline: 3px solid var(--primary-dark); }
 .btn-primary:hover::before { transform: translateX(0); }
 .btn-primary:active { color: white; }
 .btn-primary:active::before { transform: translateX(-100%); }
@@ -354,7 +354,8 @@ body {
     font-family: 'Poppins', sans-serif; display: inline-flex; align-items: center; gap: 8px;
 }
 
-.btn-secondary:hover { border-color: var(--primary-dark); background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.btn-secondary:hover { border-color: var(--primary-dark); color: var(--primary); }
+.hero-btn-secondary:hover { color: white; border-color: transparent; }
 
 .hero-btn-secondary {
     padding: 14px 32px; border-radius: var(--radius-sm);
@@ -392,7 +393,7 @@ body {
     position: relative; transition: var(--transition);
 }
 
-.btn-icon:hover { border-color: var(--primary-dark); background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.btn-icon:hover { border-color: var(--primary-dark); color: var(--primary); }
 
 .notif-badge {
     position: absolute; top: -5px; right: -5px;
@@ -770,7 +771,7 @@ body {
     font-size: 13px; font-weight: 500; transition: var(--transition); font-family: 'Poppins', sans-serif;
 }
 
-.notif-filter:hover { border-color: var(--primary-dark); background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.notif-filter:hover { border-color: var(--primary-dark); color: var(--primary); }
 .notif-filter.active { background: var(--primary-gradient); color: white; border-color: var(--primary-dark); }
 
 .notif-item {
@@ -879,7 +880,8 @@ body {
     display: flex; align-items: center; gap: 6px;
 }
 
-.tab-btn:hover { background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; background: #e8edf3; }
+.tab-btn:hover { color: var(--primary); background: #e8edf3; }
+.op-tab-btn:hover { color: var(--primary); background: #e8edf3; }
 .tab-btn.active { background: var(--primary-gradient); color: white; }
 
 .field-error { color: var(--danger); font-size: 12px; margin-top: 4px; font-weight: 500; }
@@ -922,7 +924,7 @@ body {
     display: flex; align-items: center; gap: 12px; text-align: left; width: 100%;
 }
 
-.side-tab:hover { background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; background: #e8edf3; }
+.side-tab:hover { color: var(--primary); background: #e8edf3; }
 .side-tab.active { background: var(--primary-gradient); color: white; }
 .side-tab i { width: 20px; text-align: center; }
 
