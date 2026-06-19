@@ -904,8 +904,7 @@ body {
 .dash-main {
     background: white;
     border-radius: var(--radius);
-    padding: 25px 40px;
-    max-width: 1400px;
+    padding: 25px 60px 25px 30px;
     min-height: calc(100vh - 20px);
 }
 
