@@ -467,12 +467,12 @@ body {
 .campus-map { border-radius: var(--radius); }
 .campus-map iframe { width: 100%; height: 300px; border: none; border-radius: var(--radius); }
 
-.campus-gallery { margin-top: 20px; }
+.campus-gallery { margin-top: 20px; text-align: center; }
 .campus-gallery h2 { text-align: center; font-size: clamp(24px, 3vw, 34px); margin-bottom: 25px; }
 
 .gallery-tabs {
-    display: flex; justify-content: center; gap: 10px; margin-bottom: 25px; flex-wrap: wrap;
-    border: 1px solid var(--border-color); border-radius: 50px; padding: 8px;
+    display: inline-flex; justify-content: center; gap: 5px; margin-bottom: 25px; flex-wrap: wrap;
+    border: 1px solid var(--border-color); border-radius: 50px; padding: 4px;
 }
 .gallery-tab {
     padding: 12px 24px;
