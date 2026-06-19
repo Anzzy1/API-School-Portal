@@ -924,10 +924,10 @@ body {
 
 
 
-.dash-sidebar-tabs { padding: 15px; display: flex; flex-direction: column; gap: 4px; flex: 1; overflow-y: auto; }
+.dash-sidebar-tabs { display: flex; flex-direction: column; gap: 4px; flex: 1; overflow-y: auto; }
 
 .side-tab {
-    padding: 14px 18px; border: none; border-radius: var(--radius-sm);
+    padding: 14px 18px; border: none; border-radius: 0;
     background: transparent; color: rgba(255,255,255,0.8);
     font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 500;
     cursor: pointer; transition: var(--transition);
