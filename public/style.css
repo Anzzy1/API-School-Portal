@@ -523,9 +523,6 @@ body {
     position: relative; margin-top: 15px;
 }
 .official-card::before { content: ''; position: absolute; top: 20px; left: -5px; width: 10px; height: 40px; border-radius: 5px 0 0 5px; background: var(--primary-vertical); z-index: -1; }
-.official-card:hover {
-    transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-}
 .official-card img {
     width: 100px; height: 100px; object-fit: cover; flex-shrink: 0;
     box-shadow: 0 0 0 3px var(--border-color); border-radius: 4px;
