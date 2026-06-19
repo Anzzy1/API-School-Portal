@@ -165,7 +165,7 @@ body {
     font-weight: 700; cursor: pointer; transition: var(--transition);
     font-family: 'Poppins', sans-serif;
 }
-.deco-login-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(3, 70, 255, 0.3); }
+.deco-login-btn:hover { box-shadow: 0 8px 25px rgba(3, 70, 255, 0.3); }
 
 .deco-footer-text { text-align: center; margin-top: 20px; font-size: 13px; color: var(--text-muted); }
 .deco-footer-text a { color: var(--primary); text-decoration: none; font-weight: 600; }
@@ -316,7 +316,7 @@ body {
     display: inline-flex; align-items: center; gap: 8px;
 }
 
-.hero-btn-secondary:hover { background: var(--primary); color: white; transform: translateY(-3px); border-color: var(--primary); }
+.hero-btn-secondary:hover { background: var(--primary); color: white; border-color: var(--primary); }
 
 .btn-danger {
     padding: 10px 24px; border: none; border-radius: var(--radius-sm);
