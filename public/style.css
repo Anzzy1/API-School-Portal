@@ -132,6 +132,13 @@ body {
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
 }
+#login-email:-webkit-autofill, #login-password:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+    -webkit-text-fill-color: var(--text-primary) !important;
+    caret-color: var(--text-primary) !important;
+    background: transparent !important;
+    transition: background-color 50000s ease-in-out 0s !important;
+}
 .deco-input-group input {
     flex: 1; background: transparent; border: none; outline: none;
     color: var(--text-primary); font-size: 14px; font-family: 'Poppins', sans-serif;
