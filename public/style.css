@@ -65,15 +65,15 @@ body {
 
 .nav-container {
     display: flex; align-items: center;
-    padding: 0 20px; height: 54px;
+    padding: 0 15px; height: 50px;
 }
 
 .logo {
-    display: flex; align-items: center; gap: 8px; cursor: pointer;
-    font-size: 15px; font-weight: 700; color: var(--primary);
+    display: flex; align-items: center; gap: 6px; cursor: pointer;
+    font-size: 14px; font-weight: 700; color: var(--primary);
 }
 
-.logo img { height: 36px; width: auto; }
+.logo img { height: 30px; width: auto; }
 
 .nav-links { display: flex; list-style: none; gap: 5px; align-items: center; justify-content: center; flex: 1; margin: 0; }
 
@@ -87,7 +87,7 @@ body {
 
 .nav-login-btn {
     background: linear-gradient(135deg, #0346FF, #66B2FF); color: white; text-decoration: none;
-    padding: 8px 24px; border: none;
+    padding: 6px 18px; border: none;
     border-radius: 50px; font-weight: 600; font-size: 13px;
     flex-shrink: 0; position: relative; z-index: 1; overflow: hidden;
     display: inline-flex; align-items: center; gap: 6px;
