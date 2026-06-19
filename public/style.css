@@ -1303,6 +1303,7 @@ body {
     .hero-text p { margin: 0 auto 25px; }
     .hero-stats { justify-content: center; }
     .hero-buttons { justify-content: center; }
+    .hero-deco-right { position: relative; right: auto; top: auto; transform: none; width: 100%; max-width: 440px; border-radius: 24px; margin: 30px auto 0; }
     .contact-content { grid-template-columns: 1fr; }
     .op-grades-grid { grid-template-columns: 1fr; }
     .campus-grid { grid-template-columns: 1fr; }
