@@ -115,11 +115,6 @@ body {
     background: url('/images/API-bg.png') center / cover no-repeat;
     position: relative;
 }
-.hero::before {
-    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100px;
-    background: linear-gradient(180deg, #f0f4ff 0%, transparent 100%);
-    pointer-events: none;
-}
 .hero-deco-right {
     position: absolute; left: 58%; top: 50%; transform: translateY(-50%);
     width: 500px; height: 600px; padding: 50px 45px 55px 45px; margin-top: 30px;
