@@ -940,9 +940,9 @@ body {
 .side-logout {
     width: 100%; justify-content: center;
     border: 1px solid var(--danger) !important;
-    background: transparent !important; color: var(--danger) !important;
+    background: white !important; color: var(--danger) !important;
 }
-.side-logout:hover { background: var(--danger) !important; color: white !important; }
+.side-logout:hover { background: #fce4e4 !important; }
 .dashboard-tab-content { display: none; animation: fadeIn 0.3s ease; }
 .dashboard-tab-content.active { display: block; }
 .dashboard-tab-content h3 { font-size: 18px; font-weight: 600; margin-bottom: 20px; }
