@@ -939,7 +939,6 @@ body {
 
 .side-logout {
     width: 100%; justify-content: center;
-    border: 1px solid var(--danger) !important;
     background: white !important; color: var(--danger) !important;
 }
 .side-logout:hover { background: #fce4e4 !important; }
