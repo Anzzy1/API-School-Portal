@@ -231,15 +231,14 @@ body {
 .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
 
 .hero-btn {
-    padding: 14px 32px; border-radius: var(--radius-sm); border: none;
-    background: var(--primary-gradient); color: white; cursor: pointer;
+    padding: 14px 32px; border-radius: var(--radius-sm);
+    border: 2px solid transparent;
+    background: var(--primary-gradient) padding-box,
+                linear-gradient(135deg, #0235CC, #0346FF) border-box;
+    color: white; cursor: pointer;
     font-weight: 600; transition: color 0.5s; font-size: 15px;
     display: inline-flex; align-items: center; gap: 8px;
     position: relative; z-index: 1;
-}
-.hero-btn::after {
-    content: ''; position: absolute; inset: -2px; border-radius: inherit;
-    background: var(--primary-gradient); z-index: -2;
 }
 .hero-btn::before {
     content: ''; position: absolute; inset: 0; z-index: -1;
@@ -368,15 +367,17 @@ body {
 
 .hero-btn-secondary {
     padding: 14px 32px; border-radius: var(--radius-sm);
-    border: none; background: transparent;
-    background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; cursor: pointer; font-weight: 600;
+    border: 2px solid transparent;
+    background-image: var(--primary-gradient), var(--primary-gradient);
+    background-clip: text, border-box;
+    background-origin: border-box, border-box;
+    -webkit-background-clip: text, border-box;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    cursor: pointer; font-weight: 600;
     transition: color 0.5s; font-size: 15px;
     display: inline-flex; align-items: center; gap: 8px;
     position: relative; z-index: 1;
-}
-.hero-btn-secondary::after {
-    content: ''; position: absolute; inset: -2px; border-radius: inherit;
-    background: var(--primary-gradient); z-index: -2;
 }
 .hero-btn-secondary::before {
     content: ''; position: absolute; inset: 0; z-index: -1;
@@ -389,7 +390,6 @@ body {
 .hero-btn-secondary:hover::before { transform: scaleX(1); }
 .hero-btn-secondary:active { color: white; -webkit-text-fill-color: white; }
 .hero-btn-secondary:active::before { transform: scaleX(0); }
-.hero-btn-secondary:active::before { transform: translateX(-100%); }
 
 .btn-danger {
     padding: 10px 24px; border: none; border-radius: var(--radius-sm);
