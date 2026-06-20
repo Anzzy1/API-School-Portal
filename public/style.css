@@ -520,9 +520,8 @@ body {
 .official-card::before { content: ''; position: absolute; top: 20px; left: -5px; width: 10px; height: 40px; border-radius: 5px 0 0 5px; background: var(--primary-vertical); z-index: -1; }
 .official-card img {
     width: 100px; height: 100px; object-fit: cover; flex-shrink: 0;
-    box-shadow: 0 0 0 3px var(--border-color); border-radius: 4px;
+    box-shadow: 0 0 0 3px var(--primary-dark); border-radius: 4px;
 }
-.official-card:hover img { box-shadow: 0 0 0 3px var(--primary-dark); }
 .official-info { flex: 1; min-width: 0; }
 .official-info h3 { font-size: 17px; font-weight: 600; margin-bottom: 3px; color: var(--text-primary); }
 .official-pos { font-size: 13px; color: var(--accent); display: block; margin-bottom: 8px; font-weight: 500; }
