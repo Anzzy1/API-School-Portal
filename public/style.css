@@ -571,12 +571,12 @@ body {
 
 .contact-card {
     display: flex; align-items: center; gap: 18px;
-    background: white; border: 1px solid var(--border-color);
+    background: white; border: none;
     border-radius: var(--radius); padding: 22px 24px;
     transition: var(--transition); box-shadow: var(--shadow);
 }
 .contact-card:hover {
-    border-color: var(--primary-dark); transform: translateY(-3px);
+    transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(3, 70, 255, 0.1);
 }
 .contact-card i {
@@ -587,7 +587,7 @@ body {
 .contact-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
 
 .contact-form {
-    background: white; border: 1px solid var(--border-color);
+    background: white; border: none;
     border-radius: var(--radius); padding: 35px;
     box-shadow: var(--shadow);
 }
