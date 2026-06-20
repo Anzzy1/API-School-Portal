@@ -95,6 +95,8 @@ function showSection(sectionId) {
     document.getElementById('main-nav').style.display = 'block';
     document.body.style.paddingTop = '0px';
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    const footer = document.querySelector('.footer');
+    if (footer) footer.style.display = '';
 }
 
 function toggleHamburger() { document.getElementById('nav-links').classList.toggle('show'); }
@@ -606,6 +608,8 @@ function showStudentDashboard() {
     document.getElementById('main-nav').style.display = 'none';
     document.getElementById('dashboard-header-title').textContent = currentUser.full_name;
     document.getElementById('dashboard-student-info').textContent = currentUser.student_id;
+    const footer = document.querySelector('.footer');
+    if (footer) footer.style.display = 'none';
     loadDashboard();
     loadProfile();
     loadSchedule();
@@ -1510,6 +1514,8 @@ function showOperatorDashboard() {
     showSection('operator-dashboard');
     document.getElementById('main-nav').style.display = 'none';
     document.getElementById('operator-dashboard-info').textContent = 'Welcome, ' + currentUser.full_name;
+    const footer = document.querySelector('.footer');
+    if (footer) footer.style.display = 'none';
     loadAllSections();
 }
 
