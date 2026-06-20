@@ -1,4 +1,4 @@
-let API_BASE = 'https://aguinaldo-polytechnic-institute.up.railway.app';
+let API_BASE = '';
 let currentUser = null;
 let currentToken = null;
 
