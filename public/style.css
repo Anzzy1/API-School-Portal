@@ -112,7 +112,8 @@ body {
     min-height: 100vh;
     display: flex; align-items: center;
     padding: 100px 0 40px 100px;
-    background: #ffffff; position: relative;
+    background: url('/images/API-bg.png') center / cover no-repeat;
+    position: relative;
 }
 .hero::before {
     content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100px;
