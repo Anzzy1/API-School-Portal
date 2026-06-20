@@ -95,8 +95,6 @@ function showSection(sectionId) {
     document.getElementById('main-nav').style.display = 'block';
     document.body.style.paddingTop = '0px';
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    const footer = document.querySelector('.footer');
-    if (footer) footer.style.display = (sectionId === 'student-dashboard' || sectionId === 'operator-dashboard') ? 'none' : 'block';
 }
 
 function toggleHamburger() { document.getElementById('nav-links').classList.toggle('show'); }
@@ -608,6 +606,8 @@ function showStudentDashboard() {
     document.getElementById('main-nav').style.display = 'none';
     document.getElementById('dashboard-header-title').textContent = currentUser.full_name;
     document.getElementById('dashboard-student-info').textContent = currentUser.student_id;
+    document.getElementById('sidebar-user-name').textContent = currentUser.full_name;
+    document.getElementById('sidebar-role-badge').textContent = currentUser.role;
     loadDashboard();
     loadProfile();
     loadSchedule();
@@ -1256,12 +1256,12 @@ function loadDashboard() {
         });
 
         let html = '<div class="dash-cards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-bottom:25px;">';
-        html += '<div class="dash-card" style="padding:12px;background:#f8f9fa;border-radius:var(--radius);border-left:4px solid var(--primary);"><h4 style="margin:0 0 5px;font-size:13px;color:var(--text-muted);">Program</h4><p style="margin:0;font-size:20px;font-weight:600;">' + (course || 'N/A') + '</p></div>';
-        html += '<div class="dash-card" style="padding:12px;background:#f8f9fa;border-radius:var(--radius);border-left:4px solid var(--primary);"><h4 style="margin:0 0 5px;font-size:13px;color:var(--text-muted);">Year Level</h4><p style="margin:0;font-size:20px;font-weight:600;">' + (yearLevel || '1st Year') + '</p></div>';
-        html += '<div class="dash-card" style="padding:12px;background:#f8f9fa;border-radius:var(--radius);border-left:4px solid #27ae60;"><h4 style="margin:0 0 5px;font-size:13px;color:var(--text-muted);">Subjects</h4><p style="margin:0;font-size:20px;font-weight:600;">' + currentSubjects.length + '</p></div>';
-        html += '<div class="dash-card" style="padding:12px;background:#f8f9fa;border-radius:var(--radius);border-left:4px solid #e67e22;"><h4 style="margin:0 0 5px;font-size:13px;color:var(--text-muted);">GWA</h4><p style="margin:0;font-size:20px;font-weight:600;">' + (gradeList.length > 0 ? (gradeList.reduce((sum, g) => sum + parseFloat(g.grade), 0) / gradeList.length).toFixed(2) : 'N/A') + '</p></div>';
+        html += '<div class="dash-card" style="padding:20px;background:#f8f9fa;border-radius:var(--radius);border-left:4px solid var(--primary);"><h4 style="margin:0 0 5px;font-size:13px;color:var(--text-muted);">Program</h4><p style="margin:0;font-size:20px;font-weight:600;">' + (course || 'N/A') + '</p></div>';
+        html += '<div class="dash-card" style="padding:20px;background:#f8f9fa;border-radius:var(--radius);border-left:4px solid var(--primary);"><h4 style="margin:0 0 5px;font-size:13px;color:var(--text-muted);">Year Level</h4><p style="margin:0;font-size:20px;font-weight:600;">' + (yearLevel || '1st Year') + '</p></div>';
+        html += '<div class="dash-card" style="padding:20px;background:#f8f9fa;border-radius:var(--radius);border-left:4px solid #27ae60;"><h4 style="margin:0 0 5px;font-size:13px;color:var(--text-muted);">Subjects</h4><p style="margin:0;font-size:20px;font-weight:600;">' + currentSubjects.length + '</p></div>';
+        html += '<div class="dash-card" style="padding:20px;background:#f8f9fa;border-radius:var(--radius);border-left:4px solid #e67e22;"><h4 style="margin:0 0 5px;font-size:13px;color:var(--text-muted);">GWA</h4><p style="margin:0;font-size:20px;font-weight:600;">' + (gradeList.length > 0 ? (gradeList.reduce((sum, g) => sum + parseFloat(g.grade), 0) / gradeList.length).toFixed(2) : 'N/A') + '</p></div>';
         html += '</div>';
-        html += '<div style="background:#f8f9fa;border-radius:var(--radius);padding:10px;margin-bottom:20px;border:2px solid var(--primary);box-shadow:0 0 10px rgba(27,54,93,0.15);">';
+        html += '<div style="background:#f8f9fa;border-radius:var(--radius);padding:20px;margin-bottom:20px;border:2px solid var(--primary);box-shadow:0 0 10px rgba(27,54,93,0.15);">';
         html += '<h4 style="margin:0 0 10px;font-size:15px;"><i class="fas fa-calendar-day" style="color:var(--primary);margin-right:8px;"></i>Today\'s Classes (' + today + ')</h4>';
         if (todayEntries.length === 0) {
             html += '<p class="no-data" style="margin:0;">No classes today.</p>';
@@ -1298,7 +1298,7 @@ function loadDashboard() {
             }
         });
 
-        html += '<div style="background:#f8f9fa;border-radius:var(--radius);padding:10px;">';
+        html += '<div style="background:#f8f9fa;border-radius:var(--radius);padding:20px;">';
         html += '<h4 style="margin:0 0 10px;font-size:15px;"><i class="fas fa-calendar-week" style="color:var(--primary);margin-right:8px;"></i>Weekly Schedule</h4>';
         html += '<div style="overflow-x:auto;"><table class="timetable" style="margin:0;"><thead><tr><th>Time</th>';
         days.forEach(d => { html += '<th>' + d + '</th>'; });
@@ -1494,7 +1494,9 @@ function generateReport() {
 function downloadPDF() {
     const el = document.querySelector('.reg-form');
     if (!el) { showNotification('Please wait for the registration form to load.', 'error'); return; }
-    const opt = { margin: [0.2, 0.25, 0.3, 0.25], filename: 'ORF-' + (currentUser.student_id || 'registration') + '.pdf', image: { type: 'jpeg', quality: 0.95 }, html2canvas: { scale: 2, letterRendering: true, useCORS: true }, jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' } };
+    const opt = { margin: [0.2, 0.25, 0.3, 0.25], filename: 'ORF-' + (currentUser.student_id || 'registration') + '.pdf', 
+        image: { type: 'jpeg', quality: 0.95 }, html2canvas: { scale: 2, letterRendering: true, useCORS: true }, 
+        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' } };
     html2pdf().set(opt).from(el).save();
 }
 
@@ -1510,6 +1512,7 @@ function showOperatorDashboard() {
     showSection('operator-dashboard');
     document.getElementById('main-nav').style.display = 'none';
     document.getElementById('operator-dashboard-info').textContent = 'Welcome, ' + currentUser.full_name;
+    document.getElementById('sidebar-op-name').textContent = currentUser.full_name;
     loadAllSections();
 }
 
