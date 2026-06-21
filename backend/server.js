@@ -8,7 +8,6 @@ const { spawn } = require('child_process');
 const fs = require('fs');
 require('dotenv').config();
 
-// Railway auto-sets PORT; detect if we're on Railway
 const isRailway = process.env.PORT === '8080';
 
 const dbConfig = {
@@ -44,7 +43,6 @@ db.connect(err => {
     });
 });
 
-// ==================== JWT MIDDLEWARE ====================
 function authenticateToken(req, res, next) {
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
@@ -63,7 +61,6 @@ function requireOperator(req, res, next) {
     next();
 }
 
-// ==================== AUTO-GENERATE STUDENT ID ====================
 function generateStudentId(callback) {
     const year = new Date().getFullYear();
     const prefix = 'UA' + year;

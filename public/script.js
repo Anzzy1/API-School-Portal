@@ -457,7 +457,7 @@ function submitEnrollment() {
 
     const tempPass = 'temp' + Date.now();
     const suffix = document.getElementById('suffix').value;
-    // Save enrollment data for receipt
+
     const enrollData = {
         fullName: [first_name, middle_name, last_name, suffix].filter(Boolean).join(' '),
         course: course_code,
@@ -723,7 +723,7 @@ function editProfile() {
 
     let html = '<div class="profile-sections">';
 
-    // Personal Information (read-only)
+    // Personal Information 
     html += '<div class="profile-section"><div class="profile-section-header"><i class="fas fa-user"></i> Personal Information</div><div class="profile-section-grid">';
     html += '<div class="profile-field"><label>Student ID</label><span>' + u.student_id + '</span></div>';
     html += '<div class="profile-field"><label>Full Name</label><span>' + u.full_name + '</span></div>';
@@ -733,7 +733,7 @@ function editProfile() {
     html += '<div class="profile-field"><label>Religion</label><span>' + (u.religion || 'N/A') + '</span></div>';
     html += '</div></div>';
 
-    // Academic Information (read-only)
+    // Academic Information 
     html += '<div class="profile-section"><div class="profile-section-header"><i class="fas fa-graduation-cap"></i> Academic Information</div><div class="profile-section-grid">';
     html += '<div class="profile-field"><label>Course / Program</label><span>' + (u.course_code || 'N/A') + '</span></div>';
     html += '<div class="profile-field"><label>Year</label><span>' + (u.year_level || '1st Year') + '</span></div>';
@@ -741,7 +741,7 @@ function editProfile() {
     html += '<div class="profile-field"><label>Status</label><span>' + u.status + '</span></div>';
     html += '</div></div>';
 
-    // Contact Information (editable)
+    // Contact Information
     html += '<div class="profile-section"><div class="profile-section-header"><i class="fas fa-envelope"></i> Contact Information</div><div class="profile-section-grid">';
     html += '<div class="profile-field-edit"><label>Email</label><span>' + esc(u.email) + '</span></div>';
     html += '<div class="profile-field-edit"><label>Phone</label><input type="text" id="edit-phone" value="' + esc(u.phone) + '" placeholder="Phone number"></div>';
@@ -753,7 +753,7 @@ function editProfile() {
     html += '<div class="profile-field-edit"><label>Guardian\'s Phone</label><input type="text" id="edit-guardian_phone" value="' + esc(u.guardian_phone) + '" placeholder="Guardian\'s phone"></div>';
     html += '</div></div>';
 
-    // Address Information (editable)
+    // Address Information
     html += '<div class="profile-section"><div class="profile-section-header"><i class="fas fa-map-marker-alt"></i> Address Information</div><div class="profile-section-grid">';
     html += '<div class="profile-field-edit"><label>Country</label><select id="edit-country" onchange="onEditCountryChange(); toggleOtherInput(this, \'edit-country-other\')"><option value="">Select country</option></select><input type="text" id="edit-country-other" class="other-input" placeholder="Please specify" style="display:none;margin-top:6px;"></div>';
     html += '<div class="profile-field-edit"><label>Region</label><select id="edit-region" onchange="onEditRegionChange(); toggleOtherInput(this, \'edit-region-other\')" disabled><option value="">Select region</option></select><input type="text" id="edit-region-other" class="other-input" placeholder="Please specify" style="display:none;margin-top:6px;"></div>';
@@ -858,7 +858,6 @@ function loadSchedule() {
         const gradeMap = {};
         (gradesData.grades || []).forEach(g => { gradeMap[g.subject] = g.grade; });
 
-        // Build curriculum lookup and get current trimester subjects
         let progData;
         if (curricula[course]) progData = curricula[course];
         else if (otherPrograms[course]) {
@@ -875,7 +874,6 @@ function loadSchedule() {
             });
         }
 
-        // Determine current trimester (PH school year: 1st Tri = June-Sep, 2nd Tri = Oct-Jan, 3rd Tri = Feb-May)
         const month = new Date().getMonth();
         const triIdx = (month >= 5 && month <= 8) ? 0 : (month >= 9 || month <= 0 ? 1 : 2);
         const triNames = ['1st Trimester', '2nd Trimester', '3rd Trimester'];
@@ -883,7 +881,6 @@ function loadSchedule() {
         const currentTri = triNames[triIdx];
         const currentYear = yearNames[yearNames.indexOf(yearLevel) >= 0 ? yearNames.indexOf(yearLevel) : 0];
 
-        // Get current trimester subjects from curriculum
         let currentSubjects = [];
         if (progData && progData.years && progData.years[currentYear] && progData.years[currentYear].trimesters) {
             currentSubjects = progData.years[currentYear].trimesters[currentTri] || [];
@@ -1045,7 +1042,6 @@ const curricula = {
         }
     };
 
-    // Other programs get converted to trimester format with existing data
     const otherPrograms = {
         'BSA': { name: 'BS in Accountancy', subs: { '1st Year': { '1st Trimester': ['ACC 101 - Fundamentals of Accounting', 'BSA 101 - Business Math', 'ENG 101 - English Composition'], '2nd Trimester': ['ACC 102 - Financial Accounting', 'BSA 102 - Business Law', 'FIL 101 - Filipino'], '3rd Trimester': ['ACC 103 - Management Accounting', 'BSA 103 - Economics', 'MATH 102 - Statistics'] }, '2nd Year': { '1st Trimester': ['ACC 201 - Intermediate Accounting', 'ACC 202 - Cost Accounting', 'TAX 201 - Income Taxation'], '2nd Trimester': ['ACC 203 - Auditing', 'LAW 201 - Obligations & Contracts', 'ACC 204 - Accounting Research'], '3rd Trimester': ['ACC 205 - Financial Management', 'ACC 206 - Internal Auditing', 'ETHICS 201 - Business Ethics'] }, '3rd Year': { '1st Trimester': ['ACC 301 - Advanced Accounting', 'ACC 302 - Audit Practice', 'FIN 301 - Financial Management'], '2nd Trimester': ['ACC 303 - Accounting Research', 'ACC 304 - Internship', 'TAX 302 - Taxation 2'], '3rd Trimester': ['ACC 305 - Review 1', 'ACC 306 - Review 2', 'CAPSTONE 301 - Capstone'] }, '4th Year': { '1st Trimester': ['ACC 401 - Comprehensive Exam 1', 'ACC 402 - Comprehensive Exam 2', 'RES 401 - Research'], '2nd Trimester': ['ACC 403 - Thesis Writing', 'PRAC 401 - Practicum', 'ACC 404 - Review 3'], '3rd Trimester': [] } } },
         'BSBA': { name: 'BS in Business Administration', subs: { '1st Year': { '1st Trimester': ['BA 101 - Principles of Management', 'BA 102 - Business Economics', 'ENG 101 - English'], '2nd Trimester': ['BA 103 - Marketing Management', 'BA 104 - Business Communication', 'MATH 101 - College Algebra'], '3rd Trimester': ['BA 105 - Financial Accounting', 'BA 106 - Business Statistics', 'FIL 101 - Filipino'] }, '2nd Year': { '1st Trimester': ['BA 201 - Financial Management', 'BA 202 - Human Resource Mgmt', 'STAT 201 - Statistics'], '2nd Trimester': ['BA 203 - Operations Management', 'BA 204 - Entrepreneurship', 'LAW 201 - Business Law'], '3rd Trimester': ['BA 205 - Organizational Behavior', 'BA 206 - Tax Principles', 'ETHICS 201 - Business Ethics'] }, '3rd Year': { '1st Trimester': ['BA 301 - Strategic Management', 'BA 302 - Managerial Finance', 'MKTG 301 - Marketing'], '2nd Trimester': ['BA 303 - Business Research', 'BA 304 - Internship', 'FIN 302 - Managerial Finance'], '3rd Trimester': ['BA 305 - Feasibility Study', 'BA 306 - Business Policy', 'CAPSTONE 301 - Capstone'] }, '4th Year': { '1st Trimester': ['BA 401 - Business Plan Dev', 'BA 402 - Comprehensive Review', 'RES 401 - Research'], '2nd Trimester': ['BA 403 - Thesis', 'PRAC 401 - Practicum', 'BA 404 - Business Ethics'], '3rd Trimester': [] } } },
@@ -1070,12 +1066,10 @@ function loadCurriculum() {
         return;
     }
 
-    // Use detailed BSIT data if available, otherwise convert from otherPrograms
     let progData;
     if (curricula[course]) {
         progData = curricula[course];
     } else if (otherPrograms[course]) {
-        // Convert other programs data to detailed format for rendering
         progData = { name: otherPrograms[course].name, years: {} };
         Object.keys(otherPrograms[course].subs).forEach(year => {
             progData.years[year] = { trimesters: {} };
@@ -1092,13 +1086,11 @@ function loadCurriculum() {
         return;
     }
 
-    // Determine which year/trimester is current
     const yearOrder = ['1st Year', '2nd Year', '3rd Year', '4th Year'];
     const triOrder = ['1st Trimester', '2nd Trimester', '3rd Trimester'];
     const currentYearIdx = yearOrder.indexOf(yearLevel);
-    let currentTriIdx = 0; // 1st Trimester is current for new students
+    let currentTriIdx = 0;
 
-    // Check if student has grades to determine progress
     apiFetch('/api/my-grades').then(gradeData => {
         const gradeMap = {};
         (gradeData.grades || []).forEach(g => { gradeMap[g.subject] = g.grade; });
@@ -1110,7 +1102,6 @@ function loadCurriculum() {
             const yearData = progData.years[year];
             if (!yearData) return;
 
-            // Count total subjects and units for this year
             let totalSubs = 0, totalUnits = 0;
             triOrder.forEach(tri => {
                 const subs = yearData.trimesters[tri] || [];
@@ -1140,7 +1131,6 @@ function loadCurriculum() {
                 html += '</h5>';
                 html += '<p>' + subs.length + ' subjects &middot; ' + subs.reduce((sum, s) => sum + s.units, 0) + ' units</p></div>';
 
-                // GWA for this trimester
                 const triGrades = subs.filter(s => existingGrades.includes(s.code));
                 const gwa = triGrades.length > 0 ? (triGrades.reduce((sum, s) => {
                     const g = gradeData.grades.find(g => g.subject === s.code);
@@ -1207,7 +1197,6 @@ function loadDashboard() {
         const yearLevel = u.year_level || '1st Year';
         const today = new Date().toLocaleDateString('en-PH', { weekday: 'long' });
 
-        // Build curriculum lookup
         let progData;
         if (curricula[course]) progData = curricula[course];
         else if (otherPrograms[course]) {
@@ -1246,7 +1235,6 @@ function loadDashboard() {
             { start: '5:00 PM', end: '7:00 PM' }
         ];
 
-        // Build today's entries from curriculum
         let todayEntries = [];
         currentSubjects.forEach((cs, i) => {
             const se = schedList[i] || null;
@@ -1281,7 +1269,6 @@ function loadDashboard() {
         }
         html += '</div>';
 
-        // Weekly schedule timetable
         const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         const timeSlots = timeDefs.map(t => ({ start: t.start, end: t.end, byDay: {} }));
         timeSlots.forEach(slot => { days.forEach(d => { slot.byDay[d] = null; }); });
@@ -1388,7 +1375,6 @@ function generateReport() {
         const course = s.course_code || currentUser.course_code || '';
         const yearLevel = s.year_level || currentUser.year_level || '1st Year';
 
-        // Build curriculum lookup
         let progData;
         if (curricula[course]) progData = curricula[course];
         else if (otherPrograms[course]) {
@@ -1405,7 +1391,6 @@ function generateReport() {
             });
         }
 
-        // Determine current trimester
         const month = new Date().getMonth();
         const triIdx = (month >= 5 && month <= 8) ? 0 : (month >= 9 || month <= 0 ? 1 : 2);
         const triNames = ['1st Trimester', '2nd Trimester', '3rd Trimester'];
@@ -1414,7 +1399,6 @@ function generateReport() {
         const currentYear = yearNames[yearNames.indexOf(yearLevel) >= 0 ? yearNames.indexOf(yearLevel) : 0];
         const currentSubjects = (progData && progData.years && progData.years[currentYear] && progData.years[currentYear].trimesters) ? (progData.years[currentYear].trimesters[currentTri] || []) : [];
 
-        // Build timetable grid
         const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         const timeDefs = [
             { start: '7:00 AM', end: '9:00 AM' },
@@ -1474,7 +1458,7 @@ function generateReport() {
             html += '</tr>';
         });
         html += '</tbody></table></div></div>';
-        // Tuition & Fees
+
         const feeItems = [
             { label: 'Tuition Fee', value: fees.tuition || 0 },
             { label: 'Computer Lab Fee', value: fees.comlab || 0 },
@@ -1782,7 +1766,6 @@ function openGradeModal(studentId, studentName) {
         const u = prof.user || {};
         const course = u.course_code || '';
 
-        // Build curriculum lookup
         let progData;
         if (!course) { body.innerHTML = '<p class="no-data">Student has no program assigned.</p>'; return; }
         if (curricula[course]) progData = curricula[course];
@@ -1800,7 +1783,6 @@ function openGradeModal(studentId, studentName) {
             });
         } else { body.innerHTML = '<p class="no-data">Curriculum not found for this program.</p>'; return; }
 
-        // Build grade lookup
         const gradeMap = {};
         (gradesData.grades || []).forEach(g => { gradeMap[g.subject] = g; });
 
@@ -2003,7 +1985,6 @@ if (!checkAuth()) {
     showSection('home');
 }
 
-// ==================== AI CHAT ====================
 let chatHistory = [];
 
 function toggleChat() {
@@ -2052,7 +2033,6 @@ function escapeHtml(text) {
     return d.innerHTML;
 }
 
-// === CAMPUS GALLERY ===
 function switchGallery(tab, el) {
     document.querySelectorAll('.gallery-tab').forEach(t => t.classList.remove('active'));
     el.classList.add('active');
@@ -2074,7 +2054,6 @@ function closeGalleryModal() {
     document.getElementById('gallery-lightbox').style.display = 'none';
 }
 
-// Load Main Building gallery on page load
 function loadGallery() {
     const defaultTab = document.querySelector('.gallery-tab.active');
     if (defaultTab) switchGallery('main', defaultTab);
