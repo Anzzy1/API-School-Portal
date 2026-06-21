@@ -1298,12 +1298,11 @@ body {
     text-align: right; padding: 5px 12px;
     border-radius: 8px;
     min-width: 95px;
-    border: 1px solid #e8e8e8;
     transition: all 0.3s ease;
 }
 .curri-gwa.gwa-good {
-    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
-    border-color: #a5d6a7;
+    background: linear-gradient(135deg, #22c55e, #4ade80);
+    color: white;
 }
 .curri-gwa.gwa-fail {
     background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
@@ -1316,7 +1315,7 @@ body {
 .curri-gwa .gwa-label {
     font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 700;
 }
-.curri-gwa.gwa-good .gwa-label { color: #2e7d32; }
+.curri-gwa.gwa-good .gwa-label { color: white; }
 .curri-gwa.gwa-fail .gwa-label { color: #c62828; }
 .curri-gwa.gwa-na .gwa-label { color: #1565c0; }
 .curri-gwa .gwa-value { font-size: 17px; font-weight: 700; line-height: 1.2; }
@@ -1355,8 +1354,8 @@ body {
     transition: all 0.2s ease;
 }
 .curri-status.passed {
-    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
-    color: #2e7d32; border: 1px solid #a5d6a7;
+    background: linear-gradient(135deg, #22c55e, #4ade80);
+    color: white;
 }
 .curri-status.pending {
     background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
