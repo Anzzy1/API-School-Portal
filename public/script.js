@@ -1122,7 +1122,7 @@ function loadCurriculum() {
             const yearColor = isCurrentYear ? '#27ae60' : (isPastYear ? 'var(--primary)' : '#ccc');
 
             html += '<div class="curri-year' + (isCurrentYear ? ' active' : (isPastYear ? ' completed' : '')) + '">';
-            html += '<h4 style="color:' + yearColor + ';">' + year + '</h4>';
+            html += '<h4 style="color:' + (isCurrentYear ? 'white' : yearColor) + ';">' + year + '</h4>';
             html += '<p>' + (isCurrentYear ? 'Active Year &middot; ' : '') + totalSubs + ' subjects &middot; ' + totalUnits + ' units</p>';
             html += '</div>';
 
