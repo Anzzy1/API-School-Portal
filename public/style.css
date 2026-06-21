@@ -939,7 +939,7 @@ body {
 .dash-sidebar-tabs { padding-left: 15px; display: flex; flex-direction: column; gap: 4px; flex: 1; overflow-y: auto; margin-top: 15px; }
 
 .side-tab {
-    padding: 14px 18px; border: none; border-radius: 20px 0 0 20px;
+    padding: 14px 18px; border: none; border-radius: 30px 0 0 30px;
     background: transparent; color: white;
     font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 500;
     cursor: pointer; transition: var(--transition);
