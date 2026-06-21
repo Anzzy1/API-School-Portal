@@ -628,8 +628,6 @@ body {
 }
 .pricing-card::before { content: ''; position: absolute; top: 20px; left: -5px; width: 10px; height: 40px; border-radius: 5px 0 0 5px; background: var(--primary-vertical); z-index: -1; }
 
-.pricing-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.12); }
-
 .pricing-card.featured { box-shadow: 0 0 0 2px var(--primary-dark); }
 
 .pricing-badge {
