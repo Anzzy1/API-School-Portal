@@ -608,7 +608,8 @@ function showStudentDashboard() {
     document.getElementById('main-nav').style.display = 'none';
     const sectionMap = { 'BSA':'M001','BSBA':'M002','BSCS':'M003','BSIT':'M004','BSIS':'M005','BELEMed':'M006','BSED':'M007','BSC':'M008','BSHM':'M009','BSTM':'M010','BSCpE':'M011','BPA':'M012' };
     document.getElementById('dashboard-header-title').textContent = currentUser.full_name;
-    document.getElementById('dashboard-meta-info').textContent = 'ID: ' + currentUser.student_id + ' | ' + (currentUser.gender || '—');
+    document.getElementById('dashboard-badge-id').textContent = 'ID: ' + currentUser.student_id;
+    document.getElementById('dashboard-badge-gender').textContent = currentUser.gender || '—';
     document.getElementById('dashboard-section-info').textContent = (sectionMap[currentUser.course_code] || '—') + ' — ' + (currentUser.course_code || '');
     const footer = document.querySelector('.footer');
     if (footer) footer.style.display = 'none';
@@ -655,8 +656,8 @@ function loadProfile() {
         profileData = u;
         if (u.course_code) { currentUser.course_code = u.course_code; localStorage.setItem('user', JSON.stringify(currentUser)); }
         if (u.gender) { currentUser.gender = u.gender; localStorage.setItem('user', JSON.stringify(currentUser)); }
-        const metaEl = document.getElementById('dashboard-meta-info');
-        if (metaEl) metaEl.textContent = 'ID: ' + (currentUser.student_id || '') + ' | ' + (currentUser.gender || '—');
+        const genderEl = document.getElementById('dashboard-badge-gender');
+        if (genderEl && u.gender) genderEl.textContent = u.gender;
         renderProfileView();
     });
 }
