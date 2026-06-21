@@ -606,10 +606,10 @@ function checkAuth() {
 function showStudentDashboard() {
     showSection('student-dashboard');
     document.getElementById('main-nav').style.display = 'none';
-    document.getElementById('dashboard-header-title').textContent = currentUser.full_name;
     document.getElementById('dashboard-student-info').textContent = currentUser.student_id;
     const footer = document.querySelector('.footer');
     if (footer) footer.style.display = 'none';
+    switchDashboardTab('dashboard', document.querySelector('#student-dashboard .side-tab.active'));
     loadDashboard();
     loadProfile();
     loadSchedule();
@@ -1508,6 +1508,12 @@ function switchDashboardTab(tab, btn) {
     document.querySelectorAll('#student-dashboard .side-tab').forEach(b => b.classList.remove('active'));
     if (btn) btn.classList.add('active');
     if (tab === 'report') generateReport();
+    const iconMap = { 'dashboard': 'fa-th-large', 'profile': 'fa-id-card', 'schedule': 'fa-calendar-alt', 'curriculum': 'fa-book-open', 'report': 'fa-file-alt', 'notifications': 'fa-bell' };
+    const labelMap = { 'dashboard': 'Dashboard', 'profile': 'Student Profile', 'schedule': 'Weekly Schedule', 'curriculum': 'Curriculum Prospectus', 'report': 'Academic Registration', 'notifications': 'Notifications' };
+    const headerIcon = document.querySelector('#student-dashboard .dashboard-header-left i');
+    const headerTitle = document.getElementById('dashboard-header-title');
+    if (headerIcon) headerIcon.className = 'fas ' + (iconMap[tab] || 'fa-th-large');
+    if (headerTitle) headerTitle.textContent = labelMap[tab] || 'Student Dashboard';
 }
 
 function showOperatorDashboard() {
@@ -1516,6 +1522,7 @@ function showOperatorDashboard() {
     document.getElementById('operator-dashboard-info').textContent = 'Welcome, ' + currentUser.full_name;
     const footer = document.querySelector('.footer');
     if (footer) footer.style.display = 'none';
+    switchOperatorTab('search', document.querySelector('#operator-dashboard .side-tab.active'));
     loadAllSections();
 }
 
@@ -1530,6 +1537,12 @@ function switchOperatorTab(tab, btn) {
         loadAllSections();
     }
     if (tab === 'search') { document.getElementById('op-search-input').value = ''; operatorSearch(); }
+    const iconMap = { 'search': 'fa-search', 'students': 'fa-layer-group', 'grades': 'fa-star' };
+    const labelMap = { 'search': 'Search Students', 'students': 'All Sections', 'grades': 'Manage Grades' };
+    const headerIcon = document.querySelector('#operator-dashboard .dashboard-header-left i');
+    const headerTitle = document.getElementById('operator-header-title');
+    if (headerIcon) headerIcon.className = 'fas ' + (iconMap[tab] || 'fa-user-shield');
+    if (headerTitle) headerTitle.textContent = labelMap[tab] || 'Operator Dashboard';
 }
 
 function operatorSearchSuggest() {
