@@ -1101,14 +1101,14 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 .op-search-bar select {
-    padding: 10px 17px; background: #ffffff; border: 1px solid var(--border-color);
+    padding: 10px 17px; background: #ffffff; border: 2px solid var(--primary);
     border-radius: 30px 0 0 30px; border-right: none; color: var(--text-primary);
     font-family: 'Poppins', sans-serif; font-size: 13px; min-width: 140px;
 }
 .op-search-bar select option { background: white; color: var(--text-primary); }
 .op-search-bar input {
     flex: 1; min-width: 200px; padding: 10px 16px;
-    background: #ffffff; border: 1px solid var(--border-color);
+    background: #ffffff; border: 2px solid var(--primary);
     border-radius: 0 30px 30px 0; color: var(--text-primary);
     font-family: 'Poppins', sans-serif; font-size: 14px;
 }
