@@ -1459,8 +1459,8 @@ function generateReport() {
         html += '<div class="reg-field"><label>Status</label><span>' + (s.status || 'Enrolled') + '</span></div>';
         html += '</div></div>';
         html += '<div class="reg-section"><h4><i class="fas fa-calendar-alt"></i> Class Schedule (' + currentYear + ' - ' + currentTri + ')</h4>';
-        html += '<div style="overflow:visible;"><table class="timetable" style="font-size:9px;min-width:0;width:100%;table-layout:fixed;"><thead><tr><th style="padding:2px 4px;width:16%;">Time</th>';
-        days.forEach(d => { html += '<th style="padding:2px 4px;">' + d.substring(0,3) + '</th>'; });
+        html += '<div style="overflow:visible;"><table class="timetable" style="font-size:9px;min-width:0;width:100%;table-layout:fixed;"><thead><tr><th style="padding:2px 4px;font-size:10px;width:16%;">Time</th>';
+        days.forEach(d => { html += '<th style="padding:2px 4px;font-size:10px;">' + d.substring(0,3) + '</th>'; });
         html += '</tr></thead><tbody>';
         timeSlots.forEach(slot => {
             html += '<tr><td style="padding:2px 4px;font-size:8px;white-space:nowrap;">' + slot.start + ' - ' + slot.end + '</td>';
