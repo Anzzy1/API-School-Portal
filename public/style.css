@@ -1101,17 +1101,18 @@ body {
 }
 .op-search-bar select {
     padding: 10px 14px; background: #ffffff; border: 1px solid var(--border-color);
-    border-radius: var(--radius-sm); color: var(--text-primary);
+    border-radius: 30px; color: var(--text-primary);
     font-family: 'Poppins', sans-serif; font-size: 13px; min-width: 140px;
 }
 .op-search-bar select option { background: white; color: var(--text-primary); }
 .op-search-bar input {
     flex: 1; min-width: 200px; padding: 10px 16px;
     background: #ffffff; border: 1px solid var(--border-color);
-    border-radius: var(--radius-sm); color: var(--text-primary);
+    border-radius: 30px; color: var(--text-primary);
     font-family: 'Poppins', sans-serif; font-size: 14px;
 }
 .op-search-bar input:focus, .op-search-bar select:focus { outline: none; border-color: var(--primary-dark); }
+.op-search-bar .btn-primary { border-radius: 50%; width: 42px; height: 42px; padding: 0; display: flex; align-items: center; justify-content: center; }
 
 .search-bar {
     display: flex; gap: 10px; align-items: center;
