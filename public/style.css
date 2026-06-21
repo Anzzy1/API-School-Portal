@@ -1264,9 +1264,12 @@ body {
     background: linear-gradient(135deg, transparent 0%, var(--primary) 100%);
 }
 .curri-year.active {
-    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
-    box-shadow: 0 2px 8px rgba(39,174,96,0.15);
+    background: linear-gradient(135deg, #22c55e, #4ade80);
+    box-shadow: 0 4px 12px rgba(34,197,94,0.3);
+    color: white;
 }
+.curri-year.active h4 { color: white; }
+.curri-year.active p { color: rgba(255,255,255,0.9); }
 .curri-year.completed {
     background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
 }
