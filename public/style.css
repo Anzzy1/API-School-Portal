@@ -973,15 +973,15 @@ body {
 
 .no-data { color: var(--text-muted); font-size: 14px; text-align: center; padding: 10px; }
 
-.reg-form { background: white; border: 1px solid #0f2440; border-radius: var(--radius); overflow: hidden; width: 98%; max-width: 720px; margin: 0 auto; }
-.reg-header { background: var(--primary); color: white; text-align: center; padding: 8px 15px; }
+.reg-form { background: white; border: 1px solid #ccc; border-radius: var(--radius); overflow: hidden; width: 98%; max-width: 720px; margin: 0 auto; }
+.reg-header { background: #1a1a2e; color: white; text-align: center; padding: 8px 15px; }
 .reg-header h2 { font-size: 15px; font-weight: 700; margin: 0 0 2px; }
 .reg-header p { font-size: 10px; opacity: 0.9; margin: 0; }
 .reg-sy { margin-top: 2px !important; font-size: 11px !important; opacity: 1 !important; font-weight: 600; }
 .reg-body { padding: 8px; }
 .reg-section { margin-bottom: 6px; }
 .reg-section:last-child { margin-bottom: 0; }
-.reg-section h4 { font-size: 11px; font-weight: 600; color: var(--primary); margin: 0 0 4px; display: flex; align-items: center; gap: 4px; }
+.reg-section h4 { font-size: 11px; font-weight: 700; color: #1a1a2e; margin: 0 0 4px; display: flex; align-items: center; gap: 4px; text-transform: uppercase; letter-spacing: 0.3px; }
 .reg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--border-color); border-radius: var(--radius-sm); overflow: hidden; }
 .reg-field { display: flex; justify-content: space-between; align-items: center; padding: 4px 8px; border-bottom: 1px solid var(--border-color); border-right: 1px solid var(--border-color); background: white; }
 .reg-field:nth-child(even) { border-right: none; }
