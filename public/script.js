@@ -1350,15 +1350,15 @@ function loadNotifications() {
             html += '</div>';
         }
         if (tomorrowClasses.length > 0) {
-            html += '<div style="background:#fff3e0;border-radius:var(--radius);padding:16px;margin-bottom:15px;border-left:4px solid #e67e22;">';
-            html += '<h4 style="margin:0 0 8px;font-size:14px;"><i class="fas fa-clock" style="color:#e67e22;margin-right:8px;"></i>Upcoming Tomorrow (' + tomorrowName + ')</h4>';
-            tomorrowClasses.forEach(s => { html += '<p style="margin:3px 0;font-size:13px;">&#8226; ' + s.subject + ' (' + s.time_start + ' - ' + s.time_end + ') - ' + s.room + '</p>'; });
+            html += '<div style="background:linear-gradient(135deg,#f97316,#fb923c);border-radius:var(--radius);padding:16px;margin-bottom:15px;box-shadow:0 4px 12px rgba(249,115,22,0.3);">';
+            html += '<h4 style="margin:0 0 8px;font-size:14px;color:white;"><i class="fas fa-clock" style="color:white;margin-right:8px;opacity:0.9;"></i>Upcoming Tomorrow (' + tomorrowName + ')</h4>';
+            tomorrowClasses.forEach(s => { html += '<p style="margin:3px 0;font-size:13px;color:white;">&#8226; ' + s.subject + ' (' + s.time_start + ' - ' + s.time_end + ') - ' + s.room + '</p>'; });
             html += '</div>';
         }
         if (schedList.length === 0) {
             html += '<div style="background:#f8f9fa;border-radius:var(--radius);padding:20px;text-align:center;"><p class="no-data" style="margin:0;">No schedule notifications available.</p></div>';
         }
-        html += '<div style="background:#e8edf3;border-radius:var(--radius);padding:16px;margin-top:20px;">';
+        html += '<div style="background:#e8edf3;border-radius:var(--radius);padding:16px;margin-top:20px;box-shadow:0 2px 8px rgba(0,0,0,0.1);">';
         html += '<h4 style="margin:0 0 8px;font-size:14px;"><i class="fas fa-bullhorn" style="color:var(--primary);margin-right:8px;"></i>Announcements</h4>';
         html += '<p style="margin:3px 0;font-size:13px;">&#8226; Enrollment for next semester opens soon.</p>';
         html += '<p style="margin:3px 0;font-size:13px;">&#8226; Please check your schedule regularly for updates.</p>';
