@@ -974,10 +974,10 @@ body {
 .no-data { color: var(--text-muted); font-size: 14px; text-align: center; padding: 10px; }
 
 .reg-form { background: white; border: 1px solid #666; border-radius: var(--radius); overflow: hidden; width: 98%; max-width: 720px; margin: 0 auto; }
-.reg-header { background: white; color: #666; text-align: center; padding: 8px 15px; border-bottom: 2px solid #666; }
-.reg-header h2 { font-size: 15px; font-weight: 700; margin: 0 0 2px; color: #666; }
-.reg-header p { font-size: 10px; color: #666; margin: 0; }
-.reg-sy { margin-top: 2px !important; font-size: 11px !important; font-weight: 600; }
+.reg-header { background: #800000; color: white; text-align: center; padding: 8px 15px; }
+.reg-header h2 { font-size: 15px; font-weight: 700; margin: 0 0 2px; color: white; }
+.reg-header p { font-size: 10px; color: rgba(255,255,255,0.85); margin: 0; }
+.reg-sy { margin-top: 2px !important; font-size: 11px !important; font-weight: 600; color: rgba(255,255,255,0.9) !important; }
 .reg-body { padding: 8px; }
 .reg-section { margin-bottom: 6px; }
 .reg-section:last-child { margin-bottom: 0; }
@@ -991,7 +991,7 @@ body {
 .reg-field span { font-size: 11px; color: #666; font-weight: 500; }
 .reg-table { margin-top: 0; border: 1px solid #666; }
 .reg-table th, .reg-table td { padding: 1px 4px; font-size: 8px; }
-.reg-table th { font-size: 8px; }
+.reg-table th { background: #800000; color: white; font-size: 8px; padding: 4px 6px; font-weight: 600; }
 .reg-table td:last-child { font-size: 11px; }
 .reg-footer { text-align: center; padding: 5px; background: white; margin-top: 5px; }
 .reg-footer p { margin: 1px 0; font-size: 10px; color: #666; }
@@ -1054,7 +1054,7 @@ body {
 }
 
 .timetable { width: 100%; border-collapse: collapse; background: white; border: 1px solid var(--border-color); border-radius: var(--radius); overflow: hidden; min-width: 900px; }
-.timetable th { background: var(--primary); padding: 12px 10px; text-align: center; font-size: 12px; font-weight: 600; color: white; width: 14%; }
+.timetable th { background: #800000; padding: 12px 10px; text-align: center; font-size: 12px; font-weight: 600; color: white; width: 14%; }
 .timetable th:first-child { text-align: left; padding-left: 15px; width: 16%; }
 .timetable td { padding: 8px 6px; font-size: 12px; color: var(--text-secondary); border-bottom: 1px solid var(--border-color); border-right: 1px solid #f0f0f0; vertical-align: top; }
 .timetable td.time-col { font-weight: 600; color: var(--text-primary); white-space: nowrap; padding-left: 15px; font-size: 12px; background: #fafbfc; }
