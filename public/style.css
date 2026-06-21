@@ -939,24 +939,15 @@ body {
 .dash-sidebar-tabs { padding-left: 15px; display: flex; flex-direction: column; gap: 4px; flex: 1; overflow-y: auto; margin-top: 15px; }
 
 .side-tab {
-    padding: 14px 18px; border: none; border-radius: 0;
+    padding: 14px 18px; border: none; border-radius: 20px 0 0 20px;
     background: transparent; color: white;
     font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 500;
     cursor: pointer; transition: var(--transition);
     display: flex; align-items: center; gap: 12px; text-align: left; width: 100%;
-    position: relative;
 }
 
 .side-tab:hover { color: white; background: rgba(255,255,255,0.15); }
-.side-tab.active { background: white; color: var(--primary); position: relative; z-index: 1; }
-.side-tab.active::before,
-.side-tab.active::after {
-    content: ''; position: absolute; right: 0;
-    width: 20px; height: 20px; z-index: -1;
-    background: #2563eb;
-}
-.side-tab.active::before { top: -20px; border-radius: 0 0 20px 0; }
-.side-tab.active::after { bottom: -20px; border-radius: 0 20px 0 0; }
+.side-tab.active { background: white; color: var(--primary); }
 .side-tab i { width: 20px; text-align: center; }
 
 .dash-sidebar-footer {
