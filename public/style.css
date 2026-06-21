@@ -847,7 +847,7 @@ body {
 }
 
 .dashboard-header-left { display: flex; align-items: center; gap: 18px; }
-.dashboard-header-left i { font-size: 36px; color: #4f46e5; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: white; }
+.dashboard-header-left i { font-size: 36px; color: white; }
 .dashboard-header-left h2 { font-size: 20px; font-weight: 700; color: white; margin: 4px 0; }
 .dashboard-header-left p { font-size: 12px; color: rgba(255,255,255,0.85); margin: 3px 0; }
 
