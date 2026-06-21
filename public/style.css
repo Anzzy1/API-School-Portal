@@ -897,7 +897,7 @@ body {
     display: block;
     padding: 20px 20px 20px 240px;
     min-height: 100vh;
-    background: var(--primary-gradient);
+    background: #16213e;
 }
 
 .dash-main {
