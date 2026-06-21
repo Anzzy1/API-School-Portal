@@ -1150,7 +1150,7 @@ function loadCurriculum() {
                 const gwaClass = gwa !== 'N/A' ? (parseFloat(gwa) <= 3.0 ? 'gwa-good' : 'gwa-fail') : 'gwa-na';
                 const gwaColor = gwa !== 'N/A' ? (parseFloat(gwa) <= 3.0 ? '#2e7d32' : '#c62828') : '#1565c0';
 
-                html += '<div class="curri-gwa ' + gwaClass + '"><div class="gwa-label">GWA</div><div class="gwa-value" style="color:' + gwaColor + ';">' + gwa + '</div></div>';
+                html += '<div class="curri-gwa ' + gwaClass + '"><div class="gwa-label">GWA</div><div class="gwa-value">' + gwa + '</div></div>';
                 html += '</div>';
 
                 subs.forEach(s => {
