@@ -1192,7 +1192,7 @@ function loadCurriculum() {
 
 function loadDashboard() {
     const div = document.getElementById('dashboard-overview');
-    document.getElementById('dashboard-greeting').textContent = 'Welcome, ' + currentUser.full_name + ' (' + currentUser.student_id + ')';
+    document.getElementById('dashboard-greeting').textContent = '';
     div.innerHTML = '<p class="no-data">Loading...</p>';
     const sid = currentUser.student_id;
     const name = currentUser.full_name;
