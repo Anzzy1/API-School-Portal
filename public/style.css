@@ -1246,6 +1246,8 @@ body {
     padding: 20px 0; text-align: center; font-size: 13px; color: rgba(255,255,255,0.7);
 }
 
+#dashboard-greeting { display: none; }
+
 /* Curriculum Prospectus */
 #curriculum-display { margin-bottom: 30px; }
 .curri-year {
