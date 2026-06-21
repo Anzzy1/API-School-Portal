@@ -1278,19 +1278,18 @@ body {
 
 .curri-tri {
     margin: 0 0 20px 8px; padding: 14px 16px;
-    background: #fff; border: 1px solid #e8e8e8;
+    background: #fff;
     border-radius: 10px;
     transition: all 0.25s ease;
     position: relative;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 .curri-tri:hover {
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    border-color: #d0d0d0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
     transform: translateY(-1px);
 }
 .curri-tri.active-tri {
-    border-color: #a5d6a7;
-    box-shadow: 0 2px 12px rgba(39,174,96,0.1);
+    box-shadow: 0 2px 12px rgba(39,174,96,0.15);
 }
 .curri-tri-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
 .curri-tri-info h5 { margin: 0 0 4px; font-size: 14px; }
