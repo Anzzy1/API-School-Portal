@@ -902,6 +902,18 @@ body {
     min-height: calc(100vh - 20px);
 }
 
+.dash-active-header {
+    display: flex; align-items: center; gap: 10px;
+    padding: 18px 24px 0 24px;
+    font-size: 20px; font-weight: 600; color: var(--text-primary);
+}
+.dash-active-header i {
+    font-size: 22px; color: var(--primary);
+}
+.dash-active-header span {
+    font-size: 20px; font-weight: 600;
+}
+
 .dash-sidebar {
     width: 240px; flex-shrink: 0;
     background: var(--primary);

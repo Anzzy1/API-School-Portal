@@ -1508,6 +1508,12 @@ function switchDashboardTab(tab, btn) {
     document.querySelectorAll('#student-dashboard .side-tab').forEach(b => b.classList.remove('active'));
     if (btn) btn.classList.add('active');
     if (tab === 'report') generateReport();
+    const iconMap = { 'dashboard': 'fa-th-large', 'profile': 'fa-id-card', 'schedule': 'fa-calendar-alt', 'curriculum': 'fa-book-open', 'report': 'fa-file-alt', 'notifications': 'fa-bell' };
+    const labelMap = { 'dashboard': 'Dashboard', 'profile': 'Student Profile', 'schedule': 'Weekly Schedule', 'curriculum': 'Curriculum Prospectus', 'report': 'Academic Registration', 'notifications': 'Notifications' };
+    const activeHeader = document.querySelector('#student-dashboard .dash-active-header i');
+    const activeTitle = document.getElementById('dash-active-title');
+    if (activeHeader) activeHeader.className = 'fas ' + (iconMap[tab] || 'fa-th-large');
+    if (activeTitle) activeTitle.textContent = labelMap[tab] || 'Dashboard';
 }
 
 function showOperatorDashboard() {
@@ -1530,6 +1536,12 @@ function switchOperatorTab(tab, btn) {
         loadAllSections();
     }
     if (tab === 'search') { document.getElementById('op-search-input').value = ''; operatorSearch(); }
+    const iconMap = { 'search': 'fa-search', 'students': 'fa-layer-group', 'grades': 'fa-star' };
+    const labelMap = { 'search': 'Search Students', 'students': 'All Sections', 'grades': 'Manage Grades' };
+    const activeHeader = document.querySelector('#operator-dashboard .dash-active-header i');
+    const activeTitle = document.getElementById('op-active-title');
+    if (activeHeader) activeHeader.className = 'fas ' + (iconMap[tab] || 'fa-search');
+    if (activeTitle) activeTitle.textContent = labelMap[tab] || 'Operator Dashboard';
 }
 
 function operatorSearchSuggest() {
