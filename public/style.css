@@ -843,15 +843,15 @@ body {
 
 .dashboard-header {
     display: flex; justify-content: space-between; align-items: center;
-    background: white; border: none;
+    background: var(--primary); border: none;
     box-shadow: 0 1px 4px rgba(0,0,0,0.1); border-radius: var(--radius); padding: 15px 15px 15px 20px;
     margin-bottom: 20px; flex-wrap: wrap; gap: 15px;
 }
 
 .dashboard-header-left { display: flex; align-items: center; gap: 15px; }
-.dashboard-header-left i { font-size: 36px; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.dashboard-header-left h2 { font-size: 20px; font-weight: 700; }
-.dashboard-header-left p { font-size: 13px; color: var(--text-secondary); }
+.dashboard-header-left i { font-size: 36px; color: white; }
+.dashboard-header-left h2 { font-size: 20px; font-weight: 700; color: white; }
+.dashboard-header-left p { font-size: 13px; color: rgba(255,255,255,0.85); }
 
 .dashboard-header-right { display: flex; align-items: center; gap: 12px; }
 
