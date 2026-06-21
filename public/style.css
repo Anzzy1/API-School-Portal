@@ -921,7 +921,7 @@ body {
 
 .dash-sidebar {
     width: 240px; flex-shrink: 0;
-    background: #0f172a;
+    background: #16213e;
     display: flex; flex-direction: column;
     position: fixed; top: 0; left: 0; bottom: 0;
     z-index: 1000;
