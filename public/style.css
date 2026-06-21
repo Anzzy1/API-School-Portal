@@ -897,7 +897,7 @@ body {
     display: block;
     padding: 20px 20px 20px 240px;
     min-height: 100vh;
-    background: #16213e;
+    background: linear-gradient(135deg, #0f172a, #1e40af);
 }
 
 .dash-main {
