@@ -1097,7 +1097,7 @@ body {
     display: flex; gap: 10px; align-items: center;
     margin-bottom: 20px; padding: 14px 18px;
     background: #f8f9fa; border: 1px solid var(--border-color);
-    border-radius: var(--radius); flex-wrap: wrap;
+    border-radius: 40px; flex-wrap: wrap;
 }
 .op-search-bar select {
     padding: 10px 14px; background: #ffffff; border: 1px solid var(--border-color);
