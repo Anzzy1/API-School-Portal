@@ -919,7 +919,7 @@ body {
 
 
 
-.dash-sidebar-tabs { padding-left: 15px; display: flex; flex-direction: column; gap: 4px; flex: 1; overflow-y: auto; }
+.dash-sidebar-tabs { padding-left: 15px; display: flex; flex-direction: column; gap: 4px; flex: 1; overflow-y: auto; margin-top: 15px; }
 
 .side-tab {
     padding: 14px 18px; border: none; border-radius: var(--radius-sm) 0 0 var(--radius-sm);
