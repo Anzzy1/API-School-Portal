@@ -923,7 +923,7 @@ body {
 
 .dash-sidebar {
     width: 240px; flex-shrink: 0;
-    background: linear-gradient(135deg, #1a56db, #4d7fe8);
+    background: linear-gradient(135deg, #3b4fd9, #6d5ddb);
     display: flex; flex-direction: column;
     position: fixed; top: 0; left: 0; bottom: 0;
     z-index: 1000;
