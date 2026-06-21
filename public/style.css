@@ -844,7 +844,7 @@ body {
 .dashboard-header {
     display: flex; justify-content: space-between; align-items: center;
     background: white; border: none;
-    border-radius: var(--radius); padding: 15px 15px 15px 20px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1); border-radius: var(--radius); padding: 15px 15px 15px 20px;
     margin-bottom: 20px; flex-wrap: wrap; gap: 15px;
 }
 
