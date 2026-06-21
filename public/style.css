@@ -1054,8 +1054,10 @@ body {
 }
 
 .timetable { width: 100%; border-collapse: collapse; background: white; border: 1px solid var(--border-color); border-radius: var(--radius); overflow: hidden; min-width: 900px; }
-.timetable th { background: #0f2440; padding: 12px 10px; text-align: center; font-size: 12px; font-weight: 600; color: white; width: 14%; }
+.timetable th { background: var(--primary); padding: 12px 10px; text-align: center; font-size: 12px; font-weight: 600; color: white; width: 14%; }
 .timetable th:first-child { text-align: left; padding-left: 15px; width: 16%; }
+#report-result .timetable th { background: #0f2440; font-size: 10px; padding: 2px 4px; }
+#report-result .timetable th:first-child { width: 16%; }
 .timetable td { padding: 8px 6px; font-size: 12px; color: var(--text-secondary); border-bottom: 1px solid var(--border-color); border-right: 1px solid #f0f0f0; vertical-align: top; }
 .timetable td.time-col { font-weight: 600; color: var(--text-primary); white-space: nowrap; padding-left: 15px; font-size: 12px; background: #fafbfc; }
 .timetable .sched-cell { text-align: center; min-height: 50px; }
