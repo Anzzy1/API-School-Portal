@@ -1508,11 +1508,11 @@ function switchDashboardTab(tab, btn) {
     document.querySelectorAll('#student-dashboard .side-tab').forEach(b => b.classList.remove('active'));
     if (btn) btn.classList.add('active');
     if (tab === 'report') generateReport();
-    const iconMap = { 'dashboard': 'fa-th-large', 'profile': 'fa-id-card', 'schedule': 'fa-calendar-alt', 'curriculum': 'fa-book-open', 'report': 'fa-file-alt', 'notifications': 'fa-bell' };
+    const iconMap = { 'dashboard': 'fa-tachometer-alt', 'profile': 'fa-id-card', 'schedule': 'fa-calendar-alt', 'curriculum': 'fa-book-open', 'report': 'fa-file-alt', 'notifications': 'fa-bell' };
     const labelMap = { 'dashboard': 'Dashboard', 'profile': 'Student Profile', 'schedule': 'Weekly Schedule', 'curriculum': 'Curriculum Prospectus', 'report': 'Academic Registration', 'notifications': 'Notifications' };
     const activeHeader = document.querySelector('#student-dashboard .dash-active-header i');
     const activeTitle = document.getElementById('dash-active-title');
-    if (activeHeader) activeHeader.className = 'fas ' + (iconMap[tab] || 'fa-th-large');
+    if (activeHeader) activeHeader.className = 'fas ' + (iconMap[tab] || 'fa-tachometer-alt');
     if (activeTitle) activeTitle.textContent = labelMap[tab] || 'Dashboard';
 }
 
