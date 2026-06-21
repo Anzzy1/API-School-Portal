@@ -889,7 +889,7 @@ function loadSchedule() {
             currentSubjects = progData.years[currentYear].trimesters[currentTri] || [];
         }
 
-        let html = '<div style="margin-bottom:15px;padding:12px 16px;background:linear-gradient(135deg,#4f46e5,#7c6ff7);border-radius:var(--radius-sm);display:flex;justify-content:space-between;flex-wrap:wrap;color:white;">';
+        let html = '<div style="margin-bottom:15px;padding:12px 16px;background:linear-gradient(135deg,#14b8a6,#2dd4bf);border-radius:var(--radius-sm);display:flex;justify-content:space-between;flex-wrap:wrap;color:white;">';
         html += '<span><strong>Section:</strong> ' + (sectionMap[currentUser.course_code] || 'N/A') + '</span>';
         html += '<span><strong>Program:</strong> ' + (currentUser.course_code || 'N/A') + '</span>';
         html += '<span><strong>' + currentYear + ' - ' + currentTri + '</strong></span>';
