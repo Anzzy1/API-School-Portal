@@ -1077,16 +1077,17 @@ body {
 .op-year-filter {
     display: flex; align-items: center; gap: 12px;
     margin-bottom: 20px; padding: 14px 18px;
-    background: #f8f9fa; border: 1px solid var(--border-color);
-    border-radius: var(--radius); flex-wrap: wrap;
+    background: var(--primary-gradient); border: none;
+    border-radius: 40px; flex-wrap: wrap;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 .op-year-filter label {
-    font-weight: 600; font-size: 14px; color: var(--text-primary);
+    font-weight: 600; font-size: 14px; color: white;
     white-space: nowrap;
 }
 .op-year-filter select {
-    padding: 10px 14px; background: #ffffff; border: 1px solid var(--border-color);
-    border-radius: var(--radius-sm); color: var(--text-primary);
+    padding: 8px 14px; background: white; border: none;
+    border-radius: 30px; color: var(--text-primary);
     font-family: 'Poppins', sans-serif; font-size: 13px; min-width: 160px;
     cursor: pointer;
 }
