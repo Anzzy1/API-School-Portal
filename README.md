@@ -1,27 +1,6 @@
 # Aguinaldo Polytechnic Institute - School Portal 🎓
 
-A fully functional school portal with Student Information System (SIS), role-based authentication, C++ backend integration for PDF report generation, and cloud backup capabilities.
-
-## Team Structure (10 Members)
-
-| Role | Members | Responsibilities |
-|------|---------|-----------------|
-| Project Manager | 1 | Timeline, task boards, deployment |
-| UI/UX Designer | 1 | Wireframes, accessibility, diagrams |
-| Frontend Devs | 2 | HTML/CSS/JS, 3+ panels, responsive |
-| Backend Devs (JS) | 2 | Express API, JWT auth, routing |
-| Backend Dev (C++) | 1 | Report generator microservice |
-| Database Admin | 1 | Schema/ERD design, queries, backups |
-| QA & Docs | 2 | Testing, security, documentation |
-
-## Tech Stack
-
-- **Frontend:** HTML5, CSS3, Vanilla JavaScript
-- **Backend:** Node.js + Express.js
-- **Database:** MySQL (via XAMPP)
-- **C++ Integration:** Report generation microservice
-- **Auth:** JWT (JSON Web Tokens)
-- **Cloud Backup:** JSON export (Google Drive ready)
+A fully functional school portal with Student Information System (SIS).
 
 ## Project Structure
 
@@ -91,27 +70,6 @@ ICCT School Portal/
 | GET | /api/notifications/:id | Yes | Get user notifications |
 | POST | /api/generate-report | Yes | Generate C++ report |
 | POST | /api/backup | Yes | Create database backup |
-
-## Security
-- Passwords hashed with bcryptjs
-- JWT tokens with 24h expiration
-- SQL injection protection via parameterized queries
-- CORS enabled for API access
-
-## Deployment
-For live deployment:
-1. **Frontend:** Deploy `public/` folder to Vercel, Netlify, or Cloudflare Pages
-2. **Backend:** Deploy `backend/` to Railway, Render, or any Node.js host
-3. **Database:** Use a cloud MySQL host or keep local for demo
-4. **Set environment variables** on the deployment platform
-
-## Google Drive Backup Integration
-To enable actual Google Drive backup:
-1. Create a Google Cloud Project
-2. Enable Google Drive API
-3. Create OAuth 2.0 credentials
-4. Install `googleapis` npm package
-5. Modify `/api/backup` endpoint to upload to Drive
 
 ## License
 ICCT Colleges - School Portal Project
